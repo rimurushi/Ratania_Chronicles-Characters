@@ -1,86 +1,72 @@
-/* Global styling */
 body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    background-image: url('images/scene1.jpg'); /* Background image */
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-}
-
-/* Page container for flex layout */
-#page-container {
     display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    align-items: center; /* Vertically centers the content */
-}
-
-/* Main display (character info + image) */
-#main-display {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    flex-grow: 1;
-    background: rgba(0, 0, 0, 0.5); /* Optional: semi-transparent background */
-    padding: 20px;
-    width: 70%; /* Limits the width of the main display */
+    height: 100vh;
+    background-color: #f0f0f0;
 }
 
-/* Character Image Container Styling */
-#character-image-container {
-    max-width: 300px; /* Restricts the width of the character image */
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.character-display {
+    flex: 2;
+    display: flex;
+    align-items: center;
+}
+
+    .character-display img {
+        width: 400px;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+.character-info {
     margin-left: 20px;
 }
 
-/* Character Image Styling */
-#character-image {
-    width: 100%; /* Make the image scale according to the container size */
-    height: auto;
-}
+    .character-info h2 {
+        font-size: 2rem;
+        margin: 0;
+    }
 
-/* Character Info (Name and Description) */
-#character-info {
-    color: white;
-    max-width: 250px;
-    margin-right: 20px; /* Space between description and image */
-}
+    .character-info p {
+        font-size: 1.1rem;
+        color: #666;
+    }
 
-/* Character Name */
-#character-name {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-/* Character Description */
-#character-description {
-    font-size: 16px;
-    margin-top: 10px;
-}
-
-/* Sidebar for character options (right side) */
-#character-list {
+.character-selector {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    width: 200px;
-    margin-left: 20px;
+    gap: 10px;
 }
 
-/* Character option buttons (on right) */
-.character-option {
-    background-color: rgba(255, 255, 255, 0.3); /* Slight background for better visibility */
-    padding: 10px;
-    margin-bottom: 10px;
+.character-capsule {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+    overflow: hidden;
     cursor: pointer;
-    color: white;
-    font-size: 18px;
-    text-align: center;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    transition: transform 0.2s ease;
 }
 
-    .character-option:hover {
-        background-color: rgba(255, 255, 255, 0.6); /* Hover effect */
+    .character-capsule img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .character-capsule:hover {
+        transform: scale(1.1);
     }

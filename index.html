@@ -1,63 +1,48 @@
-<section id="characters">
-  <div class="container">
-    <h2>Meet the Resonators</h2>
-    <div class="row">
-      <!-- Character 1 -->
-      <div class="col-md-4">
-        <div class="character-card">
-          <img src="aoi.png" alt="Aoi">
-          <h3>Aoi</h3>
-          <p>Short description for Aoi goes here.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Showcase</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Character Display Section -->
+        <div class="character-display">
+            <img id="character-image" src="aoi.png" alt="Aoi Character Image">
+            <div class="character-info">
+                <h2 id="character-name">Aoi</h2>
+                <p id="character-description">Description for Aoi goes here.</p>
+            </div>
         </div>
-      </div>
-      <!-- Character 2 -->
-      <div class="col-md-4">
-        <div class="character-card">
-          <img src="ax.png" alt="Ax">
-          <h3>Ax</h3>
-          <p>Short description for Ax goes here.</p>
+
+        <!-- Character Selection Section -->
+        <div class="character-selector">
+            <div class="character-capsule" data-character="aoi">
+                <img src="aoi-small.jpg" alt="Aoi">
+            </div>
+            <div class="character-capsule" data-character="ax">
+                <img src="ax-small.jpg" alt="Ax">
+            </div>
+            <div class="character-capsule" data-character="ri">
+                <img src="ri-small.jpg" alt="Ri">
+            </div>
+            <div class="character-capsule" data-character="ace">
+                <img src="ace-small.jpg" alt="Ace">
+            </div>
+            <div class="character-capsule" data-character="akai">
+                <img src="akai-small.jpg" alt="Akai">
+            </div>
+            <div class="character-capsule" data-character="eir">
+                <img src="eir-small.jpg" alt="Eir">
+            </div>
+            <div class="character-capsule" data-character="kimi">
+                <img src="kimi-small.jpg" alt="Kimi">
+            </div>
         </div>
-      </div>
-      <!-- Character 3 -->
-      <div class="col-md-4">
-        <div class="character-card">
-          <img src="ri.png" alt="Ri">
-          <h3>Ri</h3>
-          <p>Short description for Ri goes here.</p>
-        </div>
-      </div>
-      <!-- Character 4 -->
-      <div class="col-md-4">
-        <div class="character-card">
-          <img src="ace.png" alt="Ace">
-          <h3>Ace</h3>
-          <p>Short description for Ace goes here.</p>
-        </div>
-      </div>
-      <!-- Character 5 -->
-      <div class="col-md-4">
-        <div class="character-card">
-          <img src="akai.png" alt="Akai">
-          <h3>Akai</h3>
-          <p>Short description for Akai goes here.</p>
-        </div>
-      </div>
-      <!-- Character 6 -->
-      <div class="col-md-4">
-        <div class="character-card">
-          <img src="eir.png" alt="Eir">
-          <h3>Eir</h3>
-          <p>Short description for Eir goes here.</p>
-        </div>
-      </div>
-      <!-- Character 7 -->
-      <div class="col-md-4">
-        <div class="character-card">
-          <img src="kimi.png" alt="Kimi">
-          <h3>Kimi</h3>
-          <p>Short description for Kimi goes here.</p>
-        </div>
-      </div>
     </div>
-  </div>
-</section>
+
+    <script src="script.js"></script>
+</body>
+</html>
