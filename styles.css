@@ -9,7 +9,7 @@ body {
     background-color: #f0f0f0;
 }
 body {
-    background-image: url('your-background-image.jpg'); /* Replace with your background image file */
+    background-image: url(scene1.jpg); /* Replace with your background image file */
     background-size: cover; /* Makes the background image cover the entire page */
     background-position: center; /* Centers the background */
     background-attachment: fixed; /* Keeps the background fixed when scrolling */
