@@ -1,84 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="styles.css" rel="stylesheet">
-  <title>Character Showcase</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Showcase</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="text-center py-5 bg-dark text-white">
-    <h1>Welcome to Ratania</h1>
-    <p>Discover the heroes of our world.</p>
-  </header>
+    <div class="container">
+        <!-- Character Display Section -->
+        <div class="character-display">
+            <img id="character-image" src="aoi.jpg" alt="Aoi Character Image">
+            <div class="character-info">
+                <h2 id="character-name">Aoi</h2>
+                <p id="character-description">Description for Aoi goes here.</p>
+            </div>
+        </div>
 
-  <section id="characters">
-  <div class="container">
-    <h2>Meet the Resonators</h2>
-    <div class="row">
-      <!-- Character 1 -->
-      <div class="col-md-4">
-        <div class="character-card">
-          <img src="placeholder1.png" alt="Aoi">
-          <h3>Aoi</h3>
-          <p>Short description for Aoi goes here.</p>
+        <!-- Character Selection Section -->
+        <div class="character-selector">
+            <div class="character-capsule" data-character="aoi">
+                <img src="aoi-small.jpg" alt="Aoi">
+            </div>
+            <div class="character-capsule" data-character="ax">
+                <img src="ax-small.jpg" alt="Ax">
+            </div>
+            <div class="character-capsule" data-character="ri">
+                <img src="ri-small.jpg" alt="Ri">
+            </div>
+            <div class="character-capsule" data-character="ace">
+                <img src="ace-small.jpg" alt="Ace">
+            </div>
+            <div class="character-capsule" data-character="akai">
+                <img src="akai-small.jpg" alt="Akai">
+            </div>
+            <div class="character-capsule" data-character="eir">
+                <img src="eir-small.jpg" alt="Eir">
+            </div>
+            <div class="character-capsule" data-character="kimi">
+                <img src="kimi-small.jpg" alt="Kimi">
+            </div>
         </div>
-      </div>
-      <!-- Character 2 -->
-      <div class="col-md-4">
-        <div class="character-card">
-          <img src="placeholder2.png" alt="Ax">
-          <h3>Ax</h3>
-          <p>Short description for Ax goes here.</p>
-        </div>
-      </div>
-      <!-- Character 3 -->
-      <div class="col-md-4">
-        <div class="character-card">
-          <img src="placeholder3.png" alt="Ri">
-          <h3>Ri</h3>
-          <p>Short description for Ri goes here.</p>
-        </div>
-      </div>
-      <!-- Character 4 -->
-      <div class="col-md-4">
-        <div class="character-card">
-          <img src="placeholder4.png" alt="Ace">
-          <h3>Ace</h3>
-          <p>Short description for Ace goes here.</p>
-        </div>
-      </div>
-      <!-- Character 5 -->
-      <div class="col-md-4">
-        <div class="character-card">
-          <img src="placeholder5.png" alt="Akai">
-          <h3>Akai</h3>
-          <p>Short description for Akai goes here.</p>
-        </div>
-      </div>
-      <!-- Character 6 -->
-      <div class="col-md-4">
-        <div class="character-card">
-          <img src="placeholder6.png" alt="Eir">
-          <h3>Eir</h3>
-          <p>Short description for Eir goes here.</p>
-        </div>
-      </div>
-      <!-- Character 7 -->
-      <div class="col-md-4">
-        <div class="character-card">
-          <img src="placeholder7.png" alt="Kimi">
-          <h3>Kimi</h3>
-          <p>Short description for Kimi goes here.</p>
-        </div>
-      </div>
     </div>
-  </div>
-</section>
 
-  <footer class="text-center py-3 bg-dark text-white">
-    <p>&copy; 2024 Ratania. All rights reserved.</p>
-  </footer>
+    <script src="script.js"></script>
 </body>
 </html>
