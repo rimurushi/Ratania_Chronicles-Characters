@@ -45,8 +45,8 @@ body {
 .character-info {
     position: absolute;
     left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 20%;
+    transform: none;
     text-align: left;
     max-width: 300px;
     padding: 0;
