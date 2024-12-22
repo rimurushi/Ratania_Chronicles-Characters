@@ -58,8 +58,8 @@ capsules.forEach(capsule => {
             characterDescription.textContent = character.description;
 
             // Remove fade-out effect and re-apply fade-in
-            characterImage.classList.remove('fade');
-            characterImage.classList.add('fade-in');
+            characterImage.classList.remove('fade'); // Remove fade-out class
+            characterImage.classList.add('fade-in'); // Apply fade-in class
         }, 500); // Match the duration of the fade-out transition
     });
 });
