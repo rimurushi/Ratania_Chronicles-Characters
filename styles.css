@@ -44,7 +44,6 @@ body {
 .character-info {
     margin-top: 15px;
     text-align: center;
-    background: transparent; /* Make sure the description container has no background */
 }
 
 .character-info {
