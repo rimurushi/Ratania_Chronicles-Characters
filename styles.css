@@ -20,7 +20,7 @@ body {
     gap: 20px;
 }
 
-..character-display {
+.character-display {
     background: transparent; /* Ensure the display container has no background */
     border: none; /* Remove any borders around the character display section */
     box-shadow: none; /* Remove any shadows from the container */
