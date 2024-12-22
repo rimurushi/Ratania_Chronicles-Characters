@@ -34,9 +34,9 @@ body {
     .character-display img {
         width: 300px;
         height: auto;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        background: transparent; /* Ensure the background is transparent */
+        border: none; /* Removes any border around the image */
+        box-shadow: none; /* Removes the shadow around the image */
+        background: transparent; /* Ensures the background remains transparent */
     }
 
 .character-info {
