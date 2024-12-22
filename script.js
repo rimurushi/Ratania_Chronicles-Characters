@@ -46,19 +46,20 @@ capsules.forEach(capsule => {
         const characterId = capsule.getAttribute('data-character');
         const character = characters[characterId];
 
-        // Add fade-out class before changing the image
-        characterImage.classList.add('fade');
-        
-        // Wait for fade-out to finish before changing the content
+        // First, ensure the fade-out effect is applied correctly
+        characterImage.classList.remove('fade-in'); // Remove any lingering fade-in class
+        characterImage.classList.add('fade'); // Apply fade-out class
+
+        // Wait for the fade-out transition to complete before changing the image and details
         setTimeout(() => {
             // Change the character details
             characterImage.src = character.image;
             characterName.textContent = character.name;
             characterDescription.textContent = character.description;
 
-            // Remove fade-out class and add fade-in class for smooth transition
+            // Remove fade-out effect and re-apply fade-in
             characterImage.classList.remove('fade');
             characterImage.classList.add('fade-in');
-        }, 500); // Timeout duration matches fade-out transition
+        }, 500); // Match the duration of the fade-out transition
     });
 });
