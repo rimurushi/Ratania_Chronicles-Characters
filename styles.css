@@ -15,15 +15,20 @@ body {
 .container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     width: 80%;
     gap: 20px;
 }
 
 .character-display {
-    background: transparent; /* Ensure the display container has no background */
-    border: none; /* Remove any borders around the character display section */
-    box-shadow: none; /* Remove any shadows from the container */
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
     .character-display img {
@@ -59,7 +64,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .character-capsule {
