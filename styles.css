@@ -23,6 +23,17 @@ body {
     height: 100%; /* Ensures full-page height */
 }
 
+/* Fade transition effect */
+.fade {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* When the image is visible */
+.fade-in {
+    opacity: 1;
+}
+
 .character-display {
     display: flex;
     justify-content: center;
