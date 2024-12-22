@@ -23,18 +23,6 @@ body {
     height: 100%; /* Ensures full-page height */
 }
 
-/* Fade transition effect */
-.fade {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
-
-/* When the image is visible */
-.fade-in {
-    opacity: 1;
-    transition: opacity 0.5s ease-in-out;
-}
-
 .character-display {
     display: flex;
     justify-content: center;
@@ -44,14 +32,28 @@ body {
     box-shadow: none;
 }
 
-    .character-display img {
-        width: 450px;
-        height: auto;
-        border: none;
-        box-shadow: none;
-        background: transparent;
-        object-fit: contain;
-    }
+/* Fade transition effect */
+.fade {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out; /* Ensures smooth fading out */
+}
+
+/* When the image is visible */
+.fade-in {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out; /* Ensures smooth fading in */
+}
+
+/* Ensure the image does not interfere with other content */
+.character-display img {
+    width: 450px;
+    height: auto;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    object-fit: contain;
+    transition: opacity 0.5s ease-in-out; /* Apply transition on the image itself */
+}
 
 /* Description Section on the Left */
 .character-info {
