@@ -8,12 +8,20 @@ body {
     padding: 0;
 }
 
-/* Container for the character info (left side) */
+/* Container for the character info and image */
 #character-container {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     padding: 20px;
+}
+
+/* Main display area (character info + image) */
+#main-display {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-grow: 1;
 }
 
 /* Character Image (centered) */
@@ -21,7 +29,26 @@ body {
     width: 300px; /* Adjust the width as needed */
     height: auto; /* Maintain aspect ratio */
     display: block;
-    margin: 0 auto; /* Centers the image */
+}
+
+/* Character Info (Name and Description) */
+#character-info {
+    margin-right: 20px;
+    color: white;
+}
+
+/* Character Name */
+#character-name {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: left;
+}
+
+/* Character Description */
+#character-description {
+    font-size: 16px;
+    text-align: left;
+    max-width: 250px;
 }
 
 /* Sidebar for character options (right side) */
@@ -31,6 +58,7 @@ body {
     align-items: flex-start;
     justify-content: flex-start;
     padding: 20px;
+    width: 200px;
 }
 
 /* Character options (clickable) */
@@ -46,17 +74,3 @@ body {
     .character-option:hover {
         color: #f39c12; /* Highlight color on hover */
     }
-
-/* Character Name and Description */
-#character-name {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 24px;
-    color: white;
-}
-
-#character-description {
-    text-align: center;
-    font-size: 16px;
-    color: white;
-}
