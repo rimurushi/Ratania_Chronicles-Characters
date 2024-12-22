@@ -26,14 +26,14 @@ body {
     border: none; /* No borders around the character display section */
     box-shadow: none; /* No shadow */
     display: flex; /* Flexbox layout */
-    flex-direction: row; /* Arrange description and image side by side */
+    flex-direction: row-reverse; /* Description to the left, image to the right */
     align-items: center; /* Center the content vertically */
     justify-content: center; /* Center the content horizontally */
     height: 100%; /* Take up the full height of the container */
 }
 
 .character-info {
-    margin-right: 20px; /* Add some spacing between description and image */
+    margin-left: 20px; /* Add some spacing between description and image */
     text-align: left; /* Align text to the left */
     background: transparent; /* Ensure the description has no background */
     padding: 0; /* Remove any padding */
