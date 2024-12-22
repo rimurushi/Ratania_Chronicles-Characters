@@ -10,24 +10,49 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    position: relative; /* Allows absolute positioning for sections */
 }
 
+/* Centered Image Section */
 .container {
+    position: relative; /* Allows absolute positioning for other sections */
     display: flex;
+    justify-content: center; /* Keeps the image centered */
     align-items: center;
-    justify-content: space-between;
-    width: 80%;
-    max-width: 1200px;
-    gap: 20px; /* Adds spacing between sections */
+    width: 100%; /* Occupies full width */
+    height: 100%; /* Ensures full-page height */
 }
 
+.character-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+    .character-display img {
+        width: 300px;
+        height: auto;
+        border: none;
+        box-shadow: none;
+        background: transparent;
+        object-fit: contain;
+    }
+
+/* Description Section on the Left */
 .character-info {
-    flex: 1; /* Allows the description to take up space */
-    text-align: left; /* Align text to the left */
-    background: transparent; /* No background for the description */
-    padding: 0; /* Remove padding */
-    border: none; /* No borders */
-    box-shadow: none; /* No shadow */
+    position: absolute; /* Independent positioning */
+    left: 10px; /* Distance from the left edge */
+    top: 50%; /* Vertically centered */
+    transform: translateY(-50%); /* Perfect vertical centering */
+    text-align: left;
+    max-width: 300px; /* Limit width of description */
+    background: rgba(255, 255, 255, 0.7); /* Optional: Semi-transparent background for readability */
+    padding: 20px; /* Optional: Add padding for neat spacing */
+    border-radius: 10px; /* Optional: Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional: Subtle shadow for emphasis */
 }
 
     .character-info h2 {
@@ -41,36 +66,16 @@ body {
         line-height: 1.4;
     }
 
-.character-display {
-    flex: 0 0 auto; /* Fixes the size of this section */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: transparent; /* No background for the display container */
-    border: none; /* No borders */
-    box-shadow: none; /* No shadow */
-}
-
-    .character-display img {
-        width: 300px;
-        height: auto;
-        border: none; /* Removes border */
-        box-shadow: none; /* Removes shadow */
-        background: transparent; /* No background */
-        display: block; /* Ensures the image is a block element */
-        object-fit: contain; /* Keeps image proportions */
-    }
-
-/* Keep the character selector fixed on the right */
+/* Selector Section on the Right */
 .character-selector {
-    position: absolute; /* Positions it independently */
-    right: 10px; /* Adjusts distance from the right edge */
-    top: 50%; /* Vertically centers it */
-    transform: translateY(-50%); /* Adjusts for perfect centering */
+    position: absolute; /* Independent positioning */
+    right: 10px; /* Distance from the right edge */
+    top: 50%; /* Vertically centered */
+    transform: translateY(-50%); /* Perfect vertical centering */
     display: flex;
     flex-direction: column;
     gap: 10px;
-    justify-content: center; /* Align capsules in the center */
+    justify-content: center;
 }
 
 .character-capsule {
