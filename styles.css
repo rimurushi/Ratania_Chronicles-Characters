@@ -25,25 +25,15 @@ body {
     border: none; /* No borders around the character display section */
     box-shadow: none; /* No shadow */
     display: flex; /* Flexbox layout */
-    flex-direction: column; /* Stack image and description vertically */
-    align-items: center; /* Center the content horizontally */
-    justify-content: center; /* Center the content vertically */
+    flex-direction: row; /* Arrange description and image side by side */
+    align-items: center; /* Center the content vertically */
+    justify-content: center; /* Center the content horizontally */
     height: 100%; /* Take up the full height of the container */
 }
 
-.character-display img {
-    width: 300px;
-    height: auto;
-    border: none; /* No border around the image */
-    box-shadow: none; /* No shadow */
-    background: transparent; /* Make sure background is transparent */
-    display: block; /* Ensure the image is treated as a block element */
-    object-fit: contain; /* Keep image proportions */
-}
-
 .character-info {
-    margin-top: 15px;
-    text-align: center;
+    margin-right: 20px; /* Add some spacing between description and image */
+    text-align: left; /* Align text to the left */
     background: transparent; /* Ensure the description has no background */
     padding: 0; /* Remove any padding */
     border: none; /* Ensure no borders */
@@ -60,6 +50,16 @@ body {
         color: #333;
         line-height: 1.4;
     }
+
+.character-display img {
+    width: 300px;
+    height: auto;
+    border: none; /* No border around the image */
+    box-shadow: none; /* No shadow */
+    background: transparent; /* Make sure background is transparent */
+    display: block; /* Ensure the image is treated as a block element */
+    object-fit: contain; /* Keep image proportions */
+}
 
 .character-selector {
     flex: 1;
