@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Page Container -->
     <div id="page-container">
+        <!-- Main Display: Character Info (left) and Image (center) -->
         <div id="main-display">
-            <!-- Character Info (Name, Description) on the Left -->
+            <!-- Character Info -->
             <div id="character-info">
                 <div id="character-name">Aoi</div>
                 <div id="character-description">
@@ -17,12 +19,14 @@
                 </div>
             </div>
             
-            <!-- Character Image in the Center -->
-            <img id="character-image" src="images/aoi.png" alt="Aoi Image">
+            <!-- Character Image (center) -->
+            <div id="character-image-container">
+                <img id="character-image" src="images/aoi.png" alt="Aoi">
+            </div>
         </div>
 
+        <!-- Character Selection (right) -->
         <div id="character-list">
-            <!-- Character Selection on the Right -->
             <div class="character-option" onclick="changeCharacter('aoi')">Aoi</div>
             <div class="character-option" onclick="changeCharacter('ax')">Ax</div>
             <div class="character-option" onclick="changeCharacter('ri')">Ri</div>
@@ -33,7 +37,7 @@
         </div>
     </div>
 
-    <!-- JavaScript to handle character change -->
+    <!-- JavaScript for character switching -->
     <script>
         function changeCharacter(character) {
             var characterImage = document.getElementById("character-image");
@@ -78,7 +82,7 @@
                 }
             };
 
-            // Update character image, name, and description based on selection
+            // Change the content based on the character selected
             characterImage.src = characters[character].image;
             characterName.textContent = characters[character].name;
             characterDescription.textContent = characters[character].description;

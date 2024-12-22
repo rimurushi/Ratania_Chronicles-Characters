@@ -14,6 +14,7 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 20px;
+    align-items: center; /* Vertically centers the content */
 }
 
 /* Main display (character info + image) */
@@ -25,19 +26,26 @@ body {
     flex-grow: 1;
     background: rgba(0, 0, 0, 0.5); /* Optional: semi-transparent background */
     padding: 20px;
+    width: 70%; /* Limits the width of the main display */
+}
+
+/* Character Image Container Styling */
+#character-image-container {
+    max-width: 300px; /* Restricts the width of the character image */
+    margin-left: 20px;
 }
 
 /* Character Image Styling */
 #character-image {
-    width: 250px;
+    width: 100%; /* Make the image scale according to the container size */
     height: auto;
-    margin-left: 20px;
 }
 
 /* Character Info (Name and Description) */
 #character-info {
     color: white;
-    max-width: 300px;
+    max-width: 250px;
+    margin-right: 20px; /* Space between description and image */
 }
 
 /* Character Name */
