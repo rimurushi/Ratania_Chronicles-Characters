@@ -4,23 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Character Showcase</title>
-    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="character-container">
-        <!-- Main Character Display (Image and Text) -->
+    <div id="page-container">
         <div id="main-display">
+            <!-- Character Info (Name, Description) on the Left -->
             <div id="character-info">
                 <div id="character-name">Aoi</div>
                 <div id="character-description">
                     Aoi is a strong and brave character from the world of Ratania. A skilled warrior and protector.
                 </div>
             </div>
-            <img id="character-image" src="images/aoi.png" alt="Aoi's Image"> <!-- Updated to PNG -->
+            
+            <!-- Character Image in the Center -->
+            <img id="character-image" src="images/aoi.png" alt="Aoi Image">
         </div>
 
-        <!-- Character Selection Sidebar -->
         <div id="character-list">
+            <!-- Character Selection on the Right -->
             <div class="character-option" onclick="changeCharacter('aoi')">Aoi</div>
             <div class="character-option" onclick="changeCharacter('ax')">Ax</div>
             <div class="character-option" onclick="changeCharacter('ri')">Ri</div>
@@ -31,53 +33,52 @@
         </div>
     </div>
 
-    <!-- JavaScript -->
+    <!-- JavaScript to handle character change -->
     <script>
         function changeCharacter(character) {
             var characterImage = document.getElementById("character-image");
             var characterName = document.getElementById("character-name");
             var characterDescription = document.getElementById("character-description");
 
-            // Character details for each option (updated with PNG file format)
             var characters = {
                 aoi: {
-                    image: 'images/aoi.png', // Updated to PNG
+                    image: 'images/aoi.png',
                     name: 'Aoi',
                     description: 'Aoi is a strong and brave character from the world of Ratania. A skilled warrior and protector.'
                 },
                 ax: {
-                    image: 'images/ax.png', // Updated to PNG
+                    image: 'images/ax.png',
                     name: 'Ax',
                     description: 'Ax is a cunning strategist with a mysterious past, feared by many in the world of Ratania.'
                 },
                 ri: {
-                    image: 'images/ri.png', // Updated to PNG
+                    image: 'images/ri.png',
                     name: 'Ri',
                     description: 'Ri is a fast and agile rogue, known for their quick reflexes and stealth abilities.'
                 },
                 ace: {
-                    image: 'images/ace.png', // Updated to PNG
+                    image: 'images/ace.png',
                     name: 'Ace',
                     description: 'Ace is a legendary marksman with unmatched precision and an unbreakable resolve.'
                 },
                 akai: {
-                    image: 'images/akai.png', // Updated to PNG
+                    image: 'images/akai.png',
                     name: 'Akai',
                     description: 'Akai is a fierce warrior with a fiery temper, skilled in both hand-to-hand combat and swordsmanship.'
                 },
                 eir: {
-                    image: 'images/eir.png', // Updated to PNG
+                    image: 'images/eir.png',
                     name: 'Eir',
                     description: 'Eir is a healer and sorcerer, wielding the power of nature to protect the people of Ratania.'
                 },
                 kimi: {
-                    image: 'images/kimi.png', // Updated to PNG
+                    image: 'images/kimi.png',
                     name: 'Kimi',
                     description: 'Kimi is a young prodigy with a mysterious connection to the ancient magic of Ratania.'
                 }
             };
 
-            // Update the character display based on the selected character
+            // Update character image, name, and description based on selection
             characterImage.src = characters[character].image;
             characterName.textContent = characters[character].name;
             characterDescription.textContent = characters[character].description;

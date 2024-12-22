@@ -1,76 +1,78 @@
-/* Set the background for the entire page */
+/* Global styling */
 body {
-    background-image: url('images/scene1.jpg'); /* The background image */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('images/scene1.jpg'); /* Background image */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    margin: 0;
-    padding: 0;
 }
 
-/* Container for the character info and image */
-#character-container {
+/* Page container for flex layout */
+#page-container {
     display: flex;
     justify-content: space-between;
     padding: 20px;
 }
 
-/* Main display area (character info + image) */
+/* Main display (character info + image) */
 #main-display {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
     flex-grow: 1;
+    background: rgba(0, 0, 0, 0.5); /* Optional: semi-transparent background */
+    padding: 20px;
 }
 
-/* Character Image (centered) */
+/* Character Image Styling */
 #character-image {
-    width: 300px; /* Adjust the width as needed */
-    height: auto; /* Maintain aspect ratio */
-    display: block;
+    width: 250px;
+    height: auto;
+    margin-left: 20px;
 }
 
 /* Character Info (Name and Description) */
 #character-info {
-    margin-right: 20px;
     color: white;
+    max-width: 300px;
 }
 
 /* Character Name */
 #character-name {
     font-size: 24px;
     font-weight: bold;
-    text-align: left;
 }
 
 /* Character Description */
 #character-description {
     font-size: 16px;
-    text-align: left;
-    max-width: 250px;
+    margin-top: 10px;
 }
 
 /* Sidebar for character options (right side) */
 #character-list {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    padding: 20px;
     width: 200px;
+    margin-left: 20px;
 }
 
-/* Character options (clickable) */
+/* Character option buttons (on right) */
 .character-option {
-    margin: 10px 0;
+    background-color: rgba(255, 255, 255, 0.3); /* Slight background for better visibility */
+    padding: 10px;
+    margin-bottom: 10px;
     cursor: pointer;
-    font-size: 18px;
     color: white;
-    font-weight: bold;
-    transition: color 0.3s ease;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
     .character-option:hover {
-        color: #f39c12; /* Highlight color on hover */
+        background-color: rgba(255, 255, 255, 0.6); /* Hover effect */
     }
