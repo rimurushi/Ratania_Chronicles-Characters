@@ -43,16 +43,16 @@ body {
 
 /* Description Section on the Left */
 .character-info {
-    position: absolute; /* Independent positioning */
-    left: 20px; /* Distance from the left edge */
-    top: 50%; /* Vertically centered */
-    transform: translateY(-50%); /* Perfect vertical centering */
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
     text-align: left;
-    max-width: 300px; /* Limit width of description */
-    padding: 0; /* Remove internal padding */
-    background: transparent; /* No background */
-    border-radius: 0; /* No rounded corners */
-    box-shadow: none; /* Remove shadow */
+    max-width: 300px;
+    padding: 0;
+    background: none !important; /* Enforce no background */
+    border: none !important; /* Ensure no border */
+    box-shadow: none !important; /* Remove any shadow */
 }
 
     /* Optional adjustments for readability */
