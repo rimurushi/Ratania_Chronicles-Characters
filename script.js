@@ -1,57 +1,51 @@
-// JavaScript to handle character selection
-const capsules = document.querySelectorAll('.character-capsule'); // Select all character capsules
-const characterImage = document.getElementById('character-image'); // Main character image
-const characterName = document.getElementById('character-name'); // Main character name
-const characterDescription = document.getElementById('character-description'); // Main character description
+<script>
+    function changeCharacter(character) {
+        var characterImage = document.getElementById("character-image");
+        var characterName = document.getElementById("character-name");
+        var characterDescription = document.getElementById("character-description");
 
-// Character data
-const characters = {
-    aoi: {
-        image: 'aoi.jpg', // Main character image for Aoi
-        name: 'Aoi',
-        description: 'Description for Aoi goes here.'
-    },
-    ax: {
-        image: 'ax.jpg',
-        name: 'Ax',
-        description: 'Description for Ax goes here.'
-    },
-    ri: {
-        image: 'ri.jpg',
-        name: 'Ri',
-        description: 'Description for Ri goes here.'
-    },
-    ace: {
-        image: 'ace.jpg',
-        name: 'Ace',
-        description: 'Description for Ace goes here.'
-    },
-    akai: {
-        image: 'akai.jpg',
-        name: 'Akai',
-        description: 'Description for Akai goes here.'
-    },
-    eir: {
-        image: 'eir.jpg',
-        name: 'Eir',
-        description: 'Description for Eir goes here.'
-    },
-    kimi: {
-        image: 'kimi.jpg',
-        name: 'Kimi',
-        description: 'Description for Kimi goes here.'
+        // Character details for each option (updated with PNG file format)
+        var characters = {
+            aoi: {
+                image: 'images/aoi.png', // Updated to PNG
+                name: 'Aoi',
+                description: 'Aoi is a strong and brave character from the world of Ratania. A skilled warrior and protector.'
+            },
+            ax: {
+                image: 'images/ax.png', // Updated to PNG
+                name: 'Ax',
+                description: 'Ax is a cunning strategist with a mysterious past, feared by many in the world of Ratania.'
+            },
+            ri: {
+                image: 'images/ri.png', // Updated to PNG
+                name: 'Ri',
+                description: 'Ri is a fast and agile rogue, known for their quick reflexes and stealth abilities.'
+            },
+            ace: {
+                image: 'images/ace.png', // Updated to PNG
+                name: 'Ace',
+                description: 'Ace is a legendary marksman with unmatched precision and an unbreakable resolve.'
+            },
+            akai: {
+                image: 'images/akai.png', // Updated to PNG
+                name: 'Akai',
+                description: 'Akai is a fierce warrior with a fiery temper, skilled in both hand-to-hand combat and swordsmanship.'
+            },
+            eir: {
+                image: 'images/eir.png', // Updated to PNG
+                name: 'Eir',
+                description: 'Eir is a healer and sorcerer, wielding the power of nature to protect the people of Ratania.'
+            },
+            kimi: {
+                image: 'images/kimi.png', // Updated to PNG
+                name: 'Kimi',
+                description: 'Kimi is a young prodigy with a mysterious connection to the ancient magic of Ratania.'
+            }
+        };
+
+        // Update the character display based on the selected character
+        characterImage.src = characters[character].image;
+        characterName.textContent = characters[character].name;
+        characterDescription.textContent = characters[character].description;
     }
-};
-
-// Loop through each capsule and add an event listener
-capsules.forEach(capsule => {
-    capsule.addEventListener('click', () => {
-        const characterId = capsule.getAttribute('data-character'); // Get the character id from the clicked capsule
-        const character = characters[characterId]; // Get the data for that character
-
-        // Update the main character display
-        characterImage.src = character.image;
-        characterName.textContent = character.name;
-        characterDescription.textContent = character.description;
-    });
-});
+</script>

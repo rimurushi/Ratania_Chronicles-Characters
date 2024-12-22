@@ -4,45 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Character Showcase</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
 </head>
 <body>
-    <div class="container">
-        <!-- Character Display Section -->
-        <div class="character-display">
-            <img id="character-image" src="aoi.jpg" alt="Chronicles Chosen">
-            <div class="character-info">
-                <h2 id="character-name">Aoi</h2>
-                <p id="character-description">Description for Aoi goes here.</p>
+    <div id="character-container">
+        <!-- Main Character Display (Image and Text) -->
+        <div id="main-display">
+            <img id="character-image" src="images/aoi.png" alt="Aoi's Image"> <!-- Updated to PNG -->
+            <div id="character-name">Aoi</div>
+            <div id="character-description">
+                Aoi is a strong and brave character from the world of Ratania. A skilled warrior and protector.
             </div>
         </div>
 
-        <!-- Character Selection Section -->
-        <div class="character-selector">
-            <div class="character-capsule" data-character="aoi">
-                <img src="aoi-small.jpg" alt="Aoi">
-            </div>
-            <div class="character-capsule" data-character="ax">
-                <img src="ax-small.jpg" alt="Ax">
-            </div>
-            <div class="character-capsule" data-character="ri">
-                <img src="ri-small.jpg" alt="Ri">
-            </div>
-            <div class="character-capsule" data-character="ace">
-                <img src="ace-small.jpg" alt="Ace">
-            </div>
-            <div class="character-capsule" data-character="akai">
-                <img src="akai-small.jpg" alt="Akai">
-            </div>
-            <div class="character-capsule" data-character="eir">
-                <img src="eir-small.jpg" alt="Eir">
-            </div>
-            <div class="character-capsule" data-character="kimi">
-                <img src="kimi-small.jpg" alt="Kimi">
-            </div>
+        <!-- Character Selection Sidebar -->
+        <div id="character-list">
+            <div class="character-option" onclick="changeCharacter('aoi')">Aoi</div>
+            <div class="character-option" onclick="changeCharacter('ax')">Ax</div>
+            <div class="character-option" onclick="changeCharacter('ri')">Ri</div>
+            <div class="character-option" onclick="changeCharacter('ace')">Ace</div>
+            <div class="character-option" onclick="changeCharacter('akai')">Akai</div>
+            <div class="character-option" onclick="changeCharacter('eir')">Eir</div>
+            <div class="character-option" onclick="changeCharacter('kimi')">Kimi</div>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <!-- JavaScript -->
+    <script>
+        function changeCharacter(character) {
+            var characterImage = document.getElementById("character-image");
+            var characterName = document.getElementById("character-name");
+            var characterDescription = document.getElementById("character-description");
+
+            // Character details for each option (updated with PNG file format)
+            var characters = {
+                aoi: {
+                    image: 'images/aoi.png', // Updated to PNG
+                    name: 'Aoi',
+                    description: 'Aoi is a strong and brave character from the world of Ratania. A skilled warrior and protector.'
+                },
+                ax: {
+                    image: 'images/ax.png', // Updated to PNG
+                    name: 'Ax',
+                    description: 'Ax is a cunning strategist with a mysterious past, feared by many in the world of Ratania.'
+                },
+                ri: {
+                    image: 'images/ri.png', // Updated to PNG
+                    name: 'Ri',
+                    description: 'Ri is a fast and agile rogue, known for their quick reflexes and stealth abilities.'
+                },
+                ace: {
+                    image: 'images/ace.png', // Updated to PNG
+                    name: 'Ace',
+                    description: 'Ace is a legendary marksman with unmatched precision and an unbreakable resolve.'
+                },
+                akai: {
+                    image: 'images/akai.png', // Updated to PNG
+                    name: 'Akai',
+                    description: 'Akai is a fierce warrior with a fiery temper, skilled in both hand-to-hand combat and swordsmanship.'
+                },
+                eir: {
+                    image: 'images/eir.png', // Updated to PNG
+                    name: 'Eir',
+                    description: 'Eir is a healer and sorcerer, wielding the power of nature to protect the people of Ratania.'
+                },
+                kimi: {
+                    image: 'images/kimi.png', // Updated to PNG
+                    name: 'Kimi',
+                    description: 'Kimi is a young prodigy with a mysterious connection to the ancient magic of Ratania.'
+                }
+            };
+
+            // Update the character display based on the selected character
+            characterImage.src = characters[character].image;
+            characterName.textContent = characters[character].name;
+            characterDescription.textContent = characters[character].description;
+        }
+    </script>
 </body>
 </html>
