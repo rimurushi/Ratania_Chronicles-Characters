@@ -21,14 +21,14 @@ body {
 }
 
 .character-display {
-    flex: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.7);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    background: transparent; /* Ensure the display container has no background */
+    border: none; /* Remove any borders around the character display section */
+    box-shadow: none; /* Remove any shadows from the container */
+    display: flex; /* Use flexbox for centering */
+    flex-direction: column; /* Stack the image and text vertically */
+    align-items: center; /* Center the content horizontally */
+    justify-content: center; /* Center the content vertically */
+    height: 100%; /* Ensure the container takes full height */
 }
 
     .character-display img {
@@ -38,7 +38,13 @@ body {
         box-shadow: none; /* Removes the shadow around the image */
         background: transparent; /* Ensures the background remains transparent */
         display: block; /* Ensures the image is treated as a block element */
+        object-fit: contain; /* Make sure the image fits well without being stretched */
     }
+
+.character-info {
+    margin-top: 15px;
+    text-align: center;
+}
 
 .character-info {
     margin-top: 15px;
