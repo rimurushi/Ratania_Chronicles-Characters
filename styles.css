@@ -44,15 +44,15 @@ body {
 /* Description Section on the Left */
 .character-info {
     position: absolute; /* Independent positioning */
-    left: 20px; /* Distance from the left edge (increase this value for more spacing) */
+    left: 20px; /* Distance from the left edge */
     top: 50%; /* Vertically centered */
     transform: translateY(-50%); /* Perfect vertical centering */
     text-align: left;
     max-width: 300px; /* Limit width of description */
-    background: rgba(255, 255, 255, 0.7); /* Optional: Semi-transparent background for readability */
-    padding: 20px; /* Adds internal spacing within the description box */
-    border-radius: 10px; /* Optional: Rounded corners */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional: Subtle shadow for emphasis */
+    padding: 0; /* Remove internal padding */
+    background: transparent; /* No background */
+    border-radius: 0; /* No rounded corners */
+    box-shadow: none; /* Remove shadow */
 }
 
     /* Optional adjustments for readability */
@@ -63,7 +63,7 @@ body {
 
     .character-info p {
         font-size: 1rem;
-        color: #333;
+        color: #fff; /* Ensures text is visible over the background image */
         line-height: 1.4;
     }
 
