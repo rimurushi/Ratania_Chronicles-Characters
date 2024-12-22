@@ -2,6 +2,7 @@ const capsules = document.querySelectorAll('.character-capsule');
 const characterImage = document.getElementById('character-image');
 const characterName = document.getElementById('character-name');
 const characterDescription = document.getElementById('character-description');
+const characterInfo = document.querySelector('.character-info');
 
 const characters = {
     character1: {
@@ -49,5 +50,8 @@ capsules.forEach(capsule => {
         characterImage.src = character.image;
         characterName.textContent = character.name;
         characterDescription.textContent = character.description;
+
+        // Activate description
+        characterInfo.classList.add('active');
     });
 });
