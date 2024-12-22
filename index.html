@@ -1,92 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Character Showcase</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <!-- Page Container -->
-    <div id="page-container">
-        <!-- Main Display: Character Info (left) and Image (center) -->
-        <div id="main-display">
-            <!-- Character Info -->
-            <div id="character-info">
-                <div id="character-name">Aoi</div>
-                <div id="character-description">
-                    Aoi is a strong and brave character from the world of Ratania. A skilled warrior and protector.
-                </div>
-            </div>
-            
-            <!-- Character Image (center) -->
-            <div id="character-image-container">
-                <img id="character-image" src="images/aoi.png" alt="Aoi">
-            </div>
+<section id="characters">
+  <div class="container">
+    <h2>Meet the Resonators</h2>
+    <div class="row">
+      <!-- Character 1 -->
+      <div class="col-md-4">
+        <div class="character-card">
+          <img src="placeholder1.png" alt="Aoi">
+          <h3>Aoi</h3>
+          <p>Short description for Aoi goes here.</p>
         </div>
-
-        <!-- Character Selection (right) -->
-        <div id="character-list">
-            <div class="character-option" onclick="changeCharacter('aoi')">Aoi</div>
-            <div class="character-option" onclick="changeCharacter('ax')">Ax</div>
-            <div class="character-option" onclick="changeCharacter('ri')">Ri</div>
-            <div class="character-option" onclick="changeCharacter('ace')">Ace</div>
-            <div class="character-option" onclick="changeCharacter('akai')">Akai</div>
-            <div class="character-option" onclick="changeCharacter('eir')">Eir</div>
-            <div class="character-option" onclick="changeCharacter('kimi')">Kimi</div>
+      </div>
+      <!-- Character 2 -->
+      <div class="col-md-4">
+        <div class="character-card">
+          <img src="placeholder2.png" alt="Ax">
+          <h3>Ax</h3>
+          <p>Short description for Ax goes here.</p>
         </div>
+      </div>
+      <!-- Character 3 -->
+      <div class="col-md-4">
+        <div class="character-card">
+          <img src="placeholder3.png" alt="Ri">
+          <h3>Ri</h3>
+          <p>Short description for Ri goes here.</p>
+        </div>
+      </div>
+      <!-- Character 4 -->
+      <div class="col-md-4">
+        <div class="character-card">
+          <img src="placeholder4.png" alt="Ace">
+          <h3>Ace</h3>
+          <p>Short description for Ace goes here.</p>
+        </div>
+      </div>
+      <!-- Character 5 -->
+      <div class="col-md-4">
+        <div class="character-card">
+          <img src="placeholder5.png" alt="Akai">
+          <h3>Akai</h3>
+          <p>Short description for Akai goes here.</p>
+        </div>
+      </div>
+      <!-- Character 6 -->
+      <div class="col-md-4">
+        <div class="character-card">
+          <img src="placeholder6.png" alt="Eir">
+          <h3>Eir</h3>
+          <p>Short description for Eir goes here.</p>
+        </div>
+      </div>
+      <!-- Character 7 -->
+      <div class="col-md-4">
+        <div class="character-card">
+          <img src="placeholder7.png" alt="Kimi">
+          <h3>Kimi</h3>
+          <p>Short description for Kimi goes here.</p>
+        </div>
+      </div>
     </div>
-
-    <!-- JavaScript for character switching -->
-    <script>
-        function changeCharacter(character) {
-            var characterImage = document.getElementById("character-image");
-            var characterName = document.getElementById("character-name");
-            var characterDescription = document.getElementById("character-description");
-
-            var characters = {
-                aoi: {
-                    image: 'images/aoi.png',
-                    name: 'Aoi',
-                    description: 'Aoi is a strong and brave character from the world of Ratania. A skilled warrior and protector.'
-                },
-                ax: {
-                    image: 'images/ax.png',
-                    name: 'Ax',
-                    description: 'Ax is a cunning strategist with a mysterious past, feared by many in the world of Ratania.'
-                },
-                ri: {
-                    image: 'images/ri.png',
-                    name: 'Ri',
-                    description: 'Ri is a fast and agile rogue, known for their quick reflexes and stealth abilities.'
-                },
-                ace: {
-                    image: 'images/ace.png',
-                    name: 'Ace',
-                    description: 'Ace is a legendary marksman with unmatched precision and an unbreakable resolve.'
-                },
-                akai: {
-                    image: 'images/akai.png',
-                    name: 'Akai',
-                    description: 'Akai is a fierce warrior with a fiery temper, skilled in both hand-to-hand combat and swordsmanship.'
-                },
-                eir: {
-                    image: 'images/eir.png',
-                    name: 'Eir',
-                    description: 'Eir is a healer and sorcerer, wielding the power of nature to protect the people of Ratania.'
-                },
-                kimi: {
-                    image: 'images/kimi.png',
-                    name: 'Kimi',
-                    description: 'Kimi is a young prodigy with a mysterious connection to the ancient magic of Ratania.'
-                }
-            };
-
-            // Change the content based on the character selected
-            characterImage.src = characters[character].image;
-            characterName.textContent = characters[character].name;
-            characterDescription.textContent = characters[character].description;
-        }
-    </script>
-</body>
-</html>
+  </div>
+</section>
