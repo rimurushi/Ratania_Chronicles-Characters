@@ -44,11 +44,6 @@ body {
 .character-info {
     margin-top: 15px;
     text-align: center;
-}
-
-.character-info {
-    margin-top: 15px;
-    text-align: center;
     background: transparent; /* Make the background transparent */
     box-shadow: none; /* Remove any shadow from the description box */
     padding: 0; /* Remove any padding if present */
