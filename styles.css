@@ -15,12 +15,12 @@ body {
 .container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     width: 80%;
     gap: 20px;
 }
 
-..character-display {
+.character-display {
     background: transparent; /* No background for the display container */
     border: none; /* No borders around the character display section */
     box-shadow: none; /* No shadow */
