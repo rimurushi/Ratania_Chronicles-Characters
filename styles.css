@@ -44,17 +44,18 @@ body {
 /* Description Section on the Left */
 .character-info {
     position: absolute; /* Independent positioning */
-    left: 10px; /* Distance from the left edge */
+    left: 20px; /* Distance from the left edge (increase this value for more spacing) */
     top: 50%; /* Vertically centered */
     transform: translateY(-50%); /* Perfect vertical centering */
     text-align: left;
     max-width: 300px; /* Limit width of description */
     background: rgba(255, 255, 255, 0.7); /* Optional: Semi-transparent background for readability */
-    padding: 20px; /* Optional: Add padding for neat spacing */
+    padding: 20px; /* Adds internal spacing within the description box */
     border-radius: 10px; /* Optional: Rounded corners */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional: Subtle shadow for emphasis */
 }
 
+    /* Optional adjustments for readability */
     .character-info h2 {
         font-size: 1.8rem;
         margin: 0 0 10px 0;
