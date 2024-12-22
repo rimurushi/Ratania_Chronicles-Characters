@@ -2,6 +2,7 @@ const capsules = document.querySelectorAll('.character-capsule');
 const characterImage = document.getElementById('character-image');
 const characterName = document.getElementById('character-name');
 const characterDescription = document.getElementById('character-description');
+const characterInfo = document.querySelector('.character-info'); // Selecting the description section
 
 const characters = {
     character1: {
@@ -46,20 +47,24 @@ capsules.forEach(capsule => {
         const characterId = capsule.getAttribute('data-character');
         const character = characters[characterId];
 
-        // Ensure fade-out effect is applied correctly
-        characterImage.classList.remove('fade-in'); // Remove the fade-in class if it's still there
-        characterImage.classList.add('fade'); // Apply the fade-out class
+        // Fade out image and description
+        characterImage.classList.remove('fade-in');
+        characterImage.classList.add('fade');
 
-        // Wait for the fade-out transition to finish before changing the image and details
+        characterInfo.classList.remove('show'); // Remove the show class for description fade-out
+
+        // Wait for the fade-out transition to finish
         setTimeout(() => {
             // Change the character details (image, name, description)
             characterImage.src = character.image;
             characterName.textContent = character.name;
             characterDescription.textContent = character.description;
 
-            // After 500ms (fade-out transition duration), apply fade-in effect
-            characterImage.classList.remove('fade'); // Remove fade-out class
-            characterImage.classList.add('fade-in'); // Apply fade-in class
-        }, 500); // This matches the fade-out duration (500ms)
+            // Fade-in image and description with sliding effect
+            characterImage.classList.remove('fade');
+            characterImage.classList.add('fade-in');
+
+            characterInfo.classList.add('show'); // Apply the show class for description fade-in and slide
+        }, 500); // Ensure it's synced with fade-out duration
     });
 });

@@ -67,7 +67,15 @@ body {
     background: none !important; /* Enforce no background */
     border: none !important; /* Ensure no border */
     box-shadow: none !important; /* Remove any shadow */
+    opacity: 0; /* Start hidden */
+    transform: translateX(-20px); /* Start off-screen to the left */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Add both fade and slide */
 }
+    /* When the description is visible */
+    .character-info.show {
+        opacity: 1; /* Fade in */
+        transform: translateX(0); /* Move to its original position */
+    }
 
     /* Optional adjustments for readability */
     .character-info h2 {
