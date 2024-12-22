@@ -28,13 +28,13 @@
 
         <!-- Character Selection (right side) -->
         <div class="character-list">
-            <div class="character-option" onclick="changeCharacter('aoi')">Aoi</div>
-            <div class="character-option" onclick="changeCharacter('ax')">Ax</div>
-            <div class="character-option" onclick="changeCharacter('ri')">Ri</div>
-            <div class="character-option" onclick="changeCharacter('ace')">Ace</div>
-            <div class="character-option" onclick="changeCharacter('akai')">Akai</div>
-            <div class="character-option" onclick="changeCharacter('eir')">Eir</div>
-            <div class="character-option" onclick="changeCharacter('kimi')">Kimi</div>
+            <div class="character-option" onclick="changeCharacter('aoi')" id="aoi">Aoi</div>
+            <div class="character-option" onclick="changeCharacter('ax')" id="ax">Ax</div>
+            <div class="character-option" onclick="changeCharacter('ri')" id="ri">Ri</div>
+            <div class="character-option" onclick="changeCharacter('ace')" id="ace">Ace</div>
+            <div class="character-option" onclick="changeCharacter('akai')" id="akai">Akai</div>
+            <div class="character-option" onclick="changeCharacter('eir')" id="eir">Eir</div>
+            <div class="character-option" onclick="changeCharacter('kimi')" id="kimi">Kimi</div>
         </div>
     </div>
 
@@ -83,6 +83,10 @@
             document.getElementById('character-name').textContent = characterInfo[character].name;
             document.getElementById('character-description').textContent = characterInfo[character].description;
             document.getElementById('character-img').src = characterInfo[character].img;
+
+            // Add active class to selected character for animation
+            document.querySelectorAll('.character-option').forEach(option => option.classList.remove('active'));
+            document.getElementById(character).classList.add('active');
         }
     </script>
 
