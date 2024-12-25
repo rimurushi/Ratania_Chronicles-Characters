@@ -4,9 +4,9 @@ document.body.classList.add('loading');
 // Wait for 5 seconds before showing content
 window.addEventListener('load', () => {
     setTimeout(() => {
-        // Remove the 'loading' class after 5 seconds
+        // Remove the 'loading' class after 3 seconds
         document.body.classList.remove('loading');
-    }, 5000); // 5-second delay
+    }, 3000 ); // 3-second delay
 });
 
 const capsules = document.querySelectorAll('.character-capsule');
