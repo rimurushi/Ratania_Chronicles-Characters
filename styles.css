@@ -20,7 +20,7 @@ body {
     justify-content: center; /* Keeps the image centered */
     align-items: center;
     width: 100%; /* Occupies full width */
-    height: 100%; /* Ensures full-page height */
+    height: 80vh; /* Ensures full-page height */
 }
 
 .character-display {
@@ -30,6 +30,8 @@ body {
     background: transparent;
     border: none;
     box-shadow: none;
+    max-width: 100%; /* Ensure it doesnÅft exceed the containerÅfs width */
+    overflow: hidden; /* Prevents the image from overflowing */
 }
 
 /* Fade transition effect */
