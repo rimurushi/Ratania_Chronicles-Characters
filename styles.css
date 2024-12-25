@@ -48,7 +48,7 @@ body {
 
 /* Ensure the image does not interfere with other content */
 .character-display img {
-    width: 450px;
+    width: 600px;
     height: auto;
     border: none;
     box-shadow: none;
