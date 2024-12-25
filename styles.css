@@ -161,6 +161,9 @@ body:not(.loading) .character-selector {
 
 /* Style the button to be circular */
 #toggle-music {
+    position: absolute;
+    top: 20px; /* Adjust this value to move it down from the top */
+    right: 20px; /* Adjust this value to move it in from the right side */
     background-color: transparent;
     border: none;
     padding: 0;
@@ -180,5 +183,5 @@ body:not(.loading) .character-selector {
     }
 
     #toggle-music.playing img {
-        content: url('pause-icon.png'); /* Change image to pause icon */
+        content: url('path-to-your-pause-icon.png'); /* Change image to pause icon */
     }

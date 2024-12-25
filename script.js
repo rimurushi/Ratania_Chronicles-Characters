@@ -84,6 +84,13 @@ const music = document.getElementById("background-music");
 const toggleButton = document.getElementById("toggle-music");
 const musicIcon = document.getElementById("music-icon");
 
+// Automatically play the music as soon as the page loads
+window.addEventListener('load', () => {
+    music.play();
+    musicIcon.src = "images/pause-icon.png"; // Set the icon to the pause icon since music is playing
+});
+
+// Button functionality: Toggle music on click
 toggleButton.addEventListener("click", () => {
     if (music.paused) {
         music.play();
