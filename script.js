@@ -68,3 +68,7 @@ capsules.forEach(capsule => {
         }, 500); // Ensure it's synced with fade-out duration
     });
 });
+// Trigger the fade-in effect for the description on initial load
+window.addEventListener('load', () => {
+    characterInfo.classList.add('show'); // Make sure the description appears
+});
