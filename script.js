@@ -79,3 +79,17 @@ capsules.forEach(capsule => {
         }, 500); // Ensure it's synced with fade-out duration
     });
 });
+const music = document.getElementById('background-music');
+const toggleMusicButton = document.getElementById('toggle-music');
+
+// Initially play the music
+music.play();
+
+toggleMusicButton.addEventListener('click', () => {
+    if (music.paused) {
+        music.play(); // Play music
+    } else {
+        music.pause(); // Pause music
+    }
+});
+
