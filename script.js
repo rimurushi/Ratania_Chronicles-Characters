@@ -71,4 +71,11 @@ capsules.forEach(capsule => {
 // Trigger the fade-in effect for the description on initial load
 window.addEventListener('load', () => {
     characterInfo.classList.add('show'); // Make sure the description appears
+
+});
+window.addEventListener('load', () => {
+    // Wait for 2-3 seconds before showing the content
+    setTimeout(() => {
+        document.body.classList.remove('loading'); // Remove 'loading' class after 2-3 seconds
+    }, 2500); // 2.5 seconds delay (you can adjust this value as needed)
 });

@@ -141,3 +141,20 @@ body {
     z-index: -1; /* Places the video behind all content */
     pointer-events: none; /* Prevents the video from blocking interactions */
 }
+
+/* Hide everything initially */
+body.loading .character-info,
+body.loading .container,
+body.loading .character-selector {
+    opacity: 0; /* Make them invisible */
+    pointer-events: none; /* Disable interaction */
+}
+
+/* Fade-in effect for the content */
+body:not(.loading) .character-info,
+body:not(.loading) .container,
+body:not(.loading) .character-selector {
+    opacity: 1; /* Ensure they are visible after the timeout */
+    pointer-events: all; /* Re-enable interaction */
+    transition: opacity 0.5s ease-in-out; /* Smooth fade-in effect */
+}
