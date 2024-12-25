@@ -79,17 +79,23 @@ capsules.forEach(capsule => {
         }, 500); // Ensure it's synced with fade-out duration
     });
 });
+// Select the audio element and the button
 const music = document.getElementById('background-music');
-const toggleMusicButton = document.getElementById('toggle-music');
+const toggleButton = document.getElementById('toggle-music');
 
-// Initially play the music
-music.play();
+// Initially, set up the button with the music icon
+const musicIcon = document.querySelector('#toggle-music i');
 
-toggleMusicButton.addEventListener('click', () => {
+// Add an event listener for when the button is clicked
+toggleButton.addEventListener('click', () => {
     if (music.paused) {
-        music.play(); // Play music
+        music.play();
+        musicIcon.classList.remove('fa-play');  // Remove the play icon
+        musicIcon.classList.add('fa-pause');   // Add the pause icon
     } else {
-        music.pause(); // Pause music
+        music.pause();
+        musicIcon.classList.remove('fa-pause'); // Remove the pause icon
+        musicIcon.classList.add('fa-play');     // Add the play icon
     }
 });
 
