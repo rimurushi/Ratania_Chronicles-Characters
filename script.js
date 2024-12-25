@@ -80,17 +80,16 @@ capsules.forEach(capsule => {
     });
 });
 // Select the audio element and the button
-const music = document.getElementById('background-music');
-const toggleButton = document.getElementById('toggle-music');
-const musicIcon = document.getElementById('music-icon');
+const music = document.getElementById("background-music");
+const toggleButton = document.getElementById("toggle-music");
+const musicIcon = document.getElementById("music-icon");
 
-// Add an event listener for when the button is clicked
-toggleButton.addEventListener('click', () => {
+toggleButton.addEventListener("click", () => {
     if (music.paused) {
         music.play();
-        musicIcon.src = 'images/pause-icon.png';  // Switch to pause icon
+        musicIcon.src = "images/pause-icon.png"; // Set the icon to the pause icon
     } else {
         music.pause();
-        musicIcon.src = 'images/play-icon.png';  // Switch to play icon
+        musicIcon.src = "images/play-icon.png"; // Set the icon to the play icon
     }
 });

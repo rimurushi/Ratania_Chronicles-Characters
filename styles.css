@@ -163,23 +163,18 @@ body:not(.loading) .character-selector {
 #toggle-music {
     background-color: transparent;
     border: none;
-    padding: 10px;
-    border-radius: 50%; /* Makes the button circular */
-    position: fixed; /* Keeps the button in place when scrolling */
-    top: 20px; /* Adjust the distance from the top */
-    right: 20px; /* Adjust the distance from the right */
-    z-index: 1000; /* Make sure it's above other content */
+    padding: 0;
+    width: 50px; /* Button size */
+    height: 50px; /* Button size */
+    border-radius: 50%; /* Circle shape */
+    background-image: url('play-icon.png'); /* Play icon */
+    background-size: cover; /* Ensures the image covers the button area */
+    background-position: center; /* Centers the icon inside the button */
+    background-repeat: no-repeat; /* Prevents repeating the image */
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional shadow for effect */
+    transition: background-image 0.3s ease;
 }
 
-    #toggle-music img {
-        width: 30px; /* Adjust the size of the icon */
-        height: 30px; /* Adjust the size of the icon */
-    }
-
-    /* Optional: Hover effect for the button */
-    #toggle-music:hover {
-        background-color: rgba(0, 0, 0, 0.2);
-        transition: background-color 0.3s;
+    #toggle-music.playing {
+        background-image: url('pause-icon.png'); /* Change to pause icon */
     }
