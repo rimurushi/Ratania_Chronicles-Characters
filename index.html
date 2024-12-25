@@ -10,14 +10,14 @@
 </head>
 <body>
     <!-- Background Music -->
-    <audio id="background-music" loop autoplay>
-        <source src="Ascend.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-    </audio>
+    <!-- Audio element -->
+<audio id="background-music" src="Ascend.mp3" preload="auto"></audio>
 
-    <button id="toggle-music">
-    <img src="images/play-icon.png" alt="Play" id="music-icon">
+<!-- Button to toggle music -->
+<button id="toggle-music">
+    <img id="music-icon" src="images/play-icon.png" alt="Play/Pause Icon">
 </button>
+
 
     <!-- Background Video -->
     <video autoplay muted loop id="background-video">

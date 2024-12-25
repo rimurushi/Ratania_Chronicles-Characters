@@ -84,7 +84,7 @@ const music = document.getElementById("background-music");
 const toggleButton = document.getElementById("toggle-music");
 const musicIcon = document.getElementById("music-icon");
 
-// Auto-play music on first click (after user gesture)
+// Play or pause music when the button is clicked
 toggleButton.addEventListener("click", () => {
     if (music.paused) {
         music.play();
@@ -102,4 +102,3 @@ document.body.addEventListener("click", () => {
         musicIcon.src = "images/pause-icon.png"; // Set icon to pause
     }
 });
-
