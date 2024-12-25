@@ -72,6 +72,12 @@ body {
     opacity: 0; /* Start hidden */
     transform: translateX(-20px); /* Start off-screen to the left */
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Add both fade and slide */
+    padding-left: 20px; /* Add space inside the container */
+    /* or */
+    margin-left: 20px; /* Move the whole container to the right */
+}
+#character-description {
+    padding-left: 15px; /* Adds space just inside the description text */
 }
     /* When the description is visible */
     .character-info.show {
