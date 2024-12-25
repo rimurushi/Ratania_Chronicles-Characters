@@ -61,7 +61,7 @@ body {
 .character-info {
     position: absolute;
     left: 20px;
-    top: 20%;
+    top: 15%;
     transform: none;
     text-align: left;
     max-width: 300px;
