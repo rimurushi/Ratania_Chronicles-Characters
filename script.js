@@ -42,19 +42,6 @@ const characters = {
     }
 };
 
-// Function to set the initial character on page load
-function initializeCharacter() {
-    const defaultCharacter = characters.character1; // Default to character1 (Aoi)
-    characterImage.src = defaultCharacter.image;
-    characterName.textContent = defaultCharacter.name;
-    characterDescription.textContent = defaultCharacter.description;
-
-    // Ensure the description section is visible
-    characterInfo.classList.add('show');
-    characterImage.classList.add('fade-in'); // Apply fade-in effect
-}
-
-// Set up event listeners for capsules
 capsules.forEach(capsule => {
     capsule.addEventListener('click', () => {
         const characterId = capsule.getAttribute('data-character');
@@ -81,6 +68,3 @@ capsules.forEach(capsule => {
         }, 500); // Ensure it's synced with fade-out duration
     });
 });
-
-// Initialize the page with the default character
-initializeCharacter();
