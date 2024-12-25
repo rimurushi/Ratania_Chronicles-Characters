@@ -164,17 +164,17 @@ body:not(.loading) .character-selector {
     background-color: transparent;
     border: none;
     padding: 0;
-    width: 50px; /* Button size */
-    height: 50px; /* Button size */
+    width: 50px; /* Size of the button */
+    height: 50px; /* Size of the button */
     border-radius: 50%; /* Circle shape */
-    background-image: url('play-icon.png'); /* Play icon */
-    background-size: cover; /* Ensures the image covers the button area */
+    background-image: url('path-to-your-play-icon.png'); /* Play icon */
+    background-size: 50% 50%; /* Scales the image to 50% of the button size */
     background-position: center; /* Centers the icon inside the button */
     background-repeat: no-repeat; /* Prevents repeating the image */
     cursor: pointer;
     transition: background-image 0.3s ease;
 }
 
-    #toggle-music.playing {
-        background-image: url('pause-icon.png'); /* Change to pause icon */
-    }
+#toggle-music.playing {
+    background-image: url('path-to-your-pause-icon.png'); /* Pause icon when music is playing */
+}
