@@ -1,3 +1,14 @@
+// Ensure the page starts with the 'loading' class
+document.body.classList.add('loading');
+
+// Wait for 5 seconds before showing content
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        // Remove the 'loading' class after 5 seconds
+        document.body.classList.remove('loading');
+    }, 5000); // 5-second delay
+});
+
 const capsules = document.querySelectorAll('.character-capsule');
 const characterImage = document.getElementById('character-image');
 const characterName = document.getElementById('character-name');
@@ -67,14 +78,4 @@ capsules.forEach(capsule => {
             characterInfo.classList.add('show'); // Apply the show class for description fade-in and slide
         }, 500); // Ensure it's synced with fade-out duration
     });
-});
-// Trigger the fade-in effect for the description on initial load
-window.addEventListener('load', () => {
-    characterInfo.classList.add('show'); // Make sure the description appears
-});
-window.addEventListener('load', () => {
-    // Wait for 5 seconds before showing the content
-    setTimeout(() => {
-        document.body.classList.remove('loading'); // Remove 'loading' class after 5 seconds
-    }, 5000); // 5 seconds delay
 });

@@ -156,5 +156,5 @@ body:not(.loading) .container,
 body:not(.loading) .character-selector {
     opacity: 1; /* Ensure they are visible after the timeout */
     pointer-events: all; /* Re-enable interaction */
-    transition: opacity 0.5s ease-in-out; /* Smooth fade-in effect */
+    transition: opacity 1s ease-in-out; /* Smooth fade-in effect */
 }
