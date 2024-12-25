@@ -32,10 +32,10 @@ body {
     transform: translateY(20px);
 }
 
-    .character-info.show {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.character-info.show {
+    opacity: 1;
+    transform: translateY(0);
+}
 
 /* Character Display */
 .character-display {
@@ -52,13 +52,13 @@ body {
     opacity: 0;
 }
 
-    #character-image.fade-in {
-        opacity: 1;
-    }
+#character-image.fade-in {
+    opacity: 1;
+}
 
-    #character-image.fade {
-        opacity: 0;
-    }
+#character-image.fade {
+    opacity: 0;
+}
 
 /* Character Capsules */
 .character-capsules {
@@ -79,7 +79,7 @@ body {
     transition: background 0.3s ease, transform 0.3s ease;
 }
 
-    .character-capsule:hover {
-        background: rgba(255, 255, 255, 0.2);
-        transform: scale(1.1);
-    }
+.character-capsule:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
