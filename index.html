@@ -3,55 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Character Showcase</title>
+    <title>Ratania Character Showcase</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Background Video -->
-    <video autoplay muted loop id="background-video">
-        <source src="videos/Ratania.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-
-    <!-- Character Info Section -->
-    <div class="character-info">
-        <h2 id="character-name">Aoi</h2>
-        <p id="character-description">Aoi is the first character in the world of Ratania. A brave warrior, Aoi's journey begins with...</p>
-    </div>
-
     <div class="container">
-        <!-- Character Image Section -->
+        <!-- Video Background -->
+        <video id="background-video" autoplay muted loop>
+            <source src="videos/Ratania.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- Character Info -->
+        <div class="character-info">
+            <h1 id="character-name">Character Name</h1>
+            <p id="character-description">Character description will appear here.</p>
+        </div>
+
+        <!-- Character Image -->
         <div class="character-display">
-            <img id="character-image" src="images/aoi.png" alt="Character Image">
+            <img id="character-image" src="" alt="Character">
+        </div>
+
+        <!-- Character Capsules -->
+        <div class="character-capsules">
+            <div class="character-capsule" data-character="character1">Aoi</div>
+            <div class="character-capsule" data-character="character2">Ax</div>
+            <div class="character-capsule" data-character="character3">Ri</div>
+            <div class="character-capsule" data-character="character4">Ace</div>
+            <div class="character-capsule" data-character="character5">Akai</div>
+            <div class="character-capsule" data-character="character6">Eir</div>
+            <div class="character-capsule" data-character="character7">Kimi</div>
         </div>
     </div>
-
-    <!-- Character Selector Section -->
-    <div class="character-selector">
-        <!-- Capsules for character selection -->
-        <div class="character-capsule" data-character="character1">
-            <img src="images/aoi.png" alt="Aoi">
-        </div>
-        <div class="character-capsule" data-character="character2">
-            <img src="images/ax.png" alt="Ax">
-        </div>
-        <div class="character-capsule" data-character="character3">
-            <img src="images/ri.png" alt="Ri">
-        </div>
-        <div class="character-capsule" data-character="character4">
-            <img src="images/ace.png" alt="Ace">
-        </div>
-        <div class="character-capsule" data-character="character5">
-            <img src="images/akai.png" alt="Akai">
-        </div>
-        <div class="character-capsule" data-character="character6">
-            <img src="images/eir.png" alt="Eir">
-        </div>
-        <div class="character-capsule" data-character="character7">
-            <img src="images/kimi.png" alt="Kimi">
-        </div>
-    </div>
-
     <script src="script.js"></script>
 </body>
 </html>

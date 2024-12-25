@@ -2,7 +2,7 @@ const capsules = document.querySelectorAll('.character-capsule');
 const characterImage = document.getElementById('character-image');
 const characterName = document.getElementById('character-name');
 const characterDescription = document.getElementById('character-description');
-const characterInfo = document.querySelector('.character-info'); // Selecting the description section
+const characterInfo = document.querySelector('.character-info');
 
 const characters = {
     character1: {
@@ -42,45 +42,41 @@ const characters = {
     }
 };
 
-// Function to set the initial character on page load
+// Function to initialize the default character
 function initializeCharacter() {
-    const defaultCharacter = characters.character1; // Default to character1 (Aoi)
+    const defaultCharacter = characters.character1;
     characterImage.src = defaultCharacter.image;
     characterName.textContent = defaultCharacter.name;
     characterDescription.textContent = defaultCharacter.description;
 
-    // Ensure the description section is visible
+    characterImage.classList.add('fade-in');
     characterInfo.classList.add('show');
-    characterImage.classList.add('fade-in'); // Apply fade-in effect
 }
 
-// Set up event listeners for capsules
+// Event listeners for character capsules
 capsules.forEach(capsule => {
     capsule.addEventListener('click', () => {
         const characterId = capsule.getAttribute('data-character');
         const character = characters[characterId];
 
-        // Fade out image and description
+        // Fade out animation
         characterImage.classList.remove('fade-in');
         characterImage.classList.add('fade');
+        characterInfo.classList.remove('show');
 
-        characterInfo.classList.remove('show'); // Remove the show class for description fade-out
-
-        // Wait for the fade-out transition to finish
         setTimeout(() => {
-            // Change the character details (image, name, description)
+            // Update character details
             characterImage.src = character.image;
             characterName.textContent = character.name;
             characterDescription.textContent = character.description;
 
-            // Fade-in image and description with sliding effect
+            // Fade in animation
             characterImage.classList.remove('fade');
             characterImage.classList.add('fade-in');
-
-            characterInfo.classList.add('show'); // Apply the show class for description fade-in and slide
-        }, 500); // Ensure it's synced with fade-out duration
+            characterInfo.classList.add('show');
+        }, 500); // Matches CSS transition duration
     });
 });
 
-// Initialize the page with the default character
+// Initialize with the default character
 initializeCharacter();
