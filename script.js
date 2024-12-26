@@ -6,7 +6,7 @@ window.addEventListener('load', () => {
     setTimeout(() => {
         // Remove the 'loading' class after 3 seconds
         document.body.classList.remove('loading');
-    }, 3000 ); // 3-second delay
+    }, 1500 ); // 1.5-second delay
 });
 
 const capsules = document.querySelectorAll('.character-capsule');
