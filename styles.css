@@ -112,8 +112,8 @@ body {
 }
 
 .character-capsule {
-    width: 80px;
-    height: 80px;
+    width: 480px;
+    height: 290px;
     border-radius: 50%;
     overflow: hidden;
     cursor: pointer;
