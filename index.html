@@ -10,14 +10,11 @@
 </head>
 <body>
     <!-- Background Music -->
-    <!-- Audio element -->
-<audio id="background-music" src="Ascend.mp3" preload="auto"></audio>
-
-<!-- Button to toggle music -->
-<button id="toggle-music">
-    <img id="music-icon" src="images/play-icon.png" alt="Play/Pause Icon">
-</button>
-
+    <audio id="background-music" src="Ascend.mp3" preload="auto"></audio>
+    <!-- Button to toggle music -->
+    <button id="toggle-music">
+        <img id="music-icon" src="images/play-icon.png" alt="Play/Pause Icon">
+    </button>
 
     <!-- Background Video -->
     <video autoplay muted loop id="background-video">
@@ -40,26 +37,40 @@
 
     <!-- Character Selector Section -->
     <div class="character-selector">
-        <div class="character-capsule" data-character="character1">
-            <img src="images/aoi.png" alt="Aoi">
+        <!-- Capsule for Aoi -->
+        <div class="character-capsule" data-character="Aoi">
+            <img class="capsule-image" src="images/aoi-container.png" alt="Aoi Capsule">
+            <img class="character-image" src="images/aoi.png" alt="Aoi">
         </div>
-        <div class="character-capsule" data-character="character2">
-            <img src="images/ax.png" alt="Ax">
+        <!-- Capsule for Ax -->
+        <div class="character-capsule" data-character="Ax">
+            <img class="capsule-image" src="images/ax-custom.png" alt="Ax Capsule">
+            <img class="character-image" src="images/ax.png" alt="Ax">
         </div>
-        <div class="character-capsule" data-character="character3">
-            <img src="images/ri.png" alt="Ri">
+        <!-- Capsule for Ri -->
+        <div class="character-capsule" data-character="Ri">
+            <img class="capsule-image" src="images/ri-custom.png" alt="Ri Capsule">
+            <img class="character-image" src="images/ri.png" alt="Ri">
         </div>
-        <div class="character-capsule" data-character="character4">
-            <img src="images/ace.png" alt="Ace">
+        <!-- Capsule for Ace -->
+        <div class="character-capsule" data-character="Ace">
+            <img class="capsule-image" src="images/ace-custom.png" alt="Ace Capsule">
+            <img class="character-image" src="images/ace.png" alt="Ace">
         </div>
-        <div class="character-capsule" data-character="character5">
-            <img src="images/akai.png" alt="Akai">
+        <!-- Capsule for Akai -->
+        <div class="character-capsule" data-character="Akai">
+            <img class="capsule-image" src="images/akai-custom.png" alt="Akai Capsule">
+            <img class="character-image" src="images/akai.png" alt="Akai">
         </div>
-        <div class="character-capsule" data-character="character6">
-            <img src="images/eir.png" alt="Eir">
+        <!-- Capsule for Kimi -->
+        <div class="character-capsule" data-character="Kimi">
+            <img class="capsule-image" src="images/kimi-custom.png" alt="Kimi Capsule">
+            <img class="character-image" src="images/kimi.png" alt="Kimi">
         </div>
-        <div class="character-capsule" data-character="character7">
-            <img src="images/kimi.png" alt="Kimi">
+        <!-- Capsule for Eir -->
+        <div class="character-capsule" data-character="Eir">
+            <img class="capsule-image" src="images/eir-custom.png" alt="Eir Capsule">
+            <img class="character-image" src="images/eir.png" alt="Eir">
         </div>
     </div>
 

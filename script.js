@@ -1,12 +1,12 @@
 // Ensure the page starts with the 'loading' class
 document.body.classList.add('loading');
 
-// Wait for 5 seconds before showing content
+// Wait for 1.5 seconds before showing content
 window.addEventListener('load', () => {
     setTimeout(() => {
-        // Remove the 'loading' class after 3 seconds
+        // Remove the 'loading' class after 1.5 seconds
         document.body.classList.remove('loading');
-    }, 1500 ); // 1.5-second delay
+    }, 1500);
 });
 
 const capsules = document.querySelectorAll('.character-capsule');
@@ -53,32 +53,41 @@ const characters = {
     }
 };
 
+// Function to set character details
+function setCharacterDetails(character) {
+    // Fade out the current image and description
+    characterImage.classList.remove('fade-in');
+    characterImage.classList.add('fade');
+    characterInfo.classList.remove('show'); // Remove the show class for fade-out
+
+    // Wait for the fade-out transition to finish
+    setTimeout(() => {
+        // Change the character details (image, name, description)
+        characterImage.src = character.image;
+        characterName.textContent = character.name;
+        characterDescription.textContent = character.description;
+
+        // Fade-in the new character image and description
+        characterImage.classList.remove('fade');
+        characterImage.classList.add('fade-in');
+
+        characterInfo.classList.add('show'); // Apply the show class for description fade-in and slide
+    }, 500); // Ensure it's synced with the fade-out duration
+}
+
+// Initially set the first character (you can change this to any character you want to start with)
+setCharacterDetails(characters.character1);
+
 capsules.forEach(capsule => {
     capsule.addEventListener('click', () => {
         const characterId = capsule.getAttribute('data-character');
         const character = characters[characterId];
 
-        // Fade out image and description
-        characterImage.classList.remove('fade-in');
-        characterImage.classList.add('fade');
-
-        characterInfo.classList.remove('show'); // Remove the show class for description fade-out
-
-        // Wait for the fade-out transition to finish
-        setTimeout(() => {
-            // Change the character details (image, name, description)
-            characterImage.src = character.image;
-            characterName.textContent = character.name;
-            characterDescription.textContent = character.description;
-
-            // Fade-in image and description with sliding effect
-            characterImage.classList.remove('fade');
-            characterImage.classList.add('fade-in');
-
-            characterInfo.classList.add('show'); // Apply the show class for description fade-in and slide
-        }, 500); // Ensure it's synced with fade-out duration
+        // Set the character details when a capsule is clicked
+        setCharacterDetails(character);
     });
 });
+
 // Select the audio element and the button
 const music = document.getElementById("background-music");
 const toggleButton = document.getElementById("toggle-music");
