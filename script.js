@@ -64,42 +64,4 @@ function setCharacterDetails(character) {
     setTimeout(() => {
         // Change the character details (image, name, description)
         characterImage.src = character.image;
-        characterName.textContent = character.name;
-        characterDescription.textContent = character.description;
-
-        // Fade-in the new character image and description
-        characterImage.classList.remove('fade');
-        characterImage.classList.add('fade-in');
-
-        characterInfo.classList.add('show'); // Apply the show class for description fade-in and slide
-    }, 500); // Ensure it's synced with the fade-out duration
-}
-
-// Initially set the first character (you can change this to any character you want to start with)
-setCharacterDetails(characters.character1);
-
-capsules.forEach(capsule => {
-    capsule.addEventListener('click', () => {
-        const characterId = capsule.getAttribute('data-character');
-        const character = characters[characterId];
-
-        // Set the character details when a capsule is clicked
-        setCharacterDetails(character);
-    });
-});
-
-// Select the audio element and the button
-const music = document.getElementById("background-music");
-const toggleButton = document.getElementById("toggle-music");
-const musicIcon = document.getElementById("music-icon");
-
-// Auto-play music on first click (after user gesture)
-toggleButton.addEventListener("click", () => {
-    if (music.paused) {
-        music.play();
-        musicIcon.src = "images/pause-icon.png"; // Set the icon to pause
-    } else {
-        music.pause();
-        musicIcon.src = "images/play-icon.png"; // Set the icon to play
-    }
-});
+        characterName.textContent = character.
