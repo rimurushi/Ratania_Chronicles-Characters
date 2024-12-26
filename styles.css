@@ -114,8 +114,8 @@ body {
 /* Character capsule styles */
 /* Ensuring the selection image container is rectangular */
 .character-capsule {
-    width: 80px; /* Adjust this based on your design needs */
-    height: 80px; /* Adjust this to the desired height */
+    width: 180px; /* Adjust this based on your design needs */
+    height: 120px; /* Adjust this to the desired height */
     overflow: hidden;
     position: relative;
     display: inline-block;
