@@ -1,12 +1,12 @@
 // Ensure the page starts with the 'loading' class
 document.body.classList.add('loading');
 
-// Wait for 1.5 seconds before showing content
+// Wait for the page to fully load
 window.addEventListener('load', () => {
     setTimeout(() => {
-        // Remove the 'loading' class after 1.5 seconds
+        // Remove the 'loading' class after the fade effect time
         document.body.classList.remove('loading');
-    }, 1500);
+    }, 1500); // Adjust this duration to control how long the fade effect lasts
 });
 
 const capsules = document.querySelectorAll('.character-capsule');
