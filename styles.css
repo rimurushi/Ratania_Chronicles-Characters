@@ -112,8 +112,9 @@ body {
 }
 
 /* Character capsule styles */
+/* Character capsule styles */
 .character-capsule {
-    width: 80px; /* Set capsule size */
+    width: 120px; /* Set capsule size */
     height: 80px; /* Set capsule size */
     overflow: hidden; /* Ensures the image stays within the capsule */
     cursor: pointer;
@@ -122,10 +123,19 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
-    /* Removed box-shadow */
+    background-color: transparent; /* Ensure no background interfering */
+    box-shadow: none; /* Remove shadow */
 }
 
     /* Custom styles for capsule images only (selection containers) */
+    .character-capsule img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Image should cover the capsule fully */
+        border-radius: 50%; /* Circular appearance for the capsule */
+    }
+
+    /* When a capsule is clicked, it should only display the custom image */
     .character-capsule.custom-1 img {
         filter: sepia(100%) saturate(200%); /* Apply custom image filter */
         border: 3px solid #ff6347; /* Custom border color */
@@ -136,32 +146,25 @@ body {
         border: 3px solid #4682b4; /* Custom border color */
     }
 
-    /* Ensures capsule images fit within the container */
-    .character-capsule img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* Image should cover the capsule fully */
-        border-radius: 50%; /* Circular appearance for the capsule */
-    }
+/* Main character display (center image) */
+.character-display img {
+    width: 570px; /* Adjusted to display the main character image */
+    height: auto;
+    object-fit: contain;
+    border-radius: 0; /* Ensures no rounded corners */
+    border: none;
+}
 
-    /* Hover effect for capsules */
-    .character-capsule:hover {
-        transform: scale(1.1); /* Slightly enlarges the capsule on hover */
-    }
+/* Optional transition effects for the character image display */
+.fade {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
 
-    /* Active effect for shrinking on click */
-    .character-capsule:active {
-        transform: scale(0.95); /* Shrinks the capsule on click */
-    }
-
-    /* Custom background colors for specific capsules */
-    .character-capsule.custom-1 {
-        background-color: rgba(255, 99, 71, 0.2); /* Custom background color */
-    }
-
-    .character-capsule.custom-2 {
-        background-color: rgba(70, 130, 180, 0.2); /* Custom background color */
-    }
+.fade-in {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
 
 /* Main character display (center image) */
 .character-display img {
