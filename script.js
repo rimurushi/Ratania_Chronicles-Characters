@@ -92,3 +92,24 @@ capsules.forEach(capsule => {
         }
     });
 });
+// Assuming you have a function to select a character
+function selectCharacter(character) {
+    const description = document.querySelector('.character-info');
+    const characterImage = document.querySelector('.character-display img');
+    
+    // Change character image and description
+    characterImage.src = character.image;  // Adjust based on your setup
+    description.querySelector('h2').textContent = character.name;  // Adjust based on your setup
+    description.querySelector('p').textContent = character.description;  // Adjust based on your setup
+    
+    // Show the description with animation
+    description.classList.add('show');
+}
+
+// Example of selecting a character
+selectCharacter({
+    name: "Aoi",
+    image: "path-to-aoi-image.jpg",
+    description: "Aoi is a mysterious warrior from the eastern realms."
+});
+
