@@ -7,37 +7,37 @@ const characterInfo = document.querySelector('.character-info');
 // Character data (key names should match the data-character values in HTML)
 const characters = {
     aoi: {
-        image: 'images/aoi.png',          // Main character image
+        image: 'images/aoi.png',
         name: 'Aoi',
         description: 'Aoi is the first character in the world of Ratania. A brave warrior, Aoi\'s journey begins with...'
     },
     ax: {
-        image: 'images/ax.png',           // Main character image
+        image: 'images/ax.png',
         name: 'Ax',
         description: 'Ax is a strong and silent protector. His mysterious past is the key to unlocking the fate of Ratania...'
     },
     ri: {
-        image: 'images/ri.png',           // Main character image
+        image: 'images/ri.png',
         name: 'Ri',
         description: 'Ri is a cunning tactician with a quick wit. Her strategies shape the battles in Ratania...'
     },
     ace: {
-        image: 'images/ace.png',          // Main character image
+        image: 'images/ace.png',
         name: 'Ace',
         description: 'Ace is a skilled marksman with unmatched precision. He is on a quest to seek vengeance for a past betrayal...'
     },
     akai: {
-        image: 'images/akai.png',         // Main character image
+        image: 'images/akai.png',
         name: 'Akai',
         description: 'Akai is a fiery fighter, passionate about justice and revenge. Her heart is as fierce as her blade...'
     },
     eir: {
-        image: 'images/eir.png',          // Main character image
+        image: 'images/eir.png',
         name: 'Eir',
         description: 'Eir is a healer and protector, bringing light to even the darkest corners of Ratania...'
     },
     kimi: {
-        image: 'images/kimi.png',         // Main character image
+        image: 'images/kimi.png',
         name: 'Kimi',
         description: 'Kimi is a mysterious rogue, whose true intentions are always hidden in the shadows...'
     }
@@ -54,17 +54,10 @@ const selectorImages = {
     kimi: 'images/kimi-custom.png'
 };
 
-// Updating selector capsule visuals dynamically
-capsules.forEach((capsule, index) => {
-    const characterKey = Object.keys(selectorImages)[index];
-    const customImage = selectorImages[characterKey];
-    if (customImage) {
-        capsule.querySelector('.capsule-image').src = customImage;  // Update the image source
-    }
-});
-
 // Function to update character details with fade-in/out effects
 function setCharacterDetails(character) {
+    const characterInfo = document.querySelector('.character-info');
+
     // First, slide and fade out the current description
     characterInfo.classList.remove('show');  // Trigger fade-out and slide-out by removing the 'show' class
 
@@ -96,11 +89,3 @@ capsules.forEach(capsule => {
         }
     });
 });
-
-// Example of selecting a character
-selectCharacter({
-    name: "Aoi",
-    image: "path-to-aoi-image.jpg",
-    description: "Aoi is a mysterious warrior from the eastern realms."
-});
-

@@ -61,14 +61,14 @@ body {
 /* Character info (description) */
 .character-info {
     position: absolute;
-    left: -300px; /* Hidden off-screen initially */
     opacity: 0; /* Fully transparent initially */
-    transition: left 1s ease, opacity 1s ease; /* Smooth transition for both slide and fade */
+    transform: translateX(-100%); /* Start off-screen */
+    transition: opacity 1s ease, transform 1s ease; /* Apply both fade and slide animations */
 }
 
     /* When the character info is visible */
     .character-info.show {
-        left: 20px; /* Slide in to its correct position */
+        transform: translateX(0); /* Slide in */
         opacity: 1; /* Fade in */
     }
 
