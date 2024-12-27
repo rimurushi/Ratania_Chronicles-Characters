@@ -65,11 +65,11 @@ function setCharacterDetails(character) {
 // Attach click event to each character capsule
 capsules.forEach(capsule => {
     capsule.addEventListener('click', () => {
-        const characterKey = capsule.getAttribute('data-character').toLowerCase();
-        const character = characters[characterKey]; // Get the character from the object
+        const characterKey = capsule.getAttribute('data-character').toLowerCase();  // Get the character name and convert it to lowercase
+        const character = characters[characterKey];  // Access the character object based on the lowercase name
 
         if (character) {
-            setCharacterDetails(character); // Call the function to update the character details
+            setCharacterDetails(character);  // Update the character details
         }
     });
 });
