@@ -72,4 +72,4 @@ function setCharacterDetails(character) {
         console.log("Capsule image not found for:", character.name); // Log if the capsule image is not found
     }
 }
-
+};
