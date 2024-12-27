@@ -59,18 +59,24 @@ body {
 
 /* Description Section on the Left */
 /* Character info (description) */
+* Ensure the container has relative positioning */
 .character-info {
-    position: absolute;
-    opacity: 0; /* Fully transparent initially */
-    transform: translateX(-100%); /* Start off-screen */
-    transition: opacity 1s ease, transform 1s ease; /* Apply both fade and slide animations */
+    position: relative; /* This ensures the element is positioned correctly in the layout */
+    opacity: 0;
+    transform: translateX(-100%); /* Slide off-screen to the left */
+    transition: opacity 1s ease, transform 1s ease; /* Transition for both fade and slide */
 }
 
-    /* When the character info is visible */
-    .character-info.show {
-        transform: translateX(0); /* Slide in */
-        opacity: 1; /* Fade in */
-    }
+/* When the 'show' class is added, the description slides into place and fades in */
+.character-info.show {
+    opacity: 1;
+    transform: translateX(0); /* Slide into the center */
+}
+
+/* Optional: Add some padding or margin to control the space around the description */
+.character-info p {
+    padding-left: 20px; /* Adjust the padding to your liking */
+}
 
 .character-info h2 {
     font-size: 1.8rem;
