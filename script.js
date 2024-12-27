@@ -54,28 +54,22 @@ const selectorImages = {
     kimi: 'images/kimi-custom.png'
 };
 
+// Function to update character details with fade-in/out effects
 function setCharacterDetails(character) {
-    // Fade out the current image and description
-    characterImage.classList.remove('fade-in');
-    characterImage.classList.add('fade');
-    characterInfo.classList.remove('show'); // Hide description before fade-in
+    // First, fade out and slide the current description out
+    const characterInfo = document.querySelector('.character-info');
+    characterInfo.classList.remove('show');  // Remove the 'show' class to trigger the slide-out and fade-out
 
-    // Wait for the fade-out transition to finish before updating
+    // Wait for the transition to finish before updating
     setTimeout(() => {
-        // Update character details (image, name, description)
+        // Update the character details (image, name, description)
         characterImage.src = character.image;
         characterName.textContent = character.name;
         characterDescription.textContent = character.description;
 
-        // Apply fade-in from left to right
-        characterInfo.classList.add('fade-in');  // Trigger the sliding fade-in
-        characterInfo.classList.add('show'); // Show the updated description
-
-        // After the animation, reset the transition for future use
-        setTimeout(() => {
-            characterInfo.classList.remove('fade-in');
-        }, 1000); // Adjust timing if needed (it should match the animation duration)
-    }, 500); // Wait for the fade-out to complete before transitioning
+        // Now, slide the new description in and fade it in
+        characterInfo.classList.add('show');  // Add the 'show' class to trigger the slide-in and fade-in
+    }, 1000);  // Match this timeout to the transition duration (1 second)
 }
 
 // Attach click event to each character capsule

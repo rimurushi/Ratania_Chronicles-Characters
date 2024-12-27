@@ -58,40 +58,19 @@ body {
 }
 
 /* Description Section on the Left */
+/* Character info (description) */
 .character-info {
     position: absolute;
-    left: 20px;
-    top: 30%;
-    text-align: left;
-    max-width: 300px;
-    padding: 0;
-    background: none !important;
-    border: none !important;
-    box-shadow: none !important;
-    opacity: 0;
-    transform: translateX(-300px);
-    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-    padding-left: 20px;
+    left: -300px; /* Hidden off-screen initially */
+    opacity: 0; /* Hidden initially */
+    transition: transform 1s ease, opacity 1s ease; /* Smooth transition for both slide and fade */
 }
 
-#character-description {
-    padding-left: 15px; /* Adds space just inside the description text */
-}
-
-/* Add a smooth transition effect for when the description fades in from left */
-.character-info.show {
-    opacity: 1;
-    transform: translateX(0);
-}
-.character-info.fade-in {
-    transform: translateX(0); /* Move to normal position */
-    opacity: 1; /* Make it visible */
-}
-
-.character-info.fade-out {
-    transform: translateX(-300px); /* Move back off-screen */
-    opacity: 0; /* Hide it */
-}/* Optional adjustments for readability */
+    /* When the character info is visible */
+    .character-info.show {
+        transform: translateX(0); /* Slide in */
+        opacity: 1; /* Fade in */
+    }
 
 .character-info h2 {
     font-size: 1.8rem;
