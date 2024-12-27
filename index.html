@@ -1,65 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Character Showcase</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- Add Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
-    <!-- Background Music -->
-    <audio id="background-music" src="Ascend.mp3" preload="auto"></audio>
-    <!-- Button to toggle music -->
-    <button id="toggle-music">
-        <img id="music-icon" src="images/play-icon.png" alt="Play/Pause Icon">
-    </button>
+// Get the HTML elements for main character image and description
+const characterImage = document.getElementById('character-image');  // Main character image
+const characterName = document.getElementById('character-name');
+const characterDescription = document.getElementById('character-description');
+const characterCapsules = document.querySelectorAll(".character-capsule");
 
-    <!-- Background Video -->
-    <video autoplay muted loop id="background-video">
-        <source src="videos/Ratania.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+// Define the character data with the paths to images for display
+const characters = {
+    aoi: {
+        name: "Aoi",
+        description: "Aoi is the first character in the world of Ratania. A brave warrior, Aoi's journey begins with...",
+        image: "images/characters/aoi.png", // Main character image (middle)
+        capsuleImage: "images/capsules/aoi-custom.png" // Capsule image (inside the selector)
+    },
+    ax: {
+        name: "Ax",
+        description: "Ax is a fierce warrior with a mysterious past. His quest for redemption leads him to Ratania...",
+        image: "images/characters/ax.png",
+        capsuleImage: "images/capsules/ax-custom.png"
+    },
+    ri: {
+        name: "Ri",
+        description: "Ri is a swift and agile character with unmatched skill in the art of stealth...",
+        image: "images/characters/ri.png",
+        capsuleImage: "images/capsules/ri-custom.png"
+    },
+    ace: {
+        name: "Ace",
+        description: "Ace is a powerful sorcerer with control over elemental forces. His role in Ratania's story is crucial...",
+        image: "images/characters/ace.png",
+        capsuleImage: "images/capsules/ace-custom.png"
+    },
+    akai: {
+        name: "Akai",
+        description: "Akai is a skilled archer and the protector of her village. Her knowledge of nature is unmatched...",
+        image: "images/characters/akai.png",
+        capsuleImage: "images/capsules/akai-custom.png"
+    },
+    eir: {
+        name: "Eir",
+        description: "Eir is a healer who uses magic to mend wounds and protect those in need. Her role in the world of Ratania is vital...",
+        image: "images/characters/eir.png",
+        capsuleImage: "images/capsules/eir-custom.png"
+    },
+    kimi: {
+        name: "Kimi",
+        description: "Kimi is a young and talented inventor, known for creating devices that enhance the abilities of her allies...",
+        image: "images/characters/kimi.png",
+        capsuleImage: "images/capsules/kimi-custom.png"
+    }
+};
 
-    <!-- Character Info Section -->
-    <div class="character-info">
-        <h2 id="character-name">Aoi</h2>
-        <p id="character-description">Aoi is the first character in the world of Ratania. A brave warrior, Aoi's journey begins with...</p>
-    </div>
+// Function to update character details
+function setCharacterDetails(character) {
+    characterName.innerText = character.name;
+    characterDescription.innerText = character.description;
+    characterImage.src = character.image; // Update the main character image
+}
 
-    <!-- Character Image Section -->
-    <div class="container">
-        <div class="character-display">
-            <img id="character-image" src="images/characters/aoi.png" alt="Character Image">
-        </div>
-    </div>
-
-    <!-- Character Selector Section -->
-<div class="character-selector">
-    <div class="character-capsule" id="capsule-0" data-character="aoi">
-        <img class="capsule-image" src="images/capsules/aoi-custom.png" alt="Aoi Capsule">
-    </div>
-    <div class="character-capsule" id="capsule-1" data-character="ax">
-        <img class="capsule-image" src="images/capsules/ax-custom.png" alt="Ax Capsule">
-    </div>
-    <div class="character-capsule" id="capsule-2" data-character="ri">
-        <img class="capsule-image" src="images/capsules/ri-custom.png" alt="Ri Capsule">
-    </div>
-    <div class="character-capsule" id="capsule-3" data-character="ace">
-        <img class="capsule-image" src="images/capsules/ace-custom.png" alt="Ace Capsule">
-    </div>
-    <div class="character-capsule" id="capsule-4" data-character="akai">
-        <img class="capsule-image" src="images/capsules/akai-custom.png" alt="Akai Capsule">
-    </div>
-    <div class="character-capsule" id="capsule-5" data-character="eir">
-        <img class="capsule-image" src="images/capsules/eir-custom.png" alt="Eir Capsule">
-    </div>
-    <div class="character-capsule" id="capsule-6" data-character="kimi">
-        <img class="capsule-image" src="images/capsules/kimi-custom.png" alt="Kimi Capsule">
-    </div>
-</div>
-
-    <script src="script.js"></script>
-</body>
-</html>
+// Set up click event listeners for the character capsules
+characterCapsules.forEach(capsule => {
+    capsule.addEventListener("click", function() {
+        const selectedCharacter = characters[capsule.getAttribute("data-character")];
+        setCharacterDetails(selectedCharacter); // Update character info and image when capsule is clicked
+    });
+});
