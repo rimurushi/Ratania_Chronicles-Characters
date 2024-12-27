@@ -4,46 +4,46 @@ const characterName = document.getElementById('character-name');
 const characterDescription = document.getElementById('character-description');
 const characterInfo = document.querySelector('.character-info');
 
-// Character data (key names should match the data-character values in HTML)
+// Character data
 const characters = {
     aoi: {
-        image: 'images/aoi.png',          // Main character image
+        image: 'images/aoi.png',
         name: 'Aoi',
-        description: 'Aoi is the first character in the world of Ratania. A brave warrior, Aoi\'s journey begins with...'
+        description: "Aoi is the first character in the world of Ratania. A brave warrior, Aoi's journey begins with..."
     },
     ax: {
-        image: 'images/ax.png',           // Main character image
+        image: 'images/ax.png',
         name: 'Ax',
         description: 'Ax is a strong and silent protector. His mysterious past is the key to unlocking the fate of Ratania...'
     },
     ri: {
-        image: 'images/ri.png',           // Main character image
+        image: 'images/ri.png',
         name: 'Ri',
         description: 'Ri is a cunning tactician with a quick wit. Her strategies shape the battles in Ratania...'
     },
     ace: {
-        image: 'images/ace.png',          // Main character image
+        image: 'images/ace.png',
         name: 'Ace',
         description: 'Ace is a skilled marksman with unmatched precision. He is on a quest to seek vengeance for a past betrayal...'
     },
     akai: {
-        image: 'images/akai.png',         // Main character image
+        image: 'images/akai.png',
         name: 'Akai',
         description: 'Akai is a fiery fighter, passionate about justice and revenge. Her heart is as fierce as her blade...'
     },
     eir: {
-        image: 'images/eir.png',          // Main character image
+        image: 'images/eir.png',
         name: 'Eir',
         description: 'Eir is a healer and protector, bringing light to even the darkest corners of Ratania...'
     },
     kimi: {
-        image: 'images/kimi.png',         // Main character image
+        image: 'images/kimi.png',
         name: 'Kimi',
         description: 'Kimi is a mysterious rogue, whose true intentions are always hidden in the shadows...'
     }
 };
 
-// Character selector images (customized versions for the capsules)
+// Selector images for the capsules
 const selectorImages = {
     aoi: 'images/aoi-custom.png',
     ax: 'images/ax-custom.png',
@@ -54,59 +54,39 @@ const selectorImages = {
     kimi: 'images/kimi-custom.png'
 };
 
-// Function to update character details with fade-in/out effects
+// Function to update character details with animation
 function setCharacterDetails(character) {
-    const characterInfo = document.querySelector('.character-info');
-    
-    // First, slide and fade out the current description
-    characterInfo.classList.remove('show');  // Trigger fade-out and slide-out by removing the 'show' class
+    // Trigger fade-out and slide-out
+    characterInfo.classList.remove('show');
 
-    // Wait for the slide-out and fade-out transition to finish before updating
+    // Wait for the animation to complete
     setTimeout(() => {
-        // Update the character details (image, name, description)
+        // Update content
         characterImage.src = character.image;
         characterName.textContent = character.name;
         characterDescription.textContent = character.description;
 
-        // Now, slide the new description in and fade it in
-        characterInfo.classList.add('show');  // Add 'show' class to trigger slide-in and fade-in
-    }, 1000);  // Duration should match the transition duration in CSS (1 second)
+        // Trigger fade-in and slide-in
+        characterInfo.classList.add('show');
+    }, 1000); // Match transition duration in CSS
 }
 
-// Attach click event to each character capsule
+// Attach click event to capsules
 capsules.forEach(capsule => {
     capsule.addEventListener('click', () => {
-        const characterKey = capsule.getAttribute('data-character');  // Get the character key (like 'aoi', 'ax')
-        const character = characters[characterKey];  // Access the corresponding character data
-        const selectorImage = selectorImages[characterKey];  // Access the correct selector image
+        const characterKey = capsule.dataset.character; // Get key from data attribute
+        const character = characters[characterKey];
+        const selectorImage = selectorImages[characterKey]; // Access the correct selector image
 
-        if (character && selectorImage) {
-            // Update the selected capsule image (only if needed, usually for display purposes)
+        if (character) {
+            // Update the capsule image with the custom version, if available
             const capsuleImage = capsule.querySelector('.capsule-image');
-            capsuleImage.src = selectorImage;
+            if (capsuleImage && selectorImage) {
+                capsuleImage.src = selectorImage;
+            }
 
-            setCharacterDetails(character); // Update the character details
+            // Update the main character display
+            setCharacterDetails(character);
         }
     });
 });
-// Assuming you have a function to select a character
-function selectCharacter(character) {
-    const description = document.querySelector('.character-info');
-    const characterImage = document.querySelector('.character-display img');
-    
-    // Change character image and description
-    characterImage.src = character.image;  // Adjust based on your setup
-    description.querySelector('h2').textContent = character.name;  // Adjust based on your setup
-    description.querySelector('p').textContent = character.description;  // Adjust based on your setup
-    
-    // Show the description with animation
-    description.classList.add('show');
-}
-
-// Example of selecting a character
-selectCharacter({
-    name: "Aoi",
-    image: "path-to-aoi-image.jpg",
-    description: "Aoi is a mysterious warrior from the eastern realms."
-});
-
