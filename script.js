@@ -45,18 +45,16 @@ const characters = {
 // Function to update character details with fade-in/out effects
 function setCharacterDetails(character) {
     const characterInfo = document.querySelector('.character-info');
-    const characterImageElement = document.querySelector('.character-display img');
-console.log(character.image);  // Inside the `setCharacterDetails` function
-
+    const characterImageElement = document.querySelector('#character-image');  // Target the main character image
     
     // Fade out the current character details
     characterInfo.classList.remove('show');
     characterImageElement.classList.remove('show');
-
+    
     // Wait for the fade-out transition to complete
     setTimeout(() => {
         // Update the character details (image, name, description)
-        characterImageElement.src = character.image;
+        characterImageElement.src = character.image;  // Update the main character image
         characterName.textContent = character.name;
         characterDescription.textContent = character.description;
 
