@@ -10,17 +10,17 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    position: relative;
+    position: relative; /* Allows absolute positioning for sections */
 }
 
 /* Centered Image Section */
 .container {
-    position: relative;
+    position: relative; /* Allows absolute positioning for other sections */
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Keeps the image centered */
     align-items: center;
-    width: 100%;
-    height: 80vh;
+    width: 100%; /* Occupies full width */
+    height: 80vh; /* Ensures full-page height */
 }
 
 .character-display {
@@ -30,106 +30,173 @@ body {
     background: transparent;
     border: none;
     box-shadow: none;
-    max-width: 100%;
-    overflow: hidden;
+    max-width: 100%; /* Ensure it doesnÅft exceed the containerÅfs width */
+    overflow: hidden; /* Prevents the image from overflowing */
 }
 
 /* Fade transition effect */
 .fade {
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out; /* Ensures smooth fading out */
 }
 
 /* When the image is visible */
 .fade-in {
     opacity: 1;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out; /* Ensures smooth fading in */
 }
 
-/* Character Display Image */
+/* Ensure the image does not interfere with other content */
 .character-display img {
     width: 570px;
     height: auto;
     border: none;
+    box-shadow: none;
+    background: transparent;
     object-fit: contain;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out; /* Apply transition on the image itself */
 }
 
 /* Description Section on the Left */
 .character-info {
     position: absolute;
-    left: -300px; /* Start off-screen */
+    left: -300px; /* Start off-screen to the left */
     top: 30%;
     text-align: left;
     max-width: 300px;
-    padding-left: 20px;
-    background: none !important;
-    border: none !important;
-    box-shadow: none !important;
-    opacity: 0; /* Hidden initially */
+    padding: 0;
+    background: none !important; /* Enforce no background */
+    border: none !important; /* Ensure no border */
+    box-shadow: none !important; /* Remove any shadow */
+    opacity: 0; /* Start hidden */
     transform: translateX(-20px); /* Start off-screen to the left */
-    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Fade and slide in */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Add both fade and slide */
+    padding-left: 20px; /* Add space inside the container */
 }
 
 #character-description {
-    padding-left: 15px;
+    padding-left: 15px; /* Adds space just inside the description text */
 }
 
+/* When the description is visible */
 .character-info.show {
     opacity: 1; /* Fade in */
-    transform: translateX(0); /* Slide to original position */
+    transform: translateX(0); /* Move to its original position */
 }
 
-/* Character Selector Section */
+/* Optional adjustments for readability */
+.character-info h2 {
+    font-size: 1.8rem;
+    margin: 0 0 10px 0;
+}
+
+.character-info p {
+    font-size: 1rem;
+    color: #fff; /* Ensures text is visible over the background image */
+    line-height: 1.4;
+}
+
+/* Selector Section on the Right */
 .character-selector {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
+    position: absolute; /* Independent positioning */
+    right: 10px; /* Distance from the right edge */
+    top: 50%; /* Vertically centered */
+    transform: translateY(-50%); /* Perfect vertical centering */
     display: flex;
     flex-direction: column;
     gap: 10px;
     justify-content: center;
 }
 
-/* Character Capsule Styles */
+/* Character capsule styles */
+/* Ensuring the selection image container is rectangular */
 .character-capsule {
-    width: 150px;
-    height: 70px;
+    width: 150px; /* Adjust this based on your design needs */
+    height: 70px; /* Adjust this to the desired height */
     overflow: hidden;
     position: relative;
     display: inline-block;
-    margin: 10px;
+    margin: 10px; /* Optional: Adds space between capsules */
 }
 
+/* Ensuring the image inside the capsule fits the rectangular container */
 .capsule-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 100%; /* Make the image fill the width of the container */
+    height: 100%; /* Make the image fill the height of the container */
+    object-fit: cover; /* Ensures the image fits inside the container without distorting */
 }
 
-/* When a capsule is clicked */
+/* When a capsule is clicked, it should only display the custom image */
 .character-capsule.custom-1 img {
-    filter: sepia(100%) saturate(200%);
-    border: 3px solid #ff6347;
+    filter: sepia(100%) saturate(200%); /* Apply custom image filter */
+    border: 3px solid #ff6347; /* Custom border color */
 }
 
 .character-capsule.custom-2 img {
-    filter: grayscale(100%);
-    border: 3px solid #4682b4;
+    filter: grayscale(100%); /* Apply custom grayscale effect */
+    border: 3px solid #4682b4; /* Custom border color */
 }
 
-/* Music Toggle Button */
+/* Main character display (center image) */
+.character-display img {
+    width: 570px; /* Adjusted to display the main character image */
+    height: auto;
+    object-fit: contain;
+    border-radius: 0; /* Ensures no rounded corners */
+    border: none;
+}
+
+/* Optional transition effects for the character image display */
+.fade {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.fade-in {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Background video styling */
+#background-video {
+    position: fixed; /* Ensures the video stays in place even on scroll */
+    top: 0;
+    left: 0;
+    width: 100%; /* Covers the full width of the viewport */
+    height: 100%; /* Covers the full height of the viewport */
+    object-fit: cover; /* Ensures the video scales proportionally to fill the screen */
+    z-index: -1; /* Places the video behind all content */
+    pointer-events: none; /* Prevents the video from blocking interactions */
+}
+
+/* Hide everything initially */
+body.loading .character-info,
+body.loading .container,
+body.loading .character-selector {
+    opacity: 0; /* Make them invisible */
+    pointer-events: none; /* Disable interaction */
+}
+
+/* Fade-in effect for the content */
+body:not(.loading) .character-info,
+body:not(.loading) .container,
+body:not(.loading) .character-selector {
+    opacity: 1; /* Ensure they are visible after the timeout */
+    pointer-events: all; /* Re-enable interaction */
+    transition: opacity 1s ease-in-out; /* Smooth fade-in effect */
+}
+
+/* Style the button to be circular */
 #toggle-music {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 20px; /* Adjust this value to move it down from the top */
+    right: 20px; /* Adjust this value to move it in from the right side */
     background-color: transparent;
     border: none;
     padding: 0;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+    width: 50px; /* Size of the button */
+    height: 50px; /* Size of the button */
+    border-radius: 50%; /* Circle shape */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -138,19 +205,10 @@ body {
 }
 
     #toggle-music img {
-        width: 70%;
-        height: 70%;
+        width: 70%; /* Size of the icon inside the button */
+        height: 70%; /* Size of the icon inside the button */
     }
 
     #toggle-music.playing img {
         content: url('pause-icon.png'); /* Change image to pause icon */
     }
-
-/* Fade-in effect for content when ready */
-body:not(.loading) .character-info,
-body:not(.loading) .container,
-body:not(.loading) .character-selector {
-    opacity: 1;
-    pointer-events: all;
-    transition: opacity 1s ease-in-out;
-}
