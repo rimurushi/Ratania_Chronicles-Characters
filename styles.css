@@ -1,3 +1,4 @@
+/* Full-page background and centered layout */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -10,54 +11,29 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    position: relative; /* Allows absolute positioning for sections */
+    position: relative;
 }
 
-/* Centered Image Section */
+/* Main container */
 .container {
-    position: relative; /* Allows absolute positioning for other sections */
-    display: flex;
-    justify-content: center; /* Keeps the image centered */
-    align-items: center;
-    width: 100%; /* Occupies full width */
-    height: 80vh; /* Ensures full-page height */
-}
-
-.character-display {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: transparent;
-    border: none;
-    box-shadow: none;
-    max-width: 100%; /* Ensure it doesnÅft exceed the containerÅfs width */
-    overflow: hidden; /* Prevents the image from overflowing */
+    width: 100%;
+    height: 80vh;
 }
 
-/* Fade transition effect */
-.fade {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out; /* Ensures smooth fading out */
-}
-
-/* When the image is visible */
-.fade-in {
-    opacity: 1;
-    transition: opacity 0.5s ease-in-out; /* Ensures smooth fading in */
-}
-
-/* Ensure the image does not interfere with other content */
+/* Character image display */
 .character-display img {
     width: 570px;
     height: auto;
-    border: none;
-    box-shadow: none;
-    background: transparent;
     object-fit: contain;
-    transition: opacity 0.5s ease-in-out; /* Apply transition on the image itself */
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.5s ease-in-out; /* Smooth fade-in */
 }
 
-/* Description Section on the Left */
+/* Description section on the left */
 .character-info {
     position: absolute;
     left: -300px; /* Start off-screen to the left */
@@ -65,150 +41,55 @@ body {
     text-align: left;
     max-width: 300px;
     padding: 0;
-    background: none !important; /* Enforce no background */
-    border: none !important; /* Ensure no border */
-    box-shadow: none !important; /* Remove any shadow */
     opacity: 0; /* Start hidden */
-    transform: translateX(-20px); /* Start off-screen to the left */
-    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Add both fade and slide */
-    padding-left: 20px; /* Add space inside the container */
+    transform: translateX(-20px); /* Start off-screen */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
-#character-description {
-    padding-left: 15px; /* Adds space just inside the description text */
-}
+    /* Show description when active */
+    .character-info.show {
+        opacity: 1;
+        transform: translateX(0);
+    }
 
-/* When the description is visible */
-.character-info.show {
-    opacity: 1; /* Fade in */
-    transform: translateX(0); /* Move to its original position */
-}
-
-/* Optional adjustments for readability */
-.character-info h2 {
-    font-size: 1.8rem;
-    margin: 0 0 10px 0;
-}
-
-.character-info p {
-    font-size: 1rem;
-    color: #fff; /* Ensures text is visible over the background image */
-    line-height: 1.4;
-}
-
-/* Selector Section on the Right */
+/* Character selector on the right */
 .character-selector {
-    position: absolute; /* Independent positioning */
-    right: 10px; /* Distance from the right edge */
-    top: 50%; /* Vertically centered */
-    transform: translateY(-50%); /* Perfect vertical centering */
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
     display: flex;
     flex-direction: column;
     gap: 10px;
-    justify-content: center;
 }
 
 /* Character capsule styles */
-/* Ensuring the selection image container is rectangular */
 .character-capsule {
-    width: 150px; /* Adjust this based on your design needs */
-    height: 70px; /* Adjust this to the desired height */
+    width: 150px;
+    height: 70px;
     overflow: hidden;
     position: relative;
     display: inline-block;
-    margin: 10px; /* Optional: Adds space between capsules */
+    margin: 10px;
+    cursor: pointer;
 }
 
-/* Ensuring the image inside the capsule fits the rectangular container */
-.capsule-image {
-    width: 100%; /* Make the image fill the width of the container */
-    height: 100%; /* Make the image fill the height of the container */
-    object-fit: cover; /* Ensures the image fits inside the container without distorting */
-}
+    .character-capsule img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 
-/* When a capsule is clicked, it should only display the custom image */
-.character-capsule.custom-1 img {
-    filter: sepia(100%) saturate(200%); /* Apply custom image filter */
-    border: 3px solid #ff6347; /* Custom border color */
-}
-
-.character-capsule.custom-2 img {
-    filter: grayscale(100%); /* Apply custom grayscale effect */
-    border: 3px solid #4682b4; /* Custom border color */
-}
-
-/* Main character display (center image) */
-.character-display img {
-    width: 570px; /* Adjusted to display the main character image */
-    height: auto;
-    object-fit: contain;
-    border-radius: 0; /* Ensures no rounded corners */
-    border: none;
-}
-
-/* Optional transition effects for the character image display */
-.fade {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.fade-in {
-    opacity: 1;
-    transition: opacity 0.5s ease-in-out;
-}
-
-/* Background video styling */
-#background-video {
-    position: fixed; /* Ensures the video stays in place even on scroll */
-    top: 0;
-    left: 0;
-    width: 100%; /* Covers the full width of the viewport */
-    height: 100%; /* Covers the full height of the viewport */
-    object-fit: cover; /* Ensures the video scales proportionally to fill the screen */
-    z-index: -1; /* Places the video behind all content */
-    pointer-events: none; /* Prevents the video from blocking interactions */
-}
-
-/* Hide everything initially */
-body.loading .character-info,
-body.loading .container,
-body.loading .character-selector {
-    opacity: 0; /* Make them invisible */
-    pointer-events: none; /* Disable interaction */
-}
-
-/* Fade-in effect for the content */
-body:not(.loading) .character-info,
-body:not(.loading) .container,
-body:not(.loading) .character-selector {
-    opacity: 1; /* Ensure they are visible after the timeout */
-    pointer-events: all; /* Re-enable interaction */
-    transition: opacity 1s ease-in-out; /* Smooth fade-in effect */
-}
-
-/* Style the button to be circular */
+/* Music button */
 #toggle-music {
     position: absolute;
-    top: 20px; /* Adjust this value to move it down from the top */
-    right: 20px; /* Adjust this value to move it in from the right side */
+    top: 20px;
+    right: 20px;
     background-color: transparent;
     border: none;
     padding: 0;
-    width: 50px; /* Size of the button */
-    height: 50px; /* Size of the button */
-    border-radius: 50%; /* Circle shape */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
     cursor: pointer;
-    transition: background-image 0.3s ease;
 }
-
-    #toggle-music img {
-        width: 70%; /* Size of the icon inside the button */
-        height: 70%; /* Size of the icon inside the button */
-    }
-
-    #toggle-music.playing img {
-        content: url('pause-icon.png'); /* Change image to pause icon */
-    }

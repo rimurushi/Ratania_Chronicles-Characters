@@ -3,70 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Character Showcase</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- Add Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Character Selector</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
 </head>
 <body>
-    <!-- Background Music -->
-    <audio id="background-music" src="Ascend.mp3" preload="auto"></audio>
-    <!-- Button to toggle music -->
-    <button id="toggle-music">
-        <img id="music-icon" src="images/play-icon.png" alt="Play/Pause Icon">
-    </button>
-
-    <!-- Background Video -->
-    <video autoplay muted loop id="background-video">
-        <source src="videos/Ratania.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-
-    <!-- Character Info Section -->
-    <div class="character-info">
-        <h2 id="character-name">Aoi</h2>
-        <p id="character-description">Aoi is the first character in the world of Ratania. A brave warrior, Aoi's journey begins with...</p>
-    </div>
-
-    <!-- Character Image Section -->
+    <!-- Main container with background image -->
     <div class="container">
+        <!-- Main character image display -->
         <div class="character-display">
-            <img id="character-image" src="images/aoi.png" alt="Character Image">
+            <img src="main-character.jpg" alt="Main Character" class="fade-in">
+        </div>
+
+        <!-- Character description on the left -->
+        <div class="character-info">
+            <h2 id="character-name">Character Name</h2>
+            <p id="character-description">Character description goes here...</p>
+        </div>
+
+        <!-- Character selector on the right -->
+        <div class="character-selector">
+            <!-- Capsules for selecting characters -->
+            <div class="character-capsule" onclick="changeCharacter('character-1')">
+                <img src="character-1.jpg" alt="Character 1">
+            </div>
+            <div class="character-capsule" onclick="changeCharacter('character-2')">
+                <img src="character-2.jpg" alt="Character 2">
+            </div>
+            <!-- Add more character capsules as needed -->
         </div>
     </div>
 
-    <!-- Character Selector Section -->
-    <div class="character-selector">
-        <!-- Capsule for Aoi -->
-        <div class="character-capsule" data-character="aoi">
-            <img class="capsule-image" src="images/aoi-custom.png" alt="Aoi Capsule">
-        </div>
-        <!-- Capsule for Ax -->
-        <div class="character-capsule" data-character="ax">
-            <img class="capsule-image" src="images/ax-custom.png" alt="Ax Capsule">
-        </div>
-        <!-- Capsule for Ri -->
-        <div class="character-capsule" data-character="ri">
-            <img class="capsule-image" src="images/ri-custom.png" alt="Ri Capsule">
-        </div>
-        <!-- Capsule for Ace -->
-        <div class="character-capsule" data-character="ace">
-            <img class="capsule-image" src="images/ace-custom.png" alt="Ace Capsule">
-        </div>
-        <!-- Capsule for Akai -->
-        <div class="character-capsule" data-character="akai">
-            <img class="capsule-image" src="images/akai-custom.png" alt="Akai Capsule">
-        </div>
-        <!-- Capsule for Kimi -->
-        <div class="character-capsule" data-character="kimi">
-            <img class="capsule-image" src="images/kimi-custom.png" alt="Kimi Capsule">
-        </div>
-        <!-- Capsule for Eir -->
-        <div class="character-capsule" data-character="eir">
-            <img class="capsule-image" src="images/eir-custom.png" alt="Eir Capsule">
-        </div>
-    </div>
+    <!-- Optional: Music button -->
+    <button id="toggle-music">Music</button>
 
-    <script src="script.js"></script>
+    <script src="script.js"></script> <!-- Link to your JS file -->
 </body>
 </html>
