@@ -27,131 +27,100 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: transparent;
-    border: none;
-    box-shadow: none;
     max-width: 100%;
     overflow: hidden;
-    animation: fadeIn 1s ease-in-out; /* Added fade-in animation */
+    animation: fadeIn 1s ease-in-out;
 }
 
-/* Fade transition effect */
-.fade {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
+    .character-display img {
+        width: 570px;
+        height: auto;
+        object-fit: contain;
+        transition: opacity 0.5s ease-in-out;
+    }
 
-/* When the image is visible */
-.fade-in {
-    opacity: 1;
-    transition: opacity 0.5s ease-in-out;
-}
+        /* Fade-in effect for dynamic changes */
+        .character-display img.fade {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
 
-.character-display img {
-    width: 570px;
-    height: auto;
-    border: none;
-    box-shadow: none;
-    background: transparent;
-    object-fit: contain;
-    transition: opacity 0.5s ease-in-out;
-}
+        .character-display img.fade-in {
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
+        }
 
-/* Description Section on the Left */
+/* Description Section */
 .character-info {
     position: absolute;
     left: 20px;
     top: 30%;
-    text-align: left;
     max-width: 300px;
-    background: none !important;
-    border: none !important;
-    box-shadow: none !important;
     opacity: 0;
     transform: translateX(-20px);
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-    padding-left: 20px;
 }
 
-#character-description {
-    padding-left: 15px;
-}
+    .character-info.show {
+        opacity: 1;
+        transform: translateX(0);
+    }
 
-/* When the description is visible */
-.character-info.show {
-    opacity: 1;
-    transform: translateX(0);
-}
+    .character-info h2 {
+        font-size: 1.8rem;
+        margin: 0 0 10px 0;
+    }
 
-.character-info h2 {
-    font-size: 1.8rem;
-    margin: 0 0 10px 0;
-}
+    .character-info p {
+        font-size: 1rem;
+        color: #fff;
+        line-height: 1.4;
+    }
 
-.character-info p {
-    font-size: 1rem;
-    color: #fff;
-    line-height: 1.4;
-}
-
-/* Selector Section on the Right */
+/* Selector Section */
 .character-selector {
     position: absolute;
-    right: 10px;
+    right: 20px;
     top: 50%;
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
     gap: 10px;
-    justify-content: center;
 }
 
-/* Character capsule styles */
+/* Capsule Styles */
 .character-capsule {
-    width: 180px;
-    height: 90px;
+    width: 150px;
+    height: 80px;
     overflow: hidden;
-    position: relative;
-    display: inline-block;
-    margin: 10px;
-    opacity: 0.5;
-    transition: opacity 0.3s ease;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0.6;
 }
 
     .character-capsule:hover {
         opacity: 1;
+        transform: scale(1.1);
     }
 
-.capsule-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+    .character-capsule img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 
-/* Custom capsule styles */
-.character-capsule.custom-1 img {
-    filter: sepia(100%) saturate(200%);
-    border: 3px solid #ff6347;
-}
+    /* Custom Capsule Effects */
+    .character-capsule.custom-1 img {
+        filter: sepia(100%) saturate(200%);
+        border: 2px solid #ff6347;
+    }
 
-.character-capsule.custom-2 img {
-    filter: grayscale(100%);
-    border: 3px solid #4682b4;
-}
+    .character-capsule.custom-2 img {
+        filter: grayscale(100%);
+        border: 2px solid #4682b4;
+    }
 
-/* Background video styling */
-#background-video {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-    pointer-events: none;
-}
-
-/* Hide everything initially */
+/* Initial Page Load States */
 body.loading .character-info,
 body.loading .container,
 body.loading .character-selector {
@@ -159,7 +128,6 @@ body.loading .character-selector {
     pointer-events: none;
 }
 
-/* Fade-in effect for the content */
 body:not(.loading) .character-info,
 body:not(.loading) .container,
 body:not(.loading) .character-selector {
@@ -168,22 +136,21 @@ body:not(.loading) .character-selector {
     transition: opacity 1s ease-in-out;
 }
 
-/* Style the button to be circular */
+/* Toggle Music Button */
 #toggle-music {
     position: absolute;
     top: 10px;
     right: 20px;
     background-color: transparent;
     border: none;
-    padding: 0;
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
-    transition: background-image 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
     #toggle-music img {
@@ -195,7 +162,7 @@ body:not(.loading) .character-selector {
         content: url('pause-icon.png');
     }
 
-/* Keyframes for fade-in effect */
+/* Keyframes */
 @keyframes fadeIn {
     from {
         opacity: 0;
