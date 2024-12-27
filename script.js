@@ -51,27 +51,25 @@ window.onload = () => {
         }
     };
 
-    // Function to update character details (name, description, and main image)
-    function setCharacterDetails(character) {
-        console.log("Setting character:", character.name);
-        characterName.innerText = character.name;
-        characterDescription.innerText = character.description;
-        characterImage.src = character.image; // Update main character image
+  // Function to update character details (name, description, and main image)
+function setCharacterDetails(character) {
+    console.log("Setting character:", character.name);
+    console.log("Character Image:", character.image);  // Log the image source
+    console.log("Capsule Image:", character.capsuleImage);  // Log the capsule image source
 
-        // Update the capsule image to reflect the selection (no dynamic eval needed)
-        const capsuleImage = document.querySelector(`#capsule-${character.name.toLowerCase()} img`);
-        if (capsuleImage) {
-            capsuleImage.src = character.capsuleImage;
-        }
+    // Update the main character details
+    characterName.innerText = character.name;
+    characterDescription.innerText = character.description;
+    characterImage.src = character.image; // Update main character image
+    console.log("Updated character image:", characterImage.src); // Log the updated character image source
+
+    // Update the capsule image to reflect the selection
+    const capsuleImage = document.querySelector(`#capsule-${character.name.toLowerCase()} img`);
+    if (capsuleImage) {
+        capsuleImage.src = character.capsuleImage;
+        console.log("Updated capsule image:", capsuleImage.src); // Log the updated capsule image source
+    } else {
+        console.log("Capsule image not found for:", character.name); // Log if the capsule image is not found
     }
+}
 
-    // Character Selector (click events for each capsule)
-    characterCapsules.forEach(capsule => {
-        capsule.addEventListener("click", function() {
-            const selectedCharacter = characters[capsule.getAttribute("data-character")];
-            if (selectedCharacter) {
-                setCharacterDetails(selectedCharacter); // Update character details when a capsule is clicked
-            }
-        });
-    });
-};
