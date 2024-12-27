@@ -46,6 +46,8 @@ const characters = {
 function setCharacterDetails(character) {
     const characterInfo = document.querySelector('.character-info');
     const characterImageElement = document.querySelector('.character-display img');
+console.log(character.image);  // Inside the `setCharacterDetails` function
+
     
     // Fade out the current character details
     characterInfo.classList.remove('show');
