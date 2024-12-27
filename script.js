@@ -1,4 +1,4 @@
-const characterImage = document.getElementById('character-image');  // Main character image
+const characterImage = document.getElementById('character-image'); // Main character image
 const characterName = document.getElementById('character-name');
 const characterDescription = document.getElementById('character-description');
 const characterCapsules = document.querySelectorAll(".character-capsule");
@@ -49,13 +49,15 @@ const characters = {
     }
 };
 
-// Set the character details (name, description, and main image)
+// Function to update character details (name, description, and main image)
 function setCharacterDetails(character) {
-    document.getElementById("character-name").innerText = character.name;
-    document.getElementById("character-description").innerText = character.description;
-    
-    // This line updates the main character image in the center of the screen
-    document.getElementById("character-image").src = character.image; // Update main character image
+    characterName.innerText = character.name;
+    characterDescription.innerText = character.description;
+    characterImage.src = character.image; // Update main character image
+
+    // Optionally: update the capsule image to reflect the selection
+    const capsuleImage = document.querySelector(`#capsule-${character.name.toLowerCase()} img`);
+    capsuleImage.src = character.capsuleImage;
 }
 
 // Character Selector (click events for each capsule)
@@ -63,50 +65,5 @@ characterCapsules.forEach(capsule => {
     capsule.addEventListener("click", function() {
         const selectedCharacter = characters[capsule.getAttribute("data-character")];
         setCharacterDetails(selectedCharacter); // Update character details when a capsule is clicked
-    });
-});
-    
-    // Fade out the current character details
-    characterInfo.classList.remove('show');
-    characterImageElement.classList.remove('show');
-    
-    // Wait for the fade-out transition to complete
-    setTimeout(() => {
-        // Update the character details (image, name, description)
-        characterImageElement.src = character.image;  // Update the main character image
-        characterName.textContent = character.name;
-        characterDescription.textContent = character.description;
-
-        // Fade in the new character details
-        characterInfo.classList.add('show');
-        characterImageElement.classList.add('show');
-    }, 500); // Adjust this to match the fade-out duration
-
-    // Optional: Add a background image fade transition for the container (optional)
-    const bgImage = new Image();
-    bgImage.src = character.image;
-
-    bgImage.onload = function() {
-        characterContainer.style.transition = "background-image 0.5s ease-in-out";
-        characterContainer.style.backgroundImage = `url('${character.image}')`;
-    };
-}
-
-// Character Selector (capsules)
-characterCapsules.forEach(capsule => {
-    capsule.addEventListener("click", function() {
-        // Get character ID from the data-character attribute
-        const selectedCharacter = characters[capsule.getAttribute("data-character")];
-
-        // Update the character details (image, name, description)
-        setCharacterDetails(selectedCharacter);
-
-        // Update the capsule image to reflect the selection
-        const capsuleImage = capsule.querySelector("img");
-        capsuleImage.src = selectedCharacter.capsuleImage;
-        
-        // Optionally: You can add an 'active' class to highlight the selected capsule
-        characterCapsules.forEach(c => c.classList.remove("active"));
-        capsule.classList.add("active");
     });
 });
