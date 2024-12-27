@@ -54,6 +54,7 @@ body {
     box-shadow: none;
     background: transparent;
     object-fit: contain;
+    opacity: 0;
     transition: opacity 0.5s ease-in-out; /* Apply transition on the image itself */
 }
 
@@ -68,7 +69,8 @@ body {
 }
 
     /* Show class to trigger slide-in effect */
-    .character-info.show {
+    .character-info.show,
+    .character-display img.show {
         opacity: 1;
         transform: translateX(0); /* Slide to the original position */
     }
