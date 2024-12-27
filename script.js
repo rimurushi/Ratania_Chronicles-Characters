@@ -2,6 +2,7 @@ const capsules = document.querySelectorAll('.character-capsule');
 const characterImage = document.getElementById('character-image');
 const characterName = document.getElementById('character-name');
 const characterDescription = document.getElementById('character-description');
+const characterContainer = document.querySelector('.character-container');  // The container for the main character display
 
 const characters = {
     aoi: {
@@ -41,37 +42,35 @@ const characters = {
     }
 };
 
-// Character selector images (customized versions for the capsules)
-const selectorImages = {
-    aoi: 'images/aoi-custom.png',
-    ax: 'images/ax-custom.png',
-    ri: 'images/ri-custom.png',
-    ace: 'images/ace-custom.png',
-    akai: 'images/akai-custom.png',
-    eir: 'images/eir-custom.png',
-    kimi: 'images/kimi-custom.png'
-};
-
-// Function to update character details with fade-in/out effects
+// Function to load the background and update details
 function setCharacterDetails(character) {
     const characterInfo = document.querySelector('.character-info');
     const characterImageElement = document.querySelector('.character-display img');
     
-    // Fade out the current character details
-    characterInfo.classList.remove('show'); // Remove 'show' class to trigger fade-out
-    characterImageElement.classList.remove('show'); // Remove 'show' class for image fade-out
+    // Set background image first
+    characterContainer.style.backgroundImage = `url('${character.image}')`;
+    
+    // Wait until the background image is loaded, then show the details
+    const bgImage = new Image();
+    bgImage.src = character.image;
 
-    // Wait for the transition to complete before updating
-    setTimeout(() => {
-        // Update the character details (image, name, description)
-        characterImageElement.src = character.image;
-        characterName.textContent = character.name;
-        characterDescription.textContent = character.description;
+    bgImage.onload = function() {
+        // Once the background image is loaded, now show the other elements
+        // Fade out current details
+        characterInfo.classList.remove('show');
+        characterImageElement.classList.remove('show');
+        
+        setTimeout(() => {
+            // Update the character details (image, name, description)
+            characterImageElement.src = character.image;
+            characterName.textContent = character.name;
+            characterDescription.textContent = character.description;
 
-        // Fade in the new character details
-        characterInfo.classList.add('show');
-        characterImageElement.classList.add('show');
-    }, 500);  // Duration matches the CSS transition for fade-out/fade-in (0.5 seconds)
+            // Fade in the new character details
+            characterInfo.classList.add('show');
+            characterImageElement.classList.add('show');
+        }, 500);  // Adjust to match the fade-out transition time
+    };
 }
 
 // Initialize with default character (Aoi) on page load
@@ -91,10 +90,6 @@ capsules.forEach(capsule => {
 
         // Fetch the character data using the character ID
         const character = characters[characterId];
-
-        // Set the custom image for the capsule based on the selector images
-        const selectorImage = selectorImages[characterId];
-        capsule.querySelector('img').src = selectorImage;
 
         // Update the character details (image, name, description)
         setCharacterDetails(character);
