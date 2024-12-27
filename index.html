@@ -23,65 +23,50 @@
     </video>
 
     <!-- Character Info Section -->
-<div class="character-info">
-    <h2 id="character-name">Aoi</h2>
-    <p id="character-description">Aoi is the first character in the world of Ratania. A brave warrior, Aoi's journey begins with...</p>
-</div>
+    <div class="character-info">
+        <h2 id="character-name">Aoi</h2>
+        <p id="character-description">Aoi is the first character in the world of Ratania. A brave warrior, Aoi's journey begins with...</p>
+    </div>
 
-<!-- Character Image Section -->
-<div class="container">
-    <div class="character-display">
-        <img id="character-image" src="images/aoi.png" alt="Character Image">
+    <!-- Character Image Section -->
+    <div class="container">
+        <div class="character-display">
+            <img id="character-image" src="images/aoi.png" alt="Character Image">
+        </div>
     </div>
-</div>
 
-<!-- Character Selector Section -->
-<div class="character-selector">
-    <!-- Capsule for Aoi -->
-    <div class="character-capsule" data-character="aoi">
-        <img class="capsule-image" src="images/aoi-custom.png" alt="Aoi Capsule">
+    <!-- Character Selector Section -->
+    <div class="character-selector">
+        <!-- Capsule for Aoi -->
+        <div class="character-capsule" data-character="aoi">
+            <img class="capsule-image" src="images/aoi-custom.png" alt="Aoi Capsule">
+        </div>
+        <!-- Capsule for Ax -->
+        <div class="character-capsule" data-character="ax">
+            <img class="capsule-image" src="images/ax-custom.png" alt="Ax Capsule">
+        </div>
+        <!-- Capsule for Ri -->
+        <div class="character-capsule" data-character="ri">
+            <img class="capsule-image" src="images/ri-custom.png" alt="Ri Capsule">
+        </div>
+        <!-- Capsule for Ace -->
+        <div class="character-capsule" data-character="ace">
+            <img class="capsule-image" src="images/ace-custom.png" alt="Ace Capsule">
+        </div>
+        <!-- Capsule for Akai -->
+        <div class="character-capsule" data-character="akai">
+            <img class="capsule-image" src="images/akai-custom.png" alt="Akai Capsule">
+        </div>
+        <!-- Capsule for Kimi -->
+        <div class="character-capsule" data-character="kimi">
+            <img class="capsule-image" src="images/kimi-custom.png" alt="Kimi Capsule">
+        </div>
+        <!-- Capsule for Eir -->
+        <div class="character-capsule" data-character="eir">
+            <img class="capsule-image" src="images/eir-custom.png" alt="Eir Capsule">
+        </div>
     </div>
-    <!-- Capsule for Ax -->
-    <div class="character-capsule" data-character="ax">
-        <img class="capsule-image" src="images/ax-custom.png" alt="Ax Capsule">
-    </div>
-    <!-- Capsule for Ri -->
-    <div class="character-capsule" data-character="ri">
-        <img class="capsule-image" src="images/ri-custom.png" alt="Ri Capsule">
-    </div>
-    <!-- Capsule for Ace -->
-    <div class="character-capsule" data-character="ace">
-        <img class="capsule-image" src="images/ace-custom.png" alt="Ace Capsule">
-    </div>
-    <!-- Capsule for Akai -->
-    <div class="character-capsule" data-character="akai">
-        <img class="capsule-image" src="images/akai-custom.png" alt="Akai Capsule">
-    </div>
-    <!-- Capsule for Kimi -->
-    <div class="character-capsule" data-character="kimi">
-        <img class="capsule-image" src="images/kimi-custom.png" alt="Kimi Capsule">
-    </div>
-    <!-- Capsule for Eir -->
-    <div class="character-capsule" data-character="eir">
-        <img class="capsule-image" src="images/eir-custom.png" alt="Eir Capsule">
-    </div>
-</div>
 
-    <script>
-    const toggleMusicButton = document.getElementById('toggle-music');
-    const music = document.getElementById('background-music');
-    const musicIcon = document.getElementById('music-icon');
-
-    toggleMusicButton.addEventListener('click', () => {
-        if (music.paused) {
-            music.play();
-            toggleMusicButton.classList.add('playing'); // Change the icon to the pause button
-        } else {
-            music.pause();
-            toggleMusicButton.classList.remove('playing'); // Change the icon back to the play button
-        }
-    });
-</script>
-
+    <script src="script.js"></script>
 </body>
 </html>
