@@ -69,7 +69,7 @@ body {
     border: none !important;
     box-shadow: none !important;
     opacity: 0;
-    transform: translateX(-300px);
+    transform: translateX(-300px); /* Start off-screen */
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
     padding-left: 20px;
 }
@@ -83,24 +83,16 @@ body {
     opacity: 1;
     transform: translateX(0);
 }
-/* New transition for the description to slide from left to right */
+
 .character-info.fade-in {
-    animation: slideIn 1s forwards;
+    transform: translateX(0); /* Move to normal position */
+    opacity: 1; /* Make it visible */
 }
 
-@keyframes slideIn {
-    0% {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-/* Optional adjustments for readability */
-.character-info h2 {
+.character-info.fade-out {
+    transform: translateX(-300px); /* Move back off-screen */
+    opacity: 0; /* Hide it */ /* Optional adjustments for readability */
+    .character-info h2 {
     font-size: 1.8rem;
     margin: 0 0 10px 0;
 }
