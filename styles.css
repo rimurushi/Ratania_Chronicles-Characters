@@ -60,9 +60,8 @@ body {
 /* Description Section on the Left */
 .character-info {
     position: absolute;
-    left: 20px;
+    left: -300px; /* Start off-screen to the left */
     top: 30%;
-    transform: none;
     text-align: left;
     max-width: 300px;
     padding: 0;
@@ -110,6 +109,7 @@ body {
 }
 
 /* Character capsule styles */
+/* Ensuring the selection image container is rectangular */
 .character-capsule {
     width: 150px; /* Adjust this based on your design needs */
     height: 70px; /* Adjust this to the desired height */
