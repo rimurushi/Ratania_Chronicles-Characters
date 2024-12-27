@@ -174,41 +174,4 @@ body.loading .character-info,
 body.loading .container,
 body.loading .character-selector {
     opacity: 0; /* Make them invisible */
-    pointer-events: none; /* Disable interaction */
-}
-
-/* Fade-in effect for the content */
-body:not(.loading) .character-info,
-body:not(.loading) .container,
-body:not(.loading) .character-selector {
-    opacity: 1; /* Ensure they are visible after the timeout */
-    pointer-events: all; /* Re-enable interaction */
-    transition: opacity 1s ease-in-out; /* Smooth fade-in effect */
-}
-
-/* Style the button to be circular */
-#toggle-music {
-    position: absolute;
-    top: 20px; /* Adjust this value to move it down from the top */
-    right: 20px; /* Adjust this value to move it in from the right side */
-    background-color: transparent;
-    border: none;
-    padding: 0;
-    width: 50px; /* Size of the button */
-    height: 50px; /* Size of the button */
-    border-radius: 50%; /* Circle shape */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: background-image 0.3s ease;
-}
-
-    #toggle-music img {
-        width: 70%; /* Size of the icon inside the button */
-        height: 70%; /* Size of the icon inside the button */
-    }
-
-    #toggle-music.playing img {
-        content: url('pause-icon.png'); /* Change image to pause icon */
-    }
+    pointer-events: none; /* Disable
