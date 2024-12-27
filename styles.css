@@ -57,22 +57,21 @@ body {
     transition: opacity 0.5s ease-in-out; /* Apply transition on the image itself */
 }
 
-/* Description Section on the Left */
-/* Character info (description) */
-* Ensure the container has relative positioning *
+/* Ensure the character description has an initial off-screen position */
 .character-info {
     position: absolute;
-    left: 20px;
+    left: -300px; /* Move description off-screen */
     top: 20%;
     opacity: 0; /* Initially hidden */
     transform: translateX(-20px); /* Start off-screen */
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
-.character-info.show {
-    opacity: 1;
-    transform: translateX(0);
-}
+    /* Show class to trigger slide-in effect */
+    .character-info.show {
+        opacity: 1;
+        transform: translateX(0); /* Slide to the original position */
+    }
 
 /* Optional: Add some padding or margin to control the space around the description */
 .character-info p {

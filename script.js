@@ -74,6 +74,12 @@ function setCharacterDetails(character) {
 // Attach click event to each character capsule
 capsules.forEach(capsule => {
     capsule.addEventListener('click', () => {
+        // Remove the 'active' class from all capsules
+        capsules.forEach(c => c.classList.remove('active'));
+
+        // Add 'active' class to the clicked capsule
+        capsule.classList.add('active');
+
         const characterId = capsule.getAttribute('data-character');
         const character = characters[characterId];
 
