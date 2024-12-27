@@ -25,14 +25,18 @@ body {
 /* Centered Image Section */
 .container {
     position: relative;
+    z-index: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 80vh;
+    overflow: visible; /* Ensure content isn't cut off */
 }
 
 .character-display {
+    position: relative;
+    z-index: 2; /* Higher than .container */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,7 +44,7 @@ body {
     border: none;
     box-shadow: none;
     max-width: 100%;
-    overflow: hidden;
+    overflow: visible; /* Prevent hiding content */
 }
 
 /* Fade transition effect */
@@ -58,9 +62,14 @@ body {
     width: 570px;
     height: auto;
     object-fit: contain;
-    opacity: 0;
+    opacity: 0; /* Initially hidden */
     transition: opacity 0.5s ease-in-out;
 }
+
+    .character-display img.show {
+        opacity: 1; /* Show when 'show' class is added */
+        z-index: 3; /* Ensure it's on top when visible */
+    }
 
 /* Character description */
 .character-info {
@@ -72,11 +81,11 @@ body {
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
-    .character-info.show,
-    .character-display img.show {
-        opacity: 1;
-        transform: translateX(0);
-    }
+.character-info.show {
+    opacity: 1;
+    transform: translateX(0);
+    z-index: 4; /* Ensure the description is above the image */
+}
 
     .character-info p {
         padding-left: 20px;
