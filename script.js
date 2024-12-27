@@ -42,24 +42,24 @@ const characters = {
     }
 };
 
-// Function to load the background and update details
+// Function to update character details with fade-in/out effects
 function setCharacterDetails(character) {
     const characterInfo = document.querySelector('.character-info');
     const characterImageElement = document.querySelector('.character-display img');
     
-    // Set background image first
+    // First, set the background image for the character container
     characterContainer.style.backgroundImage = `url('${character.image}')`;
-    
-    // Wait until the background image is loaded, then show the details
+
+    // Wait until the background image is fully loaded before showing the character details
     const bgImage = new Image();
     bgImage.src = character.image;
 
     bgImage.onload = function() {
-        // Once the background image is loaded, now show the other elements
+        // Background is now loaded, begin fading in other elements
         // Fade out current details
         characterInfo.classList.remove('show');
         characterImageElement.classList.remove('show');
-        
+
         setTimeout(() => {
             // Update the character details (image, name, description)
             characterImageElement.src = character.image;
@@ -69,7 +69,7 @@ function setCharacterDetails(character) {
             // Fade in the new character details
             characterInfo.classList.add('show');
             characterImageElement.classList.add('show');
-        }, 500);  // Adjust to match the fade-out transition time
+        }, 500); // Adjust to match the fade-out transition time
     };
 }
 
