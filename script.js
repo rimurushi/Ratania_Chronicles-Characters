@@ -56,11 +56,12 @@ const selectorImages = {
 
 // Function to update character details with fade-in/out effects
 function setCharacterDetails(character) {
-    // First, fade out and slide the current description out
     const characterInfo = document.querySelector('.character-info');
-    characterInfo.classList.remove('show');  // Remove the 'show' class to trigger the slide-out and fade-out
+    
+    // First, slide and fade out the current description
+    characterInfo.classList.remove('show');  // Trigger fade-out and slide-out by removing the 'show' class
 
-    // Wait for the transition to finish before updating
+    // Wait for the slide-out and fade-out transition to finish before updating
     setTimeout(() => {
         // Update the character details (image, name, description)
         characterImage.src = character.image;
@@ -68,8 +69,8 @@ function setCharacterDetails(character) {
         characterDescription.textContent = character.description;
 
         // Now, slide the new description in and fade it in
-        characterInfo.classList.add('show');  // Add the 'show' class to trigger the slide-in and fade-in
-    }, 1000);  // Match this timeout to the transition duration (1 second)
+        characterInfo.classList.add('show');  // Add 'show' class to trigger slide-in and fade-in
+    }, 1000);  // Duration should match the transition duration in CSS (1 second)
 }
 
 // Attach click event to each character capsule
