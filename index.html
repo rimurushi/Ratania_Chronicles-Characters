@@ -37,28 +37,27 @@
 
     <!-- Character Selector Section -->
     <div class="character-selector">
-        <div class="character-capsule" id="capsule-0" onclick="changeCharacter(0)">
-            <img class="capsule-image" src="images/aoi-custom.png" alt="Aoi Capsule">
-        </div>
-        <div class="character-capsule" id="capsule-1" onclick="changeCharacter(1)">
-            <img class="capsule-image" src="images/ax-custom.png" alt="Ax Capsule">
-        </div>
-        <div class="character-capsule" id="capsule-2" onclick="changeCharacter(2)">
-            <img class="capsule-image" src="images/ri-custom.png" alt="Ri Capsule">
-        </div>
-        <div class="character-capsule" id="capsule-3" onclick="changeCharacter(3)">
-            <img class="capsule-image" src="images/ace-custom.png" alt="Ace Capsule">
-        </div>
-        <div class="character-capsule" id="capsule-4" onclick="changeCharacter(4)">
-            <img class="capsule-image" src="images/akai-custom.png" alt="Akai Capsule">
-        </div>
-        <div class="character-capsule" id="capsule-5" onclick="changeCharacter(5)">
-            <img class="capsule-image" src="images/eir-custom.png" alt="Eir Capsule">
-        </div>
-        <div class="character-capsule" id="capsule-6" onclick="changeCharacter(6)">
-            <img class="capsule-image" src="images/kimi-custom.png" alt="Kimi Capsule">
-        </div>
-    </div>
+   <div class="character-capsule" id="capsule-0" data-character="aoi" onclick="setCharacterDetails(characters.aoi)">
+    <img class="capsule-image" src="images/aoi-custom.png" alt="Aoi Capsule">
+</div>
+<div class="character-capsule" id="capsule-1" data-character="ax" onclick="setCharacterDetails(characters.ax)">
+    <img class="capsule-image" src="images/ax-custom.png" alt="Ax Capsule">
+</div>
+<div class="character-capsule" id="capsule-2" data-character="ri" onclick="setCharacterDetails(characters.ri)">
+    <img class="capsule-image" src="images/ri-custom.png" alt="Ri Capsule">
+</div>
+<div class="character-capsule" id="capsule-3" data-character="ace" onclick="setCharacterDetails(characters.ace)">
+    <img class="capsule-image" src="images/ace-custom.png" alt="Ace Capsule">
+</div>
+<div class="character-capsule" id="capsule-4" data-character="akai" onclick="setCharacterDetails(characters.akai)">
+    <img class="capsule-image" src="images/akai-custom.png" alt="Akai Capsule">
+</div>
+<div class="character-capsule" id="capsule-5" data-character="eir" onclick="setCharacterDetails(characters.eir)">
+    <img class="capsule-image" src="images/eir-custom.png" alt="Eir Capsule">
+</div>
+<div class="character-capsule" id="capsule-6" data-character="kimi" onclick="setCharacterDetails(characters.kimi)">
+    <img class="capsule-image" src="images/kimi-custom.png" alt="Kimi Capsule">
+</div>
 
     <script src="script.js"></script>
 </body>
