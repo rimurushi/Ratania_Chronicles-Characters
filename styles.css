@@ -106,11 +106,14 @@ body {
 .character-capsule {
     width: 150px; /* Adjust this based on your design needs */
     height: 70px; /* Adjust this to the desired height */
-    overflow: hidden;
     position: relative;
     display: inline-block;
     margin: 10px; /* Optional: Adds space between capsules */
 }
+/* Style for active character capsule */
+    .character-capsule.active {
+        border: 3px solid #ff6347 !important;
+    }
 
 /* Ensuring the image inside the capsule fits the rectangular container */
 .capsule-image {
