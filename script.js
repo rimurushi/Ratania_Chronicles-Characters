@@ -55,15 +55,19 @@ function setCharacterDetails(character) {
     characterDescription.innerText = character.description;
     characterImage.src = character.image; // Update main character image
 
-    // Optionally: update the capsule image to reflect the selection
+    // Update the capsule image to reflect the selection (no dynamic eval needed)
     const capsuleImage = document.querySelector(`#capsule-${character.name.toLowerCase()} img`);
-    capsuleImage.src = character.capsuleImage;
+    if (capsuleImage) {
+        capsuleImage.src = character.capsuleImage;
+    }
 }
 
 // Character Selector (click events for each capsule)
 characterCapsules.forEach(capsule => {
     capsule.addEventListener("click", function() {
         const selectedCharacter = characters[capsule.getAttribute("data-character")];
-        setCharacterDetails(selectedCharacter); // Update character details when a capsule is clicked
+        if (selectedCharacter) {
+            setCharacterDetails(selectedCharacter); // Update character details when a capsule is clicked
+        }
     });
 });
