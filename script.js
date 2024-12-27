@@ -1,8 +1,8 @@
-const capsules = document.querySelectorAll('.character-capsule');
 const characterImage = document.getElementById('character-image');
 const characterName = document.getElementById('character-name');
 const characterDescription = document.getElementById('character-description');
 const characterContainer = document.querySelector('.container');  // The container for the main character display
+const characterCapsules = document.querySelectorAll(".character-capsule");
 
 // Define the character data with appropriate image sources
 const characters = {
@@ -50,24 +50,7 @@ const characters = {
     }
 };
 
-// Set the character details (name, description, and main image)
-function setCharacterDetails(character) {
-    document.getElementById("character-name").innerText = character.name;
-    document.getElementById("character-description").innerText = character.description;
-document.getElementById("character-image").src = `images/characters/${character.image}`; // Update main character image
-}
-
-// Character Selector
-const characterCapsules = document.querySelectorAll(".character-capsule");
-
-characterCapsules.forEach(capsule => {
-    capsule.addEventListener("click", function() {
-        const selectedCharacter = characters[capsule.getAttribute("data-character")];
-        setCharacterDetails(selectedCharacter);
-    });
-});
-
-// Function to update character details with fade-in/out effects
+// Set the character details (name, description, and main image) with fade-in/out effect
 function setCharacterDetails(character) {
     const characterInfo = document.querySelector('.character-info');
     const characterImageElement = document.querySelector('#character-image');  // Target the main character image
@@ -96,4 +79,23 @@ function setCharacterDetails(character) {
         characterContainer.style.transition = "background-image 0.5s ease-in-out";
         characterContainer.style.backgroundImage = `url('${character.image}')`;
     };
+}
+
+// Character Selector (capsules)
+characterCapsules.forEach(capsule => {
+    capsule.addEventListener("click", function() {
+        // Get character ID from the data-character attribute
+        const selectedCharacter = characters[capsule.getAttribute("data-character")];
+
+        // Update the character details (image, name, description)
+        setCharacterDetails(selectedCharacter);
+
+        // Update the capsule image to reflect the selection
+        const capsuleImage = capsule.querySelector("img");
+        capsuleImage.src = selectedCharacter.capsuleImage;
+        
+        // Optionally: You can add an 'active' class to highlight the selected capsule
+        characterCapsules.forEach(c => c.classList.remove("active"));
+        capsule.classList.add("active");
+    });
 });
