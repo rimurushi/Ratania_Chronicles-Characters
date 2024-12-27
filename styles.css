@@ -60,7 +60,7 @@ body {
 /* Description Section on the Left */
 .character-info {
     position: absolute;
-    left: -300px;
+    left: -100px;
     top: 30%;
     text-align: left;
     max-width: 300px;
