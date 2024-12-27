@@ -54,7 +54,7 @@ const characters = {
 function setCharacterDetails(character) {
     document.getElementById("character-name").innerText = character.name;
     document.getElementById("character-description").innerText = character.description;
-    document.getElementById("character-image").src = character.image; // Update main character image
+document.getElementById("character-image").src = `images/characters/${character.image}`; // Update main character image
 }
 
 // Character Selector
