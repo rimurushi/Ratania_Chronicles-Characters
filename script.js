@@ -84,3 +84,24 @@ capsules.forEach(capsule => {
         }
     });
 });
+// Add event listener to each capsule
+capsules.forEach(capsule => {
+    capsule.addEventListener('click', () => {
+        const selectedCharacter = capsule.getAttribute('data-character');
+
+        // Apply fade-out effect to current image
+        characterImage.classList.add('fade');
+
+        setTimeout(() => {
+            // Update character data
+            characterImage.src = characters[`character${selectedCharacter}`].image;
+            characterName.textContent = characters[`character${selectedCharacter}`].name;
+            characterDescription.textContent = characters[`character${selectedCharacter}`].description;
+
+            // Apply fade-in effect to new image
+            characterImage.classList.remove('fade');
+            characterImage.classList.add('fade-in');
+        }, 500); // Match the duration of the fade-out transition
+    });
+});
+
