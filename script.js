@@ -1,7 +1,9 @@
+window.onload = () => {
 const characterImage = document.getElementById('character-image'); // Main character image
 const characterName = document.getElementById('character-name');
 const characterDescription = document.getElementById('character-description');
 const characterCapsules = document.querySelectorAll(".character-capsule");
+console.log(characterCapsules); // This should log the selected elements
 
 // Define the character data with appropriate image sources
 const characters = {
@@ -51,9 +53,12 @@ const characters = {
 
 // Function to update character details (name, description, and main image)
 function setCharacterDetails(character) {
+function setCharacterDetails(character) {
+    console.log("Setting character:", character.name);
     characterName.innerText = character.name;
     characterDescription.innerText = character.description;
     characterImage.src = character.image; // Update main character image
+}
 
     // Update the capsule image to reflect the selection (no dynamic eval needed)
     const capsuleImage = document.querySelector(`#capsule-${character.name.toLowerCase()} img`);
