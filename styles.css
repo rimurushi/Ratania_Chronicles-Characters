@@ -6,142 +6,8 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: url('Ratania.gif'); /* Background image */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-color: #000; /* Fallback if video doesn't load */
     position: relative; /* Allows absolute positioning for sections */
-}
-
-/* Centered Image Section */
-.container {
-    position: relative; /* Allows absolute positioning for other sections */
-    display: flex;
-    justify-content: center; /* Keeps the image centered */
-    align-items: center;
-    width: 100%; /* Occupies full width */
-    height: 80vh; /* Ensures full-page height */
-}
-
-.character-display {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: transparent;
-    border: none;
-    box-shadow: none;
-    max-width: 100%; /* Ensure it doesnÅft exceed the containerÅfs width */
-    overflow: hidden; /* Prevents the image from overflowing */
-}
-
-/* Fade transition effect */
-.fade {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out; /* Ensures smooth fading out */
-}
-
-/* When the image is visible */
-.fade-in {
-    opacity: 1;
-    transition: opacity 0.5s ease-in-out; /* Ensures smooth fading in */
-}
-
-/* Ensure the image does not interfere with other content */
-.character-display img {
-    width: 570px;
-    height: auto;
-    border: none;
-    box-shadow: none;
-    background: transparent;
-    object-fit: contain;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out; /* Apply transition on the image itself */
-}
-
-/* Ensure the character description has an initial off-screen position */
-.character-info {
-    position: absolute;
-    left: -300px; /* Move description off-screen */
-    top: 20%;
-    opacity: 0; /* Initially hidden */
-    transform: translateX(-20px); /* Start off-screen */
-    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-}
-
-    /* Show class to trigger slide-in effect */
-    .character-info.show,
-    .character-display img.show {
-        opacity: 1;
-        transform: translateX(0); /* Slide to the original position */
-    }
-
-/* Optional: Add some padding or margin to control the space around the description */
-.character-info p {
-    padding-left: 20px; /* Adjust the padding to your liking */
-}
-
-.character-info h2 {
-    font-size: 1.8rem;
-    margin: 0 0 10px 0;
-}
-
-.character-info p {
-    font-size: 1rem;
-    color: #fff; /* Ensures text is visible over the background image */
-    line-height: 1.4;
-}
-
-/* Selector Section on the Right */
-.character-selector {
-    position: absolute; /* Independent positioning */
-    right: 10px; /* Distance from the right edge */
-    top: 50%; /* Vertically centered */
-    transform: translateY(-50%); /* Perfect vertical centering */
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    gap: 10px;
-    justify-content: center;
-}
-
-/* Character capsule styles */
-/* Ensuring the selection image container is rectangular */
-.character-capsule {
-    display: inline-block;
-    width: 150px; /* Adjust this based on your design needs */
-    height: 70px; /* Adjust this to the desired height */
-    position: relative;
-    display: inline-block;
-    margin: 10px; /* Optional: Adds space between capsules */
-    transition: transform 0.3s ease, transform-origin 0.3s ease;
-    transform-origin: center; /* Ensures the capsule grows from the center */
-}
-
-/* Style for active character capsule */
-    .character-capsule.active {
-        transform: scale(1.1); /* Increases size by 10% */
-        border: none;
-    }
-    .character-capsule:focus {
-        outline: none; /* Remove the default focus outline */
-    }
-
-/* Ensuring the image inside the capsule fits the rectangular container */
-.capsule-image {
-    width: 100%; /* Make the image fill the width of the container */
-    height: 100%; /* Make the image fill the height of the container */
-    object-fit: cover; /* Ensures the image fits inside the container without distorting */
-}
-
-/* When a capsule is clicked, it should only display the custom image */
-.character-capsule.custom-1 img {
-    filter: sepia(100%) saturate(200%); /* Apply custom image filter */
-    border: 3px solid #ff6347; /* Custom border color */
-}
-
-.character-capsule.custom-2 img {
-    filter: grayscale(100%); /* Apply custom grayscale effect */
-    border: 3px solid #4682b4; /* Custom border color */
 }
 
 /* Background video styling */
@@ -156,34 +22,154 @@ body {
     pointer-events: none; /* Prevents the video from blocking interactions */
 }
 
-/* Hide everything initially */
+/* Centered Image Section */
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80vh;
+}
+
+.character-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* Fade transition effect */
+.fade {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.fade-in {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.character-display img {
+    width: 570px;
+    height: auto;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Character description */
+.character-info {
+    position: absolute;
+    left: -300px;
+    top: 20%;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+    .character-info.show,
+    .character-display img.show {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .character-info p {
+        padding-left: 20px;
+    }
+
+    .character-info h2 {
+        font-size: 1.8rem;
+        margin: 0 0 10px 0;
+    }
+
+    .character-info p {
+        font-size: 1rem;
+        color: #fff;
+        line-height: 1.4;
+    }
+
+/* Selector Section on the Right */
+.character-selector {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+}
+
+/* Character capsule styles */
+.character-capsule {
+    display: inline-block;
+    width: 150px;
+    height: 70px;
+    position: relative;
+    margin: 10px;
+    transition: transform 0.3s ease;
+    transform-origin: center;
+}
+
+    .character-capsule.active {
+        transform: scale(1.1);
+    }
+
+    .character-capsule:focus {
+        outline: none;
+    }
+
+.capsule-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Custom capsule styles */
+.character-capsule.custom-1 img {
+    filter: sepia(100%) saturate(200%);
+    border: 3px solid #ff6347;
+}
+
+.character-capsule.custom-2 img {
+    filter: grayscale(100%);
+    border: 3px solid #4682b4;
+}
+
+/* Hide content initially during loading */
 body.loading .character-info,
 body.loading .container,
 body.loading .character-selector {
-    opacity: 0; /* Make them invisible */
-    pointer-events: none; /* Disable interaction */
+    opacity: 0;
+    pointer-events: none;
 }
 
 /* Fade-in effect for the content */
 body:not(.loading) .character-info,
 body:not(.loading) .container,
 body:not(.loading) .character-selector {
-    opacity: 1; /* Ensure they are visible after the timeout */
-    pointer-events: all; /* Re-enable interaction */
-    transition: opacity 1s ease-in-out; /* Smooth fade-in effect */
+    opacity: 1;
+    pointer-events: all;
+    transition: opacity 1s ease-in-out;
 }
 
 /* Style the button to be circular */
 #toggle-music {
     position: absolute;
-    top: 20px; /* Adjust this value to move it down from the top */
-    right: 20px; /* Adjust this value to move it in from the right side */
+    top: 20px;
+    right: 20px;
     background-color: transparent;
     border: none;
     padding: 0;
-    width: 50px; /* Size of the button */
-    height: 50px; /* Size of the button */
-    border-radius: 50%; /* Circle shape */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -192,10 +178,10 @@ body:not(.loading) .character-selector {
 }
 
     #toggle-music img {
-        width: 70%; /* Size of the icon inside the button */
-        height: 70%; /* Size of the icon inside the button */
+        width: 70%;
+        height: 70%;
     }
 
     #toggle-music.playing img {
-        content: url('pause-icon.png'); /* Change image to pause icon */
+        content: url('pause-icon.png');
     }

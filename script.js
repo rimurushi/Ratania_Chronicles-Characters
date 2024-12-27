@@ -2,7 +2,7 @@ const capsules = document.querySelectorAll('.character-capsule');
 const characterImage = document.getElementById('character-image');
 const characterName = document.getElementById('character-name');
 const characterDescription = document.getElementById('character-description');
-const characterContainer = document.querySelector('.character-container');  // The container for the main character display
+const characterContainer = document.querySelector('.container');  // The container for the main character display
 
 const characters = {
     aoi: {
@@ -47,29 +47,29 @@ function setCharacterDetails(character) {
     const characterInfo = document.querySelector('.character-info');
     const characterImageElement = document.querySelector('.character-display img');
     
-    // First, set the background image for the character container
-    characterContainer.style.backgroundImage = `url('${character.image}')`;
+    // Fade out the current character details
+    characterInfo.classList.remove('show');
+    characterImageElement.classList.remove('show');
 
-    // Wait until the background image is fully loaded before showing the character details
+    // Wait for the fade-out transition to complete
+    setTimeout(() => {
+        // Update the character details (image, name, description)
+        characterImageElement.src = character.image;
+        characterName.textContent = character.name;
+        characterDescription.textContent = character.description;
+
+        // Fade in the new character details
+        characterInfo.classList.add('show');
+        characterImageElement.classList.add('show');
+    }, 500); // Adjust this to match the fade-out duration
+
+    // Optional: Add a background image fade transition for the container (optional)
     const bgImage = new Image();
     bgImage.src = character.image;
 
     bgImage.onload = function() {
-        // Background is now loaded, begin fading in other elements
-        // Fade out current details
-        characterInfo.classList.remove('show');
-        characterImageElement.classList.remove('show');
-
-        setTimeout(() => {
-            // Update the character details (image, name, description)
-            characterImageElement.src = character.image;
-            characterName.textContent = character.name;
-            characterDescription.textContent = character.description;
-
-            // Fade in the new character details
-            characterInfo.classList.add('show');
-            characterImageElement.classList.add('show');
-        }, 500); // Adjust to match the fade-out transition time
+        characterContainer.style.transition = "background-image 0.5s ease-in-out";
+        characterContainer.style.backgroundImage = `url('${character.image}')`;
     };
 }
 
