@@ -1,7 +1,6 @@
-const characterImage = document.getElementById('character-image');
+const characterImage = document.getElementById('character-image');  // Main character image
 const characterName = document.getElementById('character-name');
 const characterDescription = document.getElementById('character-description');
-const characterContainer = document.querySelector('.container');  // The container for the main character display
 const characterCapsules = document.querySelectorAll(".character-capsule");
 
 // Define the character data with appropriate image sources
@@ -50,10 +49,22 @@ const characters = {
     }
 };
 
-// Set the character details (name, description, and main image) with fade-in/out effect
+// Set the character details (name, description, and main image)
 function setCharacterDetails(character) {
-    const characterInfo = document.querySelector('.character-info');
-    const characterImageElement = document.querySelector('#character-image');  // Target the main character image
+    document.getElementById("character-name").innerText = character.name;
+    document.getElementById("character-description").innerText = character.description;
+    
+    // This line updates the main character image in the center of the screen
+    document.getElementById("character-image").src = character.image; // Update main character image
+}
+
+// Character Selector (click events for each capsule)
+characterCapsules.forEach(capsule => {
+    capsule.addEventListener("click", function() {
+        const selectedCharacter = characters[capsule.getAttribute("data-character")];
+        setCharacterDetails(selectedCharacter); // Update character details when a capsule is clicked
+    });
+});
     
     // Fade out the current character details
     characterInfo.classList.remove('show');
