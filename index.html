@@ -68,5 +68,20 @@
 </div>
 
     <script src="script.js"></script>
+
+const toggleMusicButton = document.getElementById('toggle-music');
+const music = document.getElementById('background-music');
+const musicIcon = document.getElementById('music-icon');
+
+toggleMusicButton.addEventListener('click', () => {
+    if (music.paused) {
+        music.play();
+        toggleMusicButton.classList.add('playing'); // Change the icon to the pause button
+    } else {
+        music.pause();
+        toggleMusicButton.classList.remove('playing'); // Change the icon back to the play button
+    }
+});
+
 </body>
 </html>

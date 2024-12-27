@@ -53,7 +53,6 @@ const characters = {
     }
 };
 
-// Function to set character details
 function setCharacterDetails(character) {
     // Fade out the current image and description
     characterImage.classList.remove('fade-in');
@@ -64,4 +63,24 @@ function setCharacterDetails(character) {
     setTimeout(() => {
         // Change the character details (image, name, description)
         characterImage.src = character.image;
-        characterName.textContent = character.
+        characterName.textContent = character.name;
+        characterDescription.textContent = character.description;
+
+        // Fade in the new character details
+        characterImage.classList.remove('fade');
+        characterImage.classList.add('fade-in');
+        characterInfo.classList.add('show'); // Show the description with animation
+    }, 500); // Duration of the fade-out transition
+}
+
+// Attach click event to each character capsule
+capsules.forEach(capsule => {
+    capsule.addEventListener('click', () => {
+        const characterKey = capsule.getAttribute('data-character').toLowerCase();
+        const character = characters[characterKey]; // Get the character from the object
+
+        if (character) {
+            setCharacterDetails(character); // Call the function to update the character details
+        }
+    });
+});
