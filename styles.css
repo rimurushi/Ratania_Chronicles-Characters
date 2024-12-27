@@ -114,8 +114,8 @@ body {
 /* Character capsule styles */
 /* Ensuring the selection image container is rectangular */
 .character-capsule {
-    width: 180px; /* Adjust this based on your design needs */
-    height: 90px; /* Adjust this to the desired height */
+    width: 150px; /* Adjust this based on your design needs */
+    height: 60px; /* Adjust this to the desired height */
     overflow: hidden;
     position: relative;
     display: inline-block;
@@ -159,27 +159,6 @@ body {
     opacity: 1;
     transition: opacity 0.5s ease-in-out;
 }
-
-/* Main character display (center image) */
-.character-display img {
-    width: 570px; /* Adjusted to display the main character image */
-    height: auto;
-    object-fit: contain;
-    border-radius: 0; /* Ensures no rounded corners */
-    border: none;
-}
-
-/* Additional transitions for image visibility in main display */
-.fade {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.fade-in {
-    opacity: 1;
-    transition: opacity 0.5s ease-in-out;
-}
-
 
 /* Background video styling */
 #background-video {
