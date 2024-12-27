@@ -54,14 +54,14 @@ const selectorImages = {
     kimi: 'images/kimi-custom.png'
 };
 
-// Function to update character details
+// Function to update character details with fade-in/out effects
 function setCharacterDetails(character) {
     // Fade out the current image and description
     characterImage.classList.remove('fade-in');
     characterImage.classList.add('fade');
-    characterInfo.classList.remove('show'); // Remove the show class for fade-out
+    characterInfo.classList.add('fade-out'); // Add fade-out to description
 
-    // Wait for the fade-out transition to finish
+    // Wait for the fade-out transition to finish before updating
     setTimeout(() => {
         // Update character details (image, name, description)
         characterImage.src = character.image;
@@ -71,7 +71,8 @@ function setCharacterDetails(character) {
         // Fade in the new character details
         characterImage.classList.remove('fade');
         characterImage.classList.add('fade-in');
-        characterInfo.classList.add('show'); // Show the description with animation
+        characterInfo.classList.remove('fade-out'); // Remove fade-out from description
+        characterInfo.classList.add('fade-in'); // Add fade-in to description
     }, 500); // Duration of the fade-out transition
 }
 

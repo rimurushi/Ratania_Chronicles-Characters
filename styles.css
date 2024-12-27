@@ -73,8 +73,6 @@ body {
     transform: translateX(-20px); /* Start off-screen to the left */
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Add both fade and slide */
     padding-left: 20px; /* Add space inside the container */
-    /* or */
-    margin-left: 20px; /* Move the whole container to the right */
 }
 
 #character-description {
@@ -112,7 +110,6 @@ body {
 }
 
 /* Character capsule styles */
-/* Ensuring the selection image container is rectangular */
 .character-capsule {
     width: 150px; /* Adjust this based on your design needs */
     height: 70px; /* Adjust this to the desired height */
@@ -129,16 +126,16 @@ body {
     object-fit: cover; /* Ensures the image fits inside the container without distorting */
 }
 
-    /* When a capsule is clicked, it should only display the custom image */
-    .character-capsule.custom-1 img {
-        filter: sepia(100%) saturate(200%); /* Apply custom image filter */
-        border: 3px solid #ff6347; /* Custom border color */
-    }
+/* When a capsule is clicked, it should only display the custom image */
+.character-capsule.custom-1 img {
+    filter: sepia(100%) saturate(200%); /* Apply custom image filter */
+    border: 3px solid #ff6347; /* Custom border color */
+}
 
-    .character-capsule.custom-2 img {
-        filter: grayscale(100%); /* Apply custom grayscale effect */
-        border: 3px solid #4682b4; /* Custom border color */
-    }
+.character-capsule.custom-2 img {
+    filter: grayscale(100%); /* Apply custom grayscale effect */
+    border: 3px solid #4682b4; /* Custom border color */
+}
 
 /* Main character display (center image) */
 .character-display img {
