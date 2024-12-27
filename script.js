@@ -68,7 +68,7 @@ function setCharacterDetails(character) {
 
         // Now, slide the new description in and fade it in
         characterInfo.classList.add('show');  // Add 'show' class to trigger slide-in and fade-in
-    }, 1000);  // Duration should match the transition duration in CSS (1 second)
+    }, 500);  // Duration should match the transition duration in CSS (0.5 seconds for fade-out, fade-in)
 }
 
 // Attach click event to each character capsule
@@ -77,20 +77,6 @@ capsules.forEach(capsule => {
         const characterId = capsule.getAttribute('data-character');
         const character = characters[characterId];
 
-        // Ensure fade-out effect is applied correctly
-        characterImage.classList.remove('fade-in'); // Remove the fade-in class if it's still there
-        characterImage.classList.add('fade'); // Apply the fade-out class
-
-        // Wait for the fade-out transition to finish before changing the image and details
-        setTimeout(() => {
-            // Change the character details (image, name, description)
-            characterImage.src = character.image;
-            characterName.textContent = character.name;
-            characterDescription.textContent = character.description;
-
-            // After 500ms (fade-out transition duration), apply fade-in effect
-            characterImage.classList.remove('fade'); // Remove fade-out class
-            characterImage.classList.add('fade-in'); // Apply fade-in class
-        }, 500); // This matches the fade-out duration (500ms)
+        setCharacterDetails(character);
     });
 });
