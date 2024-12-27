@@ -112,9 +112,9 @@ body {
 }
 /* Style for active character capsule */
     .character-capsule.active {
-        border: none; /* Removes the border */
-
-        .character-capsule:focus {
+        border: none;
+    }
+    .character-capsule:focus {
         outline: none; /* Remove the default focus outline */
     }
 
