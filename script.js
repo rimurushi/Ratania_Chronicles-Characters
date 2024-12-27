@@ -23,17 +23,26 @@ const selectorImages = {
     character7: 'images/kimi-custom.png'
 };
 
-// Update character details function
+// Function to update character details with fade-in/out effects
 function setCharacterDetails(character) {
     const characterInfo = document.querySelector('.character-info');
+    const characterImageDisplay = document.querySelector('.character-display img');
+    
+    // Fade out the current character details
     characterInfo.classList.remove('show');
-
+    characterImageDisplay.classList.remove('show');
+    
+    // Wait for the fade-out transition to finish before updating
     setTimeout(() => {
+        // Update the character details (image, name, description)
         characterImage.src = character.image;
         characterName.textContent = character.name;
         characterDescription.textContent = character.description;
+
+        // Fade in the updated character details
         characterInfo.classList.add('show');
-    }, 500);
+        characterImageDisplay.classList.add('show');
+    }, 500);  // Duration matches the transition duration (0.5 seconds for fade-out, fade-in)
 }
 
 // Event listeners for each capsule
