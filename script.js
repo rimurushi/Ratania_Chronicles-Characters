@@ -6,39 +6,46 @@ const characterContainer = document.querySelector('.container');  // The contain
 
 const characters = {
     aoi: {
-        image: 'images/aoi.png',
+        image: 'images/characters/aoi.png',
         name: 'Aoi',
-        description: 'Aoi is the first character in the world of Ratania. A brave warrior, Aoi\'s journey begins with...'
+        description: 'Aoi is the first character in the world of Ratania. A brave warrior, Aoi\'s journey begins with...',
+        capsuleImage: 'images/capsules/aoi-custom.png'
     },
     ax: {
-        image: 'images/ax.png',
+        image: 'images/characters/ax.png',
         name: 'Ax',
-        description: 'Ax is a strong and silent protector. His mysterious past is the key to unlocking the fate of Ratania...'
+        description: 'Ax is a strong and silent protector. His mysterious past is the key to unlocking the fate of Ratania...',
+        capsuleImage: 'images/capsules/ax-custom.png'
     },
     ri: {
-        image: 'images/ri.png',
+        image: 'images/characters/ri.png',
         name: 'Ri',
-        description: 'Ri is a cunning tactician with a quick wit. Her strategies shape the battles in Ratania...'
+        description: 'Ri is a cunning tactician with a quick wit. Her strategies shape the battles in Ratania...',
+        capsuleImage: 'images/capsules/ri-custom.png'
     },
     ace: {
-        image: 'images/ace.png',
+        image: 'images/characters/ace.png',
         name: 'Ace',
-        description: 'Ace is a skilled marksman with unmatched precision. He is on a quest to seek vengeance for a past betrayal...'
+        description: 'Ace is a skilled marksman with unmatched precision. He is on a quest to seek vengeance for a past betrayal...',
+        capsuleImage: 'images/capsules/ace-custom.png'
     },
     akai: {
-        image: 'images/akai.png',
+        image: 'images/characters/akai.png',
         name: 'Akai',
-        description: 'Akai is a fiery fighter, passionate about justice and revenge. Her heart is as fierce as her blade...'
+        description: 'Akai is a fiery fighter, passionate about justice and revenge. Her heart is as fierce as her blade...',
+        capsuleImage: 'images/capsules/akai-custom.png'
     },
     eir: {
-        image: 'images/eir.png',
+        image: 'images/characters/eir.png',
         name: 'Eir',
-        description: 'Eir is a healer and protector, bringing light to even the darkest corners of Ratania...'
+        description: 'Eir is a healer and protector, bringing light to even the darkest corners of Ratania...',
+        capsuleImage: 'images/capsules/eir-custom.png'
     },
     kimi: {
-        image: 'images/kimi.png',
+        image: 'images/characters/kimi.png',
         name: 'Kimi',
-        description: 'Kimi is a mysterious rogue, whose true intentions are always hidden in the shadows...'
+        description: 'Kimi is a mysterious rogue, whose true intentions are always hidden in the shadows...',
+        capsuleImage: 'images/capsules/kimi-custom.png'
     }
 };
 
