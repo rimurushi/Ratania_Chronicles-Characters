@@ -55,22 +55,23 @@ const selectorImages = {
 // Function to update character details with fade-in/out effects
 function setCharacterDetails(character) {
     const characterInfo = document.querySelector('.character-info');
+    const characterImageElement = document.querySelector('.character-display img');
     
-    // First, slide and fade out the current description and image
-    characterInfo.classList.remove('show');  // Trigger fade-out and slide-out by removing the 'show' class
-    characterImage.classList.remove('show');
+    // Fade out the current character details
+    characterInfo.classList.remove('show'); // Remove 'show' class to trigger fade-out
+    characterImageElement.classList.remove('show'); // Remove 'show' class for image fade-out
 
-    // Wait for the slide-out and fade-out transition to finish before updating
+    // Wait for the transition to complete before updating
     setTimeout(() => {
         // Update the character details (image, name, description)
-        characterImage.src = character.image;
+        characterImageElement.src = character.image;
         characterName.textContent = character.name;
         characterDescription.textContent = character.description;
 
-        // Now, slide the new description in and fade it in
-        characterInfo.classList.add('show');  // Add 'show' class to trigger slide-in and fade-in
-        characterImage.classList.add('show'); // Add 'show' class to trigger fade-in for the image
-    }, 500);  // Duration should match the transition duration in CSS (0.5 seconds for fade-out, fade-in)
+        // Fade in the new character details
+        characterInfo.classList.add('show');
+        characterImageElement.classList.add('show');
+    }, 500);  // Duration matches the CSS transition for fade-out/fade-in (0.5 seconds)
 }
 
 // Initialize with default character (Aoi) on page load
@@ -79,13 +80,23 @@ setCharacterDetails(characters.aoi);
 // Attach click event to each character capsule
 capsules.forEach(capsule => {
     capsule.addEventListener('click', () => {
-        // Remove the 'active' class from all capsules (highlighting effect)
+        // Remove the 'active' class from all capsules
         capsules.forEach(c => c.classList.remove('active'));
 
-        // Add 'active' class to the clicked capsule (apply custom styling)
+        // Add 'active' class to the clicked capsule
         capsule.classList.add('active');
 
         // Get the character ID from the data-character attribute of the capsule
         const characterId = capsule.getAttribute('data-character');
 
-        // Fetch the char
+        // Fetch the character data using the character ID
+        const character = characters[characterId];
+
+        // Set the custom image for the capsule based on the selector images
+        const selectorImage = selectorImages[characterId];
+        capsule.querySelector('img').src = selectorImage;
+
+        // Update the character details (image, name, description)
+        setCharacterDetails(character);
+    });
+});
