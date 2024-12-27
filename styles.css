@@ -96,6 +96,7 @@ body {
     top: 50%; /* Vertically centered */
     transform: translateY(-50%); /* Perfect vertical centering */
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     gap: 10px;
     justify-content: center;
@@ -104,14 +105,19 @@ body {
 /* Character capsule styles */
 /* Ensuring the selection image container is rectangular */
 .character-capsule {
+    display: inline-block;
     width: 150px; /* Adjust this based on your design needs */
     height: 70px; /* Adjust this to the desired height */
     position: relative;
     display: inline-block;
     margin: 10px; /* Optional: Adds space between capsules */
+    transition: transform 0.3s ease, transform-origin 0.3s ease;
+    transform-origin: center; /* Ensures the capsule grows from the center */
 }
+
 /* Style for active character capsule */
     .character-capsule.active {
+        transform: scale(1.1); /* Increases size by 10% */
         border: none;
     }
     .character-capsule:focus {
