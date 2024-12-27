@@ -55,7 +55,7 @@ const selectorImages = {
 // Function to update character details with fade-in/out effects
 function setCharacterDetails(character) {
     const characterInfo = document.querySelector('.character-info');
-
+    
     // First, slide and fade out the current description
     characterInfo.classList.remove('show');  // Trigger fade-out and slide-out by removing the 'show' class
 
