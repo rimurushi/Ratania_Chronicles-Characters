@@ -114,6 +114,9 @@ body {
     .character-capsule.active {
         border: 3px solid #ff6347 !important;
     }
+    .character-capsule:focus {
+        outline: none; /* Remove the default focus outline */
+    }
 
 /* Ensuring the image inside the capsule fits the rectangular container */
 .capsule-image {
