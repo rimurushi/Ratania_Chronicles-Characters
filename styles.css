@@ -60,30 +60,45 @@ body {
 /* Description Section on the Left */
 .character-info {
     position: absolute;
-    left: -300px; /* Start off-screen to the left */
+    left: -300px;
     top: 30%;
     text-align: left;
     max-width: 300px;
     padding: 0;
-    background: none !important; /* Enforce no background */
-    border: none !important; /* Ensure no border */
-    box-shadow: none !important; /* Remove any shadow */
-    opacity: 0; /* Start hidden */
-    transform: translateX(-20px); /* Start off-screen to the left */
-    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Add both fade and slide */
-    padding-left: 20px; /* Add space inside the container */
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    padding-left: 20px;
 }
 
 #character-description {
     padding-left: 15px; /* Adds space just inside the description text */
 }
 
-/* When the description is visible */
+/* Add a smooth transition effect for when the description fades in from left */
 .character-info.show {
-    opacity: 1; /* Fade in */
-    transform: translateX(0); /* Move to its original position */
+    opacity: 1;
+    transform: translateX(0);
+}
+/* New transition for the description to slide from left to right */
+.character-info.fade-in {
+    animation: slideIn 1s forwards;
 }
 
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
 /* Optional adjustments for readability */
 .character-info h2 {
     font-size: 1.8rem;
