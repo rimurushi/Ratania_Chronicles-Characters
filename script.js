@@ -1,75 +1,96 @@
-window.onload = () => {
-    const characterImage = document.getElementById('character-image'); // Main character image
-    const characterName = document.getElementById('character-name');
-    const characterDescription = document.getElementById('character-description');
-    const characterCapsules = document.querySelectorAll(".character-capsule");
-    console.log(characterCapsules); // This should log the selected elements
+// JavaScript for Ratania Character Showcase with Enhancements
 
-    // Define the character data with appropriate image sources
-    const characters = {
-        aoi: {
-            name: "Aoi",
-            description: "Aoi is the first character in the world of Ratania. A brave warrior, Aoi's journey begins with...",
-            image: "images/characters/aoi.png", // Main character image (middle)
-            capsuleImage: "images/capsules/aoi-custom.png" // Capsule image (inside the selector)
-        },
-        ax: {
-            name: "Ax",
-            description: "Ax is a fierce warrior with a mysterious past. His quest for redemption leads him to Ratania...",
-            image: "images/characters/ax.png",
-            capsuleImage: "images/capsules/ax-custom.png"
-        },
-        ri: {
-            name: "Ri",
-            description: "Ri is a swift and agile character with unmatched skill in the art of stealth...",
-            image: "images/characters/ri.png",
-            capsuleImage: "images/capsules/ri-custom.png"
-        },
-        ace: {
-            name: "Ace",
-            description: "Ace is a powerful sorcerer with control over elemental forces. His role in Ratania's story is crucial...",
-            image: "images/characters/ace.png",
-            capsuleImage: "images/capsules/ace-custom.png"
-        },
-        akai: {
-            name: "Akai",
-            description: "Akai is a skilled archer and the protector of her village. Her knowledge of nature is unmatched...",
-            image: "images/characters/akai.png",
-            capsuleImage: "images/capsules/akai-custom.png"
-        },
-        eir: {
-            name: "Eir",
-            description: "Eir is a healer who uses magic to mend wounds and protect those in need. Her role in the world of Ratania is vital...",
-            image: "images/characters/eir.png",
-            capsuleImage: "images/capsules/eir-custom.png"
-        },
-        kimi: {
-            name: "Kimi",
-            description: "Kimi is a young and talented inventor, known for creating devices that enhance the abilities of her allies...",
-            image: "images/characters/kimi.png",
-            capsuleImage: "images/capsules/kimi-custom.png"
-        }
-    };
+document.addEventListener("DOMContentLoaded", () => {
+  const characterSelector = document.querySelector(".character-selector");
+  const characterImage = document.querySelector(".character-image");
+  const characterName = document.querySelector(".character-name");
+  const characterDescription = document.querySelector(".character-description");
+  const audio = new Audio("audio/background-music.mp3"); // Replace with your audio path
+  const musicToggle = document.querySelector("#music-toggle");
 
-  // Function to update character details (name, description, and main image)
-function setCharacterDetails(character) {
-    console.log("Setting character:", character.name);
-    console.log("Character Image:", character.image);  // Log the image source
-    console.log("Capsule Image:", character.capsuleImage);  // Log the capsule image source
+  // Set audio to loop
+  audio.loop = true;
 
-    // Update the main character details
-    characterName.innerText = character.name;
-    characterDescription.innerText = character.description;
-    characterImage.src = character.image; // Update main character image
-    console.log("Updated character image:", characterImage.src); // Log the updated character image source
+  // Function to update character info with fade-in effect
+  const updateCharacter = (name, imagePath, description) => {
+    characterImage.classList.add("fade-out");
+    characterName.classList.add("fade-out");
+    characterDescription.classList.add("fade-out");
 
-    // Update the capsule image to reflect the selection
-    const capsuleImage = document.querySelector(`#capsule-${character.name.toLowerCase()} img`);
-    if (capsuleImage) {
-        capsuleImage.src = character.capsuleImage;
-        console.log("Updated capsule image:", capsuleImage.src); // Log the updated capsule image source
-    } else {
-        console.log("Capsule image not found for:", character.name); // Log if the capsule image is not found
+    setTimeout(() => {
+      characterImage.src = imagePath;
+      characterName.textContent = name;
+      characterDescription.textContent = description;
+
+      characterImage.classList.remove("fade-out");
+      characterImage.classList.add("fade-in");
+      characterName.classList.remove("fade-out");
+      characterName.classList.add("fade-in");
+      characterDescription.classList.remove("fade-out");
+      characterDescription.classList.add("fade-in");
+    }, 300);
+
+    setTimeout(() => {
+      characterImage.classList.remove("fade-in");
+      characterName.classList.remove("fade-in");
+      characterDescription.classList.remove("fade-in");
+    }, 600);
+  };
+
+  // Event listener for character selector
+  characterSelector.addEventListener("click", (event) => {
+    const target = event.target.closest(".capsule");
+
+    if (target) {
+      const { characterName: name, characterImage: imagePath, characterDescription: description } = target.dataset;
+
+      updateCharacter(name, imagePath, description);
     }
-}
-};
+  });
+
+  // Music toggle functionality
+  musicToggle.addEventListener("click", () => {
+    if (audio.paused) {
+      audio.play();
+      musicToggle.textContent = "Pause Music";
+    } else {
+      audio.pause();
+      musicToggle.textContent = "Play Music";
+    }
+  });
+
+  // Initial state
+  audio.play();
+  musicToggle.textContent = "Pause Music";
+});
+
+/* CSS for fade-in/out effects */
+const style = document.createElement("style");
+style.textContent = `
+  .fade-in {
+    animation: fadeIn 0.3s ease-in forwards;
+  }
+
+  .fade-out {
+    animation: fadeOut 0.3s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+`;
+document.head.appendChild(style);
