@@ -1,111 +1,55 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #000; /* Fallback if video doesn't load */
-    position: relative; /* Allows absolute positioning for sections */
+    flex-direction: row; /* Arrange elements in a row */
+    justify-content: center; /* Center contents horizontally */
+    align-items: center; /* Center contents vertically */
+    height: 100vh; /* Full viewport height */
+    margin: 0; /* Remove default margin */
 }
 
-/* Background video styling */
-#background-video {
-    position: fixed; /* Ensures the video stays in place even on scroll */
-    top: 0;
-    left: 0;
-    width: 100%; /* Covers the full width of the viewport */
-    height: 100%; /* Covers the full height of the viewport */
-    object-fit: cover; /* Ensures the video scales proportionally to fill the screen */
-    z-index: -1; /* Places the video behind all content */
-    pointer-events: none; /* Prevents the video from blocking interactions */
-}
-
-/* Hide content initially during loading */
-body.loading .character-info,
-body.loading .container,
-body.loading .character-selector,
-body.loading .character-description {
-    opacity: 0;
-    pointer-events: none;
-}
-
-/* Fade-in effect for the content */
-body:not(.loading) .character-info,
-body:not(.loading) .container,
-body:not(.loading) .character-selector,
-body:not(.loading) .character-description {
-    opacity: 1;
-    pointer-events: all;
-    transition: opacity 1s ease-in-out;
-}
-
-/* Centered Image Section */
-.container {
-    position: relative;
-    z-index: 1;
+.character-info {
+    flex: 1; /* Allow this to take up space */
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column; /* Center vertically */
-    width: 100%;
-    height: 80vh;
+    flex-direction: column; /* Stack content vertically */
+    justify-content: center; /* Center vertically */
+    align-items: flex-start; /* Align items to the left */
+    padding: 20px; /* Add some padding */
 }
 
 .character-display {
-    position: relative;
-    z-index: 2; /* Higher than .container */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex; /* Make display a flex container */
+    justify-content: center; /* Center the image */
+    flex: 1; /* Allow this to take up space */
 }
 
-    /* Fade transition effect for character image */
-    .character-display img {
-        width: 570px;
-        height: auto;
-        object-fit: contain;
-        opacity: 0; /* Initially hidden */
-        transition: opacity 0.5s ease-in-out; /* Match this duration with JS */
-    }
+#character-image {
+    max-width: 100%; /* Responsive image */
+    height: auto; /* Maintain aspect ratio */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.5s ease-in-out; /* Smooth fade */
+}
 
-        .character-display img.show {
-            opacity: 1; /* Show when 'show' class is added */
-        }
+    #character-image.show {
+        opacity: 1; /* Show when 'show' class is added */
+    }
 
 .character-description {
     opacity: 0; /* Initially hidden */
-    transition: opacity 0.5s ease-in-out; /* Match this duration with JS */
+    transform: translateX(-20px); /* Start slightly to the left */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Smooth fade and slide */
 }
 
     .character-description.show {
-        opacity: 1; /* Show when 'show' class is added */
+        opacity: 1; /* Fully visible */
+        transform: translateX(0); /* Move to original position */
     }
 
-.character-info h2 {
-    opacity: 0; /* Initially hidden */
-    transition: opacity 0.5s ease-in-out; /* Match this duration with JS */
-}
-
-    .character-info h2.show {
-        opacity: 1; /* Show when 'show' class is added */
-    }
-
-/* Selector Section on the Right */
 .character-selector {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    gap: 10px;
-    justify-content: center;
+    display: flex; /* Flex container for character capsules */
+    justify-content: center; /* Center capsules */
+    margin-top: 20px; /* Space above the selector */
 }
 
-/* Character capsule styles */
 .character-capsule {
     display: inline-block;
     width: 150px;
@@ -118,41 +62,4 @@ body:not(.loading) .character-description {
 
     .character-capsule.active {
         transform: scale(1.2); /* Scale to 120% when active */
-    }
-
-    .character-capsule:focus {
-        outline: none; /* Removes focus outline */
-    }
-
-.capsule-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Style the button to be circular */
-#toggle-music {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background-color: transparent;
-    border: none;
-    padding: 0;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: background-image 0.3s ease;
-}
-
-    #toggle-music img {
-        width: 70%;
-        height: 70%;
-    }
-
-    #toggle-music.playing img {
-        content: url('pause-icon.png');
     }
