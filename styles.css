@@ -78,7 +78,7 @@ body:not(.loading) .character-description {
 .character-description {
     position: absolute; /* Position absolutely to control placement */
     left: 20px; /* Set distance from the left side */
-    top: -10px; /* Set distance from the top */
+    top: 80px; /* Set distance from the top */
     opacity: 0; /* Initially hidden */
     transform: translateX(-20px); /* Start slightly off-screen to the left */
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Smooth fade and slide */
