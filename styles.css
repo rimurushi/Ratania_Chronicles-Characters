@@ -67,20 +67,28 @@ body:not(.loading) .character-description {
         height: auto;
         object-fit: contain;
         opacity: 0; /* Initially hidden */
-        transition: opacity 0.5s ease-in-out;
+        transition: opacity 0.5s ease-in-out; /* Match this duration with JS */
     }
 
         .character-display img.show {
             opacity: 1; /* Show when 'show' class is added */
         }
 
-/* Character description */
 .character-description {
     opacity: 0; /* Initially hidden */
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out; /* Match this duration with JS */
 }
 
     .character-description.show {
+        opacity: 1; /* Show when 'show' class is added */
+    }
+
+.character-info h2 {
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.5s ease-in-out; /* Match this duration with JS */
+}
+
+    .character-info h2.show {
         opacity: 1; /* Show when 'show' class is added */
     }
 

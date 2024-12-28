@@ -33,33 +33,36 @@ document.addEventListener("DOMContentLoaded", () => {
             imagePath: "images/characters/akai.png",
             description: "Akai is a fierce protector of Ratania, wielding his sword with great skill."
         },
-        eir: {
-            name: "Eir",
-            imagePath: "images/characters/eir.png",
-            description: "Eir is a healer with a gentle heart, always putting others before herself."
-        },
         kimi: {
             name: "Kimi",
             imagePath: "images/characters/kimi.png",
             description: "Kimi is a master of stealth, often moving unnoticed in the shadows."
+        },
+        eir: {
+            name: "Eir",
+            imagePath: "images/characters/eir.png",
+            description: "Eir is a healer with a gentle heart, always putting others before herself."
         }
     };
 
     // Function to update character info with fade-in effect
     const updateCharacter = (name, imagePath, description) => {
+        // Fade out the current character display
         characterImage.classList.remove("show");
         characterName.classList.remove("show");
         characterDescription.classList.remove("show");
 
+        // Wait for the fade-out transition to complete before updating content
         setTimeout(() => {
-            characterImage.src = imagePath;
+            characterImage.src = imagePath; // Update the image source
             characterName.textContent = name;
             characterDescription.textContent = description;
 
+            // Fade in the new character display
             characterImage.classList.add("show");
             characterName.classList.add("show");
             characterDescription.classList.add("show");
-        }, 300);
+        }, 500); // Delay to match the fade-out duration
     };
 
     // Initial delay before content fades in
