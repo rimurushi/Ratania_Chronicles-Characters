@@ -76,11 +76,13 @@ body:not(.loading) .character-description {
 
 .character-description {
     opacity: 0; /* Initially hidden */
-    transition: opacity 0.5s ease-in-out; /* Match this duration with JS */
+    transform: translateX(-20px); /* Start slightly to the left */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Smooth fade and slide */
 }
 
     .character-description.show {
-        opacity: 1; /* Show when 'show' class is added */
+        opacity: 1; /* Fully visible */
+        transform: translateX(0); /* Move to original position */
     }
 
 .character-info h2 {
