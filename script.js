@@ -76,6 +76,15 @@ characterSelector.addEventListener("click", (event) => {
             }
         };
 
+function updateCharacter(character) {
+    const display = document.getElementById("character-display");
+    display.innerHTML = `
+        <h2>${character.name}</h2>
+        <img src="${character.imagePath}" alt="${character.name}">
+        <p>${character.description}</p>
+    `;
+}
+
         // Ensure characterData exists in characterInfo
         if (characterInfo[characterData]) {
             const { name, imagePath, description } = characterInfo[characterData];
