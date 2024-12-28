@@ -50,7 +50,9 @@ const updateCharacter = (name, imagePath, description) => {
     // Fade out the current character display
     characterImage.classList.remove("show");
     characterName.classList.remove("show");
-    characterDescription.classList.remove("show");
+    characterDescription.classList.remove("show"); // Remove class to trigger reflow
+void characterDescription.offsetWidth; // Trigger reflow
+characterDescription.classList.add("show"); // Re-add class to start transition
 
     // Wait for the fade-out transition to complete before updating content
     setTimeout(() => {
