@@ -75,13 +75,16 @@ body:not(.loading) .character-description {
         }
 
 .character-description {
+    position: absolute; /* Position absolutely to control placement */
+    left: 20px; /* Set distance from the left side */
+    top: 20px; /* Set distance from the top */
     opacity: 0; /* Initially hidden */
-    transform: translateX(-20px); /* Start slightly to the left */
+    transform: translateX(-20px); /* Start slightly off-screen to the left */
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Smooth fade and slide */
     display: flex; /* Use flexbox for layout */
     flex-direction: column; /* Stack title and description vertically */
     align-items: flex-start; /* Align items to the start */
-    margin: 20px; /* Add some margin for spacing */
+    margin: 0; /* Remove margin */
 }
 
     .character-description.show {
@@ -92,13 +95,7 @@ body:not(.loading) .character-description {
     .character-description h3,
     .character-description p {
         margin: 0; /* Remove default margin */
-        transition: opacity 0.5s ease-in-out; /* Transition for title and description */
     }
-
-        .character-description h3.show,
-        .character-description p.show {
-            opacity: 1; /* Show when 'show' class is added */
-        }
 
 /* Selector Section on the Right */
 .character-selector {
