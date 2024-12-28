@@ -29,9 +29,15 @@ document.addEventListener("DOMContentLoaded", () => {
     // Event listener for character selector
 characterSelector.addEventListener("click", (event) => {
     const target = event.target.closest(".character-capsule");
+    console.log("Clicked on:", target); // Debug log
 
     if (target) {
         const characterData = target.dataset.character;
+        // Existing characterInfo logic...
+        console.log("Character selected:", characterData); // Debug log
+        updateCharacter(characterInfo[characterData]); // Ensure this works
+    }
+});
         const characterInfo = {
             aoi: {
                 name: "Aoi",
