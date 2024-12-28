@@ -78,7 +78,7 @@ body:not(.loading) .character-description {
 .character-description {
     position: absolute; /* Position absolutely to control placement */
     left: 20px; /* Set distance from the left side */
-    top: 20px; /* Set distance from the top */
+    top: 10px; /* Set distance from the top */
     opacity: 0; /* Initially hidden */
     transform: translateX(-20px); /* Start slightly off-screen to the left */
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Smooth fade and slide */
@@ -102,7 +102,7 @@ body:not(.loading) .character-description {
 .character-info {
     position: absolute; /* Position absolutely to control placement */
     left: 20px; /* Align to the left */
-    top: 10px; /* Position below the character description */
+    top: 60px; /* Position below the character description */
     margin-bottom: 20px; /* Space below this section if needed */
 }
 
