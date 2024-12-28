@@ -62,6 +62,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 300);
     };
 
+    // Initial delay before content fades in
+    setTimeout(() => {
+        document.body.classList.remove("loading"); // Remove loading class to fade in content
+    }, 3000); // 3-second delay
+
     // Event listener for character selector
     characterSelector.addEventListener("click", (event) => {
         const target = event.target.closest(".character-capsule");

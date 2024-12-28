@@ -9,7 +9,27 @@ body {
     background-color: #000; /* Fallback if video doesn't load */
     position: relative; /* Allows absolute positioning for sections */
 }
+    /* Hide content initially during loading */
+    body.loading .character-info,
+    body.loading .container,
+    body.loading .character-selector,
+    body.loading .character-description {
+        opacity: 0;
+        pointer-events: none;
+    }
 
+    /* Fade-in effect for the content */
+    body:not(.loading) .character-info,
+    body:not(.loading) .container,
+    body:not(.loading) .character-selector,
+    body:not(.loading) .character-description {
+        opacity: 1;
+        pointer-events: all;
+        transition: opacity 1s ease-in-out;
+    }
+
+/* Add this class to body in your HTML */
+<body class="loading" >
 /* Background video styling */
 #background-video {
     position: fixed; /* Ensures the video stays in place even on scroll */
