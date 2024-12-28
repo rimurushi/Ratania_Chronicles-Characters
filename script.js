@@ -1,96 +1,67 @@
-// JavaScript for Ratania Character Showcase with Enhancements
-
 document.addEventListener("DOMContentLoaded", () => {
-  const characterSelector = document.querySelector(".character-selector");
-  const characterImage = document.querySelector(".character-image");
-  const characterName = document.querySelector(".character-name");
-  const characterDescription = document.querySelector(".character-description");
-  const audio = new Audio("audio/background-music.mp3"); // Replace with your audio path
-  const musicToggle = document.querySelector("#music-toggle");
+    const characterSelector = document.querySelector(".character-selector");
+    const characterImage = document.querySelector("#character-image");
+    const characterName = document.querySelector("#character-name");
+    const characterDescription = document.querySelector("#character-description");
+    const audio = new Audio("Ascend.mp3"); // Update with your audio path
+    const musicToggle = document.querySelector("#toggle-music");
 
-  // Set audio to loop
-  audio.loop = true;
+    // Set audio to loop
+    audio.loop = true;
 
-  // Function to update character info with fade-in effect
-  const updateCharacter = (name, imagePath, description) => {
-    characterImage.classList.add("fade-out");
-    characterName.classList.add("fade-out");
-    characterDescription.classList.add("fade-out");
+    // Function to update character info with fade-in effect
+    const updateCharacter = (name, imagePath, description) => {
+        characterImage.classList.remove("show");
+        characterName.classList.remove("show");
+        characterDescription.classList.remove("show");
 
-    setTimeout(() => {
-      characterImage.src = imagePath;
-      characterName.textContent = name;
-      characterDescription.textContent = description;
+        setTimeout(() => {
+            characterImage.src = imagePath;
+            characterName.textContent = name;
+            characterDescription.textContent = description;
 
-      characterImage.classList.remove("fade-out");
-      characterImage.classList.add("fade-in");
-      characterName.classList.remove("fade-out");
-      characterName.classList.add("fade-in");
-      characterDescription.classList.remove("fade-out");
-      characterDescription.classList.add("fade-in");
-    }, 300);
+            characterImage.classList.add("show");
+            characterName.classList.add("show");
+            characterDescription.classList.add("show");
+        }, 300);
+    };
 
-    setTimeout(() => {
-      characterImage.classList.remove("fade-in");
-      characterName.classList.remove("fade-in");
-      characterDescription.classList.remove("fade-in");
-    }, 600);
-  };
+    // Event listener for character selector
+    characterSelector.addEventListener("click", (event) => {
+        const target = event.target.closest(".character-capsule");
 
-  // Event listener for character selector
-  characterSelector.addEventListener("click", (event) => {
-    const target = event.target.closest(".capsule");
+        if (target) {
+            const characterData = target.dataset.character;
+            const characterInfo = {
+                aoi: {
+                    name: "Aoi",
+                    imagePath: "images/characters/aoi.png",
+                    description: "Aoi is the first character in the world of Ratania. A brave warrior, Aoi's journey begins with..."
+                },
+                ax: {
+                    name: "Ax",
+                    imagePath: "images/characters/ax.png",
+                    description: "Ax is known for his strength and determination."
+                },
+                // Add other characters here
+            };
 
-    if (target) {
-      const { characterName: name, characterImage: imagePath, characterDescription: description } = target.dataset;
+            const { name, imagePath, description } = characterInfo[characterData];
+            updateCharacter(name, imagePath, description);
+        }
+    });
 
-      updateCharacter(name, imagePath, description);
-    }
-  });
+    // Music toggle functionality
+    musicToggle.addEventListener("click", () => {
+        if (audio.paused) {
+            audio.play();
+            musicToggle.classList.add("playing");
+        } else {
+            audio.pause();
+            musicToggle.classList.remove("playing");
+        }
+    });
 
-  // Music toggle functionality
-  musicToggle.addEventListener("click", () => {
-    if (audio.paused) {
-      audio.play();
-      musicToggle.textContent = "Pause Music";
-    } else {
-      audio.pause();
-      musicToggle.textContent = "Play Music";
-    }
-  });
-
-  // Initial state
-  audio.play();
-  musicToggle.textContent = "Pause Music";
+    // Initial state
+    audio.play();
 });
-
-/* CSS for fade-in/out effects */
-const style = document.createElement("style");
-style.textContent = `
-  .fade-in {
-    animation: fadeIn 0.3s ease-in forwards;
-  }
-
-  .fade-out {
-    animation: fadeOut 0.3s ease-out forwards;
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes fadeOut {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-    }
-  }
-`;
-document.head.appendChild(style);
