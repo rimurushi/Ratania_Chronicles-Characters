@@ -72,17 +72,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Event listener for character selector
     characterSelector.addEventListener("click", (event) => {
-        const target = event.target.closest(".character-capsule");
-        if (target) {
-            const characterData = target.dataset.character;
-            if (characterInfo[characterData]) {
-                const { name, imagePath, description } = characterInfo[characterData];
-                updateCharacter(name, imagePath, description);
-            } else {
-                console.warn("Character data not found:", characterData);
-            }
+    const target = event.target.closest(".character-capsule");
+    if (target) {
+        // Remove 'active' class from all capsules
+        const capsules = document.querySelectorAll(".character-capsule");
+        capsules.forEach(capsule => capsule.classList.remove("active"));
+
+        // Add 'active' class to the selected capsule
+        target.classList.add("active");
+
+        const characterData = target.dataset.character;
+        if (characterInfo[characterData]) {
+            const { name, imagePath, description } = characterInfo[characterData];
+            updateCharacter(name, imagePath, description);
+        } else {
+            console.warn("Character data not found:", characterData);
         }
-    });
+    }
+});
 
     // Initial character display
     updateCharacter("Aoi", "images/characters/aoi.png", "Aoi is the first character in the world of Ratania. A brave warrior, Aoi's journey begins with...");
