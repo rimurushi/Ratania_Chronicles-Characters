@@ -74,6 +74,7 @@ body:not(.loading) .character-description {
             opacity: 1; /* Show when 'show' class is added */
         }
 
+/* Existing Character Description Styles */
 .character-description {
     position: absolute; /* Position absolutely to control placement */
     left: 20px; /* Set distance from the left side */
@@ -97,6 +98,13 @@ body:not(.loading) .character-description {
         margin: 0; /* Remove default margin */
     }
 
+/* New Character Info Styles */
+.character-info {
+    position: absolute; /* Position absolutely to control placement */
+    left: 20px; /* Align to the left */
+    top: 60px; /* Position below the character description */
+    margin-bottom: 20px; /* Space below this section if needed */
+}
 /* Selector Section on the Right */
 .character-selector {
     position: absolute;
