@@ -43,7 +43,31 @@ document.addEventListener("DOMContentLoaded", () => {
                     imagePath: "images/characters/ax.png",
                     description: "Ax is known for his strength and determination."
                 },
-                // Add other characters here
+                ri: {
+                    name: "Ri",
+                    imagePath: "images/characters/ri.png",
+                    description: "Ri is a clever strategist, known for her quick thinking and agility."
+                },
+                ace: {
+                    name: "Ace",
+                    imagePath: "images/characters/ace.png",
+                    description: "Ace is a skilled marksman, always hitting his targets."
+                },
+                akai: {
+                    name: "Akai",
+                    imagePath: "images/characters/akai.png",
+                    description: "Akai is a fierce protector of Ratania, wielding his sword with great skill."
+                },
+                eir: {
+                    name: "Eir",
+                    imagePath: "images/characters/eir.png",
+                    description: "Eir is a healer with a gentle heart, always putting others before herself."
+                },
+                kimi: {
+                    name: "Kimi",
+                    imagePath: "images/characters/kimi.png",
+                    description: "Kimi is a master of stealth, often moving unnoticed in the shadows."
+                }
             };
 
             const { name, imagePath, description } = characterInfo[characterData];
@@ -54,7 +78,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // Music toggle functionality
     musicToggle.addEventListener("click", () => {
         if (audio.paused) {
-            audio.play();
+            audio.play().catch(error => {
+                console.error("Playback prevented: ", error);
+            });
             musicToggle.classList.add("playing");
         } else {
             audio.pause();
@@ -62,6 +88,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Initial state
-    audio.play();
+    // Initial character display
+    updateCharacter("Aoi", "images/characters/aoi.png", "Aoi is the first character in the world of Ratania. A brave warrior, Aoi's journey begins with...");
 });
