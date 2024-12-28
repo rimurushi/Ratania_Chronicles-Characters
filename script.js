@@ -57,11 +57,8 @@ const updateCharacter = (name, imagePath, description) => {
         characterImage.src = imagePath; // Update the image source
         characterName.textContent = name;
 
-        // Log the description before updating
-        console.log("Description before update:", characterDescription.textContent);
-        characterDescription.textContent = description; // Update the description text
-        // Log the description after updating
-        console.log("Description after update:", characterDescription.textContent);
+        // Update the description text
+        characterDescription.textContent = description;
 
         // Fade in the new character display
         characterImage.classList.add("show");
