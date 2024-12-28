@@ -3,11 +3,47 @@ document.addEventListener("DOMContentLoaded", () => {
     const characterImage = document.querySelector("#character-image");
     const characterName = document.querySelector("#character-name");
     const characterDescription = document.querySelector("#character-description");
-    const audio = new Audio("Ascend.mp3"); // Update with your audio path
-    const musicToggle = document.querySelector("#toggle-music");
 
-    // Set audio to loop
+    const audio = new Audio("Ascend.mp3");
     audio.loop = true;
+
+    const characterInfo = {
+        aoi: {
+            name: "Aoi",
+            imagePath: "images/characters/aoi.png",
+            description: "Aoi is the first character in the world of Ratania. A brave warrior, Aoi's journey begins with..."
+        },
+        ax: {
+            name: "Ax",
+            imagePath: "images/characters/ax.png",
+            description: "Ax is known for his strength and determination."
+        },
+        ri: {
+            name: "Ri",
+            imagePath: "images/characters/ri.png",
+            description: "Ri is a clever strategist, known for her quick thinking and agility."
+        },
+        ace: {
+            name: "Ace",
+            imagePath: "images/characters/ace.png",
+            description: "Ace is a skilled marksman, always hitting his targets."
+        },
+        akai: {
+            name: "Akai",
+            imagePath: "images/characters/akai.png",
+            description: "Akai is a fierce protector of Ratania, wielding his sword with great skill."
+        },
+        eir: {
+            name: "Eir",
+            imagePath: "images/characters/eir.png",
+            description: "Eir is a healer with a gentle heart, always putting others before herself."
+        },
+        kimi: {
+            name: "Kimi",
+            imagePath: "images/characters/kimi.png",
+            description: "Kimi is a master of stealth, often moving unnoticed in the shadows."
+        }
+    };
 
     // Function to update character info with fade-in effect
     const updateCharacter = (name, imagePath, description) => {
@@ -27,84 +63,16 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     // Event listener for character selector
-characterSelector.addEventListener("click", (event) => {
-    const target = event.target.closest(".character-capsule");
-    console.log("Clicked on:", target); // Debug log
-
-    if (target) {
-        const characterData = target.dataset.character;
-        // Existing characterInfo logic...
-        console.log("Character selected:", characterData); // Debug log
-        updateCharacter(characterInfo[characterData]); // Ensure this works
-    }
-});
-        const characterInfo = {
-            aoi: {
-                name: "Aoi",
-                imagePath: "images/characters/aoi.png",
-                description: "Aoi is the first character in the world of Ratania. A brave warrior, Aoi's journey begins with..."
-            },
-            ax: {
-                name: "Ax",
-                imagePath: "images/characters/ax.png",
-                description: "Ax is known for his strength and determination."
-            },
-            ri: {
-                name: "Ri",
-                imagePath: "images/characters/ri.png",
-                description: "Ri is a clever strategist, known for her quick thinking and agility."
-            },
-            ace: {
-                name: "Ace",
-                imagePath: "images/characters/ace.png",
-                description: "Ace is a skilled marksman, always hitting his targets."
-            },
-            akai: {
-                name: "Akai",
-                imagePath: "images/characters/akai.png",
-                description: "Akai is a fierce protector of Ratania, wielding his sword with great skill."
-            },
-            eir: {
-                name: "Eir",
-                imagePath: "images/characters/eir.png",
-                description: "Eir is a healer with a gentle heart, always putting others before herself."
-            },
-            kimi: {
-                name: "Kimi",
-                imagePath: "images/characters/kimi.png",
-                description: "Kimi is a master of stealth, often moving unnoticed in the shadows."
+    characterSelector.addEventListener("click", (event) => {
+        const target = event.target.closest(".character-capsule");
+        if (target) {
+            const characterData = target.dataset.character;
+            if (characterInfo[characterData]) {
+                const { name, imagePath, description } = characterInfo[characterData];
+                updateCharacter(name, imagePath, description);
+            } else {
+                console.warn("Character data not found:", characterData);
             }
-        };
-
-function updateCharacter(character) {
-    const display = document.getElementById("character-display");
-    display.innerHTML = `
-        <h2>${character.name}</h2>
-        <img src="${character.imagePath}" alt="${character.name}">
-        <p>${character.description}</p>
-    `;
-}
-
-        // Ensure characterData exists in characterInfo
-        if (characterInfo[characterData]) {
-            const { name, imagePath, description } = characterInfo[characterData];
-            updateCharacter(name, imagePath, description);
-        } else {
-            console.warn("Character data not found:", characterData);
-        }
-    }
-});
-
-    // Music toggle functionality
-    musicToggle.addEventListener("click", () => {
-        if (audio.paused) {
-            audio.play().catch(error => {
-                console.error("Playback prevented: ", error);
-            });
-            musicToggle.classList.add("playing");
-        } else {
-            audio.pause();
-            musicToggle.classList.remove("playing");
         }
     });
 

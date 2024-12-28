@@ -55,37 +55,16 @@ body {
 
         .character-display img.show {
             opacity: 1; /* Show when 'show' class is added */
-            z-index: 3; /* Ensure it's on top when visible */
         }
 
 /* Character description */
-.character-info {
-    position: absolute;
-    left: 50%; /* Center the description */
-    top: 20%;
-    transform: translateX(-50%); /* Adjust for centering */
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+.character-description {
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.5s ease-in-out;
 }
 
-    .character-info.show {
-        opacity: 1;
-        z-index: 4; /* Ensure the description is above the image */
-    }
-
-    .character-info p {
-        padding-left: 20px;
-    }
-
-    .character-info h2 {
-        font-size: 1.8rem;
-        margin: 0 0 10px 0;
-    }
-
-    .character-info p {
-        font-size: 1rem;
-        color: #fff;
-        line-height: 1.4;
+    .character-description.show {
+        opacity: 1; /* Show when 'show' class is added */
     }
 
 /* Selector Section on the Right */
