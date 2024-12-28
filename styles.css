@@ -102,9 +102,10 @@ body:not(.loading) .character-description {
 .character-info {
     position: absolute; /* Position absolutely to control placement */
     left: 20px; /* Align to the left */
-    top: 60px; /* Position below the character description */
+    top: 10px; /* Position below the character description */
     margin-bottom: 20px; /* Space below this section if needed */
 }
+
 /* Selector Section on the Right */
 .character-selector {
     position: absolute;
