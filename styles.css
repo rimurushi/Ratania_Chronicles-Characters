@@ -78,21 +78,27 @@ body:not(.loading) .character-description {
     opacity: 0; /* Initially hidden */
     transform: translateX(-20px); /* Start slightly to the left */
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Smooth fade and slide */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack title and description vertically */
+    align-items: flex-start; /* Align items to the start */
+    margin: 20px; /* Add some margin for spacing */
 }
 
-.character-description.show {
+    .character-description.show {
         opacity: 1; /* Fully visible */
         transform: translateX(0); /* Move to original position */
     }
 
-.character-info h2 {
-    opacity: 0; /* Initially hidden */
-    transition: opacity 0.5s ease-in-out; /* Match this duration with JS */
-}
-
-    .character-info h2.show {
-        opacity: 1; /* Show when 'show' class is added */
+    .character-description h3,
+    .character-description p {
+        margin: 0; /* Remove default margin */
+        transition: opacity 0.5s ease-in-out; /* Transition for title and description */
     }
+
+        .character-description h3.show,
+        .character-description p.show {
+            opacity: 1; /* Show when 'show' class is added */
+        }
 
 /* Selector Section on the Right */
 .character-selector {

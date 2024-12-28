@@ -50,23 +50,24 @@ const updateCharacter = (name, imagePath, description) => {
     // Fade out the current character display
     characterImage.classList.remove("show");
     characterName.classList.remove("show");
-    characterDescription.classList.remove("show"); // Remove class to trigger reflow
-void characterDescription.offsetWidth; // Trigger reflow
-characterDescription.classList.add("show"); // Re-add class to start transition
+    characterDescription.classList.remove("show");
+    document.querySelector("#character-title").classList.remove("show"); // Remove show class from title
 
     // Wait for the fade-out transition to complete before updating content
     setTimeout(() => {
         characterImage.src = imagePath; // Update the image source
         characterName.textContent = name;
 
-        // Update the description text
+        // Update the title and description text
+        document.querySelector("#character-title").textContent = name; // Set title
         characterDescription.textContent = description;
 
         // Fade in the new character display
         characterImage.classList.add("show");
         characterName.classList.add("show");
         
-        // Fade in the description from left to right
+        // Fade in the title and description from left to right
+        document.querySelector("#character-title").classList.add("show"); // Add show class to title
         characterDescription.classList.add("show");
     }, 500); // Delay to match the fade-out duration
 };
