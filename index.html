@@ -21,8 +21,6 @@
             height: 100%;
             object-fit: cover;
             z-index: -1; /* Keep it behind other elements */
-            opacity: 1;
-            transition: opacity 1s ease-in-out;
         }
 
         .container {
@@ -89,7 +87,7 @@
 </head>
 
 <body>
-    <video class="background-video" autoplay muted>
+    <video class="background-video" autoplay muted loop>
         <source src="videos/Ratania.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
@@ -171,26 +169,18 @@
         const characterName = document.querySelector("#character-name");
         const characterDescription = document.querySelector("#character-description");
         const container = document.querySelector(".container");
-        const backgroundVideo = document.querySelector(".background-video");
 
-        // Function to show the container after the video
-        const showContent = () => {
-            backgroundVideo.style.opacity = 0; // Fade out video
-            setTimeout(() => {
-                backgroundVideo.style.display = 'none'; // Hide video
-                container.style.opacity = 1; // Fade in content
-            }, 1000); // Match this delay with the video opacity transition
-        };
-
-        // Set a timer to show content after 3 seconds
-        setTimeout(showContent, 3000);
+        // Show the content after 3 seconds
+        setTimeout(() => {
+            container.style.opacity = 1; // Fade in content
+        }, 3000);
 
         const updateCharacter = (name, imagePath, description) => {
             characterImage.classList.remove("show");
 
             setTimeout(() => {
                 characterImage.src = imagePath;
-                characterName.textContent = name;  
+                characterName.textContent = name;
                 characterDescription.textContent = description;
                 characterImage.classList.add("show");
             }, 500);
