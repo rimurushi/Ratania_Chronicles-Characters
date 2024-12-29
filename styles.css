@@ -63,7 +63,7 @@ body {
     margin-top: 0; /* Set to 0 to start positioning from the center */
     margin-left: 20px; /* Optional horizontal adjustment */
     position: relative; /* Enable positioning */
-    top: -80px; /* Move it higher by adjusting the top property */
+    top: -180px; /* Move it higher by adjusting the top property */
 }
 
 .character-description {
