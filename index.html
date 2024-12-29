@@ -123,6 +123,9 @@
             position: absolute;
             top: 20px;
             right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .music-control button {
@@ -134,6 +137,10 @@
         .music-control img {
             width: 24px; /* Adjust the size of the icon */
             height: 24px; /* Adjust the size of the icon */
+        }
+
+        .volume-control {
+            width: 100px;
         }
     </style>
 </head>
@@ -181,11 +188,12 @@
             <button id="toggle-music">
                 <img id="music-icon" src="images/play-icon.png" alt="Play Icon">
             </button>
+            <input type="range" id="volume-control" class="volume-control" min="0" max="1" step="0.1" value="1">
         </div>
     </div>
 
     <audio id="background-music" loop>
-        <source src="Ascend.mp3" type="audio/mpeg">
+        <source src="music/background-music.mp3" type="audio/mpeg">
         Your browser does not support the audio tag.
     </audio>
 
@@ -198,6 +206,7 @@
             const music = document.querySelector("#background-music");
             const toggleMusicButton = document.querySelector("#toggle-music");
             const musicIcon = document.querySelector("#music-icon");
+            const volumeControl = document.querySelector("#volume-control");
 
             // Character information
             const characterInfo = {
@@ -297,7 +306,13 @@
                 }
             });
 
+            // Volume control functionality
+            volumeControl.addEventListener("input", (event) => {
+                music.volume = event.target.value; // Set the volume based on the slider
+            });
+
             // Start playing music automatically
+            music.volume = 1; // Set initial volume
             music.play();
         });
     </script>

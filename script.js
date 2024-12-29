@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const music = document.querySelector("#background-music");
     const toggleMusicButton = document.querySelector("#toggle-music");
     const musicIcon = document.querySelector("#music-icon");
+    const volumeControl = document.querySelector("#volume-control");
 
     // Character information
     const characterInfo = {
@@ -105,6 +106,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    // Volume control functionality
+    volumeControl.addEventListener("input", (event) => {
+        music.volume = event.target.value; // Set the volume based on the slider
+    });
+
     // Start playing music automatically
+    music.volume = 1; // Set initial volume
     music.play();
 });
