@@ -3,43 +3,45 @@ document.addEventListener("DOMContentLoaded", () => {
     const characterImage = document.querySelector("#character-image");
     const characterName = document.querySelector("#character-name");
     const characterDescription = document.querySelector("#character-description");
+    const music = document.querySelector("#background-music");
+    const toggleMusicButton = document.querySelector("#toggle-music");
 
     // Character information
     const characterInfo = {
         aoi: {
             name: "Aoi",
             imagePath: "images/characters/aoi.png",
-            description: "Aoi is the first character in the world of Ratania. A brave warrior, Aoi's journey begins with..."
+            description: "Aoi is the first character in the world of Ratania."
         },
         ax: {
             name: "Ax",
             imagePath: "images/characters/ax.png",
-            description: "Ax is known for his strength and determination."
+            description: "Ax is known for his strength."
         },
         ri: {
             name: "Ri",
             imagePath: "images/characters/ri.png",
-            description: "Ri is a clever strategist, known for her quick thinking and agility."
+            description: "Ri is a clever strategist."
         },
         ace: {
             name: "Ace",
             imagePath: "images/characters/ace.png",
-            description: "Ace is a skilled marksman, always hitting his targets."
+            description: "Ace is a skilled marksman."
         },
         akai: {
             name: "Akai",
             imagePath: "images/characters/akai.png",
-            description: "Akai is a fierce protector of Ratania, wielding his sword with great skill."
-        },
-        kimi: {
-            name: "Kimi",
-            imagePath: "images/characters/kimi.png",
-            description: "Kimi is a master of stealth, often moving unnoticed in the shadows."
+            description: "Akai is a fierce protector."
         },
         eir: {
             name: "Eir",
             imagePath: "images/characters/eir.png",
-            description: "Eir is a healer with a gentle heart, always putting others before herself."
+            description: "Eir is a healer with a gentle heart."
+        },
+        kimi: {
+            name: "Kimi",
+            imagePath: "images/characters/kimi.png",
+            description: "Kimi is a master of stealth."
         }
     };
 
@@ -67,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     // Initial character display
-    updateCharacter("Aoi", "images/characters/aoi.png", "Aoi is the first character in the world of Ratania. A brave warrior, Aoi's journey begins with...");
+    updateCharacter("Aoi", "images/characters/aoi.png", "Aoi is the first character in the world of Ratania.");
 
     // Show the content after 3 seconds
     setTimeout(() => {
@@ -90,4 +92,18 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
     });
+
+    // Music toggle functionality
+    toggleMusicButton.addEventListener("click", () => {
+        if (music.paused) {
+            music.play();
+            toggleMusicButton.textContent = "Pause Music";
+        } else {
+            music.pause();
+            toggleMusicButton.textContent = "Play Music";
+        }
+    });
+
+    // Start playing music automatically
+    music.play();
 });

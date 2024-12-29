@@ -1,125 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Character Showcase</title>
-    <style>
-        @font-face {
-            font-family: 'Cravelo';
-            src: url('Librein.otf') format('opentype');
-        }
-
-        body {
-            font-family: 'Cravelo', sans-serif;
-            margin: 0;
-            overflow: hidden;
-            position: relative;
-            background-color: #000;
-        }
-
-        .background-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-        }
-
-        .container {
-            display: flex;
-            height: 100vh;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-        }
-
-        .character-display {
-            flex: 2;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-            margin-left: -50px;
-        }
-
-        .character-display img {
-            width: 570px;
-            height: auto;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-        }
-
-        .character-display img.show {
-            opacity: 1;
-        }
-
-        .description-background {
-            background-image: url('images/descriptionbg.png');
-            background-size: cover;
-            background-position: center;
-            width: 450px;
-            height: 120px;
-            color: #2b2810;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            top: -250px;
-            box-shadow: none;
-            padding-left: 20px;
-        }
-
-        .character-name {
-            margin: 0;
-            font-size: 45px;
-            letter-spacing: 2px;
-        }
-
-        .character-description {
-            padding: 0 10px;
-            font-size: 18px;
-            text-align: center;
-            letter-spacing: 1.5px;
-            line-height: 1.5;
-            font-weight: bold;
-        }
-
-        .character-selector {
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .character-capsule {
-            cursor: pointer;
-            width: 150px;
-            height: 70px;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-        }
-
-        .character-capsule.active {
-            transform: scale(1.1);
-        }
-
-        .capsule-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-    </style>
-</head>
-
 <body>
     <video class="background-video" autoplay muted loop>
         <source src="videos/Ratania.mp4" type="video/mp4">
@@ -157,6 +35,15 @@
                 <img class="capsule-image" src="images/capsules/kimi-custom.png" alt="Kimi Capsule">
             </div>
         </div>
+
+        <!-- Music Control -->
+        <div class="music-control">
+            <audio id="background-music" loop>
+                <source src="music/Ascend.mp3" type="audio/mpeg">
+                Your browser does not support the audio tag.
+            </audio>
+            <button id="toggle-music">Toggle Music</button>
+        </div>
     </div>
 
     <script>
@@ -165,6 +52,8 @@
             const characterImage = document.querySelector("#character-image");
             const characterName = document.querySelector("#character-name");
             const characterDescription = document.querySelector("#character-description");
+            const music = document.querySelector("#background-music");
+            const toggleMusicButton = document.querySelector("#toggle-music");
 
             // Character information
             const characterInfo = {
@@ -249,8 +138,20 @@
                     }
                 }
             });
+
+            // Music toggle functionality
+            toggleMusicButton.addEventListener("click", () => {
+                if (music.paused) {
+                    music.play();
+                    toggleMusicButton.textContent = "Pause Music";
+                } else {
+                    music.pause();
+                    toggleMusicButton.textContent = "Play Music";
+                }
+            });
+
+            // Start playing music automatically
+            music.play();
         });
     </script>
 </body>
-
-</html>
