@@ -45,66 +45,53 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-// Function to update character info with fade-in effect
-const updateCharacter = (name, imagePath, description) => {
-    // Fade out the current character display
-    characterImage.classList.remove("show");
-    characterName.classList.remove("show");
-    characterDescription.classList.remove("show");
-    document.querySelector("#character-title").classList.remove("show"); // Remove show class from title
+    // Function to update character info with fade-in effect
+    const updateCharacter = (name, imagePath, description) => {
+        // Fade out the current character display
+        characterImage.classList.remove("show");
+        characterName.classList.remove("show");
+        characterDescription.classList.remove("show");
+        document.querySelector("#character-title").classList.remove("show");
 
-    // Wait for the fade-out transition to complete before updating content
-    setTimeout(() => {
-        characterImage.src = imagePath; // Update the image source
-        characterName.textContent = name;
+        setTimeout(() => {
+            characterImage.src = imagePath;
+            characterName.textContent = name;
+            document.querySelector("#character-title").textContent = name;
+            characterDescription.textContent = description;
 
-        // Update the title and description text
-        document.querySelector("#character-title").textContent = name; // Set title
-        characterDescription.textContent = description;
-
-        // Fade in the new character display
-        characterImage.classList.add("show");
-        characterName.classList.add("show");
-        
-        // Fade in the title and description from left to right
-        document.querySelector("#character-title").classList.add("show"); // Add show class to title
-        characterDescription.classList.add("show");
-    }, 500); // Delay to match the fade-out duration
-};
-
-    // Initial delay before content fades in
- setTimeout(() => {
-    console.log("Loading complete, content visible"); // Log when loading is complete
-    document.body.classList.remove("loading");
-}, 3000); // 3-second delay
-
-  // Event listener for character selector
-characterSelector.addEventListener("click", (event) => {
-    const target = event.target.closest(".character-capsule");
-    console.log("Clicked target:", target); // Log the clicked target
-    if (target) {
-        // Your existing logic...
-    } else {
-        console.log("No character capsule clicked."); // Log if no capsule was clicked
-    }
-});
-        // Remove 'active' class from all capsules
-        const capsules = document.querySelectorAll(".character-capsule");
-        capsules.forEach(capsule => capsule.classList.remove("active"));
-
-        // Add 'active' class to the selected capsule
-        target.classList.add("active");
-
-        const characterData = target.dataset.character;
-        if (characterInfo[characterData]) {
-            const { name, imagePath, description } = characterInfo[characterData];
-            updateCharacter(name, imagePath, description);
-        } else {
-            console.warn("Character data not found:", characterData);
-        }
-    }
-});
+            characterImage.classList.add("show");
+            characterName.classList.add("show");
+            document.querySelector("#character-title").classList.add("show");
+            characterDescription.classList.add("show");
+        }, 500); // Delay to match the fade-out duration
+    };
 
     // Initial character display
     updateCharacter("Aoi", "images/characters/aoi.png", "Aoi is the first character in the world of Ratania. A brave warrior, Aoi's journey begins with...");
+
+    // Initial delay before content fades in
+    setTimeout(() => {
+        document.body.classList.remove("loading");
+    }, 3000); // 3-second delay
+
+    // Event listener for character selector
+    characterSelector.addEventListener("click", (event) => {
+        const target = event.target.closest(".character-capsule");
+        if (target) {
+            // Remove 'active' class from all capsules
+            const capsules = document.querySelectorAll(".character-capsule");
+            capsules.forEach(capsule => capsule.classList.remove("active"));
+
+            // Add 'active' class to the selected capsule
+            target.classList.add("active");
+
+            const characterData = target.dataset.character;
+            if (characterInfo[characterData]) {
+                const { name, imagePath, description } = characterInfo[characterData];
+                updateCharacter(name, imagePath, description);
+            } else {
+                console.warn("Character data not found:", characterData);
+            }
+        }
+    });
 });
