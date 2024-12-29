@@ -44,20 +44,21 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     // Function to update character info with fade-in effect
-    const updateCharacter = (name, imagePath, description) => {
-        // Start fade-out
-        characterImage.style.opacity = '0';
+   const updateCharacter = (name, imagePath, description) => {
+    // Start fade-out
+    characterImage.style.opacity = '0';
 
-        // Wait for fade-out to finish before updating the image and text
-        setTimeout(() => {
-            characterImage.src = imagePath; // Update image source
-            characterName.textContent = name;  // Update character name
-            characterDescription.textContent = description; // Update description
+    // Wait for fade-out to finish before updating the image and text
+    setTimeout(() => {
+        // Update character information
+        characterImage.src = imagePath;
+        characterName.textContent = name;  
+        characterDescription.textContent = description;
 
-            // Start fade-in
-            characterImage.style.opacity = '1';
-        }, 500); // Match the delay to the CSS transition duration
-    };
+        // Start fade-in
+        characterImage.style.opacity = '1';
+    }, 1000); // Match this to the new CSS duration
+};
 
     // Initial character display
     updateCharacter("Aoi", "images/characters/aoi.png", "Aoi is the first character in the world of Ratania...");
