@@ -69,7 +69,23 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 3000); // 3-second delay
 
     // Event listener for character selector
-    characterSelector.addEventListener("click", (event) => { // Fixed typo here
+    characterSelector.addEventListener("click", (event) => {
+    console.log("Event triggered:", event); // Log the event
+    const target = event.target.closest(".character-capsule");
+    if (target) {
+        console.log("Capsule clicked:", target);
+        const characterData = target.dataset.character;
+        console.log("Character data found:", characterData);
+        if (characterInfo[characterData]) {
+            const { name, imagePath, description } = characterInfo[characterData];
+            updateCharacter(name, imagePath, description);
+        } else {
+            console.warn("Character data not found:", characterData);
+        }
+    } else {
+        console.log("Clicked outside a capsule.");
+    }
+});
         const target = event.target.closest(".character-capsule");
         if (target) {
             console.log("Capsule clicked:", target); // Debug log
