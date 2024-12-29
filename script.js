@@ -43,22 +43,33 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
+    // Function to preload images
+    const preloadImages = (imagePaths) => {
+        imagePaths.forEach((path) => {
+            const img = new Image();
+            img.src = path; // Preload the image
+        });
+    };
+
+    // Preload character images
+    preloadImages(Object.values(characterInfo).map(character => character.imagePath));
+
     // Function to update character info with fade-in effect
-  const updateCharacter = (name, imagePath, description) => {
-    // Start fade-out
-    characterImage.style.opacity = '0'; // Start fading out
+    const updateCharacter = (name, imagePath, description) => {
+        // Start fade-out
+        characterImage.style.opacity = '0'; // Start fading out
 
-    // Wait for fade-out to finish before updating the image and text
-    setTimeout(() => {
-        // Update the character information
-        characterImage.src = imagePath; // Change the image source
-        characterName.textContent = name;  
-        characterDescription.textContent = description;
+        // Wait for fade-out to finish before updating the image and text
+        setTimeout(() => {
+            // Update the character information
+            characterImage.src = imagePath; // Change the image source
+            characterName.textContent = name;  
+            characterDescription.textContent = description;
 
-        // Start fade-in
-        characterImage.style.opacity = '1'; // Fade in the new image
-    }, 500); // Match this duration with your CSS fade-out duration
-};
+            // Start fade-in
+            characterImage.style.opacity = '1'; // Fade in the new image
+        }, 500); // Match this duration with your CSS fade-out duration
+    };
 
     // Initial character display
     updateCharacter("Aoi", "images/characters/aoi.png", "Aoi is the first character in the world of Ratania...");
