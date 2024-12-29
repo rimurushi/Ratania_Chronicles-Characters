@@ -5,12 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Character Showcase</title>
+    <link rel="stylesheet" href="css/styles.css"> <!-- Link to your CSS file -->
     <style>
+        @font-face {
+            font-family: 'Cravelo'; /* Use the custom font name */
+            src: url('../fonts/cravelo.otf') format('opentype'); /* Point to your .otf font file */
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Cravelo', sans-serif; /* Use the custom font */
             margin: 0;
             overflow: hidden;
             position: relative;
+            background-color: #000; /* Fallback if video doesn't load */
         }
 
         .background-video {
@@ -37,11 +44,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100%; /* Ensure it takes the full height */
+            height: 100%;
+            margin-left: -50px; /* Adjust this value to move left */
         }
 
         .character-display img {
-            width: 570px; /* Increase width for a larger display */
+            width: 400px; /* Increase width for a larger display */
             height: auto;
             opacity: 0;
             transition: opacity 0.5s ease-in-out;
@@ -55,6 +63,9 @@
             flex: 1;
             padding: 20px;
             text-align: left;
+            margin-top: -50px; /* Move description higher */
+            font-size: 18px; /* Adjust font size as needed */
+            color: white; /* Change font color if needed */
         }
 
         .character-selector {
