@@ -51,20 +51,19 @@ body {
         }
 
 .character-description-container {
+    all: unset; /* Resets all properties */
     background-image: url('images/descriptionbg.png');
-    background-size: cover; /* Adjust to 'contain' if needed */
+    background-size: cover; /* Adjust as needed */
     background-position: center;
-    background-repeat: no-repeat; /* Prevents repetition */
+    background-repeat: no-repeat;
     padding: 20px;
-    border-radius: 15px;
+    border-radius: 0; /* As it's a sharp rectangle */
     max-width: 300px;
-    color: white; /* Text color */
+    color: black; /* Adjust as needed */
     text-align: center;
     margin-top: 0;
     margin-left: 20px;
     position: relative;
-    top: -180px;
-    border: none; /* Ensure no borders */
 }}
 
 .character-description {
