@@ -56,8 +56,8 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     padding: 20px;
-    border-radius: 15px; /* Retain rounded corners if desired */
-    width: 450px; /* Fixed width */
+    border-radius: 0px; /* Retain rounded corners if desired */
+    width: 850px; /* Fixed width */
     height: 120px; /* Fixed height - adjust as needed */
     color: white;
     text-align: center;
