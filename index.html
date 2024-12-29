@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Character Showcase</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         @font-face {
             font-family: 'Cravelo';
@@ -120,13 +121,19 @@
 
         .music-control {
             position: absolute;
-            bottom: 20px;
-            left: 20px;
-            background-color: rgba(255, 255, 255, 0.8);
+            top: 20px;
+            right: 20px;
+        }
+
+        .music-control button {
+            background: none;
             border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
             cursor: pointer;
+        }
+
+        .music-control img {
+            width: 24px; /* Adjust the size of the icon */
+            height: 24px; /* Adjust the size of the icon */
         }
     </style>
 </head>
@@ -171,13 +178,16 @@
 
         <!-- Music Control -->
         <div class="music-control">
-            <audio id="background-music" loop>
-                <source src="music/Ascend.mp3" type="audio/mpeg">
-                Your browser does not support the audio tag.
-            </audio>
-            <button id="toggle-music">Pause Music</button>
+            <button id="toggle-music">
+                <img id="music-icon" src="images/play-icon.png" alt="Play Icon">
+            </button>
         </div>
     </div>
+
+    <audio id="background-music" loop>
+        <source src="music/background-music.mp3" type="audio/mpeg">
+        Your browser does not support the audio tag.
+    </audio>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -187,6 +197,7 @@
             const characterDescription = document.querySelector("#character-description");
             const music = document.querySelector("#background-music");
             const toggleMusicButton = document.querySelector("#toggle-music");
+            const musicIcon = document.querySelector("#music-icon");
 
             // Character information
             const characterInfo = {
@@ -279,10 +290,10 @@
             toggleMusicButton.addEventListener("click", () => {
                 if (music.paused) {
                     music.play();
-                    toggleMusicButton.textContent = "Pause Music";
+                    musicIcon.src = "images/pause-icon.png"; // Change to pause icon
                 } else {
                     music.pause();
-                    toggleMusicButton.textContent = "Play Music";
+                    musicIcon.src = "images/play-icon.png"; // Change to play icon
                 }
             });
 

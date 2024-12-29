@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const characterDescription = document.querySelector("#character-description");
     const music = document.querySelector("#background-music");
     const toggleMusicButton = document.querySelector("#toggle-music");
+    const musicIcon = document.querySelector("#music-icon");
 
     // Character information
     const characterInfo = {
@@ -97,10 +98,10 @@ document.addEventListener("DOMContentLoaded", () => {
     toggleMusicButton.addEventListener("click", () => {
         if (music.paused) {
             music.play();
-            toggleMusicButton.textContent = "Pause Music";
+            musicIcon.src = "images/pause-icon.png"; // Change to pause icon
         } else {
             music.pause();
-            toggleMusicButton.textContent = "Play Music";
+            musicIcon.src = "images/play-icon.png"; // Change to play icon
         }
     });
 
