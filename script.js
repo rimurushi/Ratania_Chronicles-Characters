@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const characterImage = document.querySelector("#character-image");
     const characterName = document.querySelector("#character-name");
     const characterDescription = document.querySelector("#character-description");
-    const characterTitle = document.querySelector("#character-title"); // Reference the title element
 
+    // Character information
     const characterInfo = {
         aoi: {
             name: "Aoi",
@@ -45,26 +45,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Function to update character info with fade-in effect
     const updateCharacter = (name, imagePath, description) => {
-        if (!characterImage || !characterName || !characterDescription || !characterTitle) {
-            console.error("One or more elements are null.");
-            return; // Prevent errors if elements are not found
-        }
-
-        // Fade out the current character display
         characterImage.classList.remove("show");
         characterName.classList.remove("show");
         characterDescription.classList.remove("show");
-        characterTitle.classList.remove("show");
 
         setTimeout(() => {
             characterImage.src = imagePath;
-            characterName.textContent = name;
-            characterTitle.textContent = name;
+            characterName.textContent = name;  // Update character name
             characterDescription.textContent = description;
 
             characterImage.classList.add("show");
             characterName.classList.add("show");
-            characterTitle.classList.add("show");
             characterDescription.classList.add("show");
         }, 500); // Delay to match the fade-out duration
     };
@@ -84,14 +75,13 @@ document.addEventListener("DOMContentLoaded", () => {
             // Remove 'active' class from all capsules
             const capsules = document.querySelectorAll(".character-capsule");
             capsules.forEach(capsule => capsule.classList.remove("active"));
-
             // Add 'active' class to the selected capsule
             target.classList.add("active");
 
             const characterData = target.dataset.character;
             if (characterInfo[characterData]) {
                 const { name, imagePath, description } = characterInfo[characterData];
-                updateCharacter(name, imagePath, description);
+                updateCharacter(name, imagePath, description); // Update character display
             } else {
                 console.warn("Character data not found:", characterData);
             }
