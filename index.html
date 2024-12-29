@@ -4,61 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Character Showcase</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .character-display img { width: 200px; height: auto; }
+        .character-capsule { cursor: pointer; margin: 10px; }
+        .active { transform: scale(1.2); }
+    </style>
 </head>
-<body class="loading"> <!-- Added class "loading" here -->
-    <!-- Background Music -->
-    <audio id="background-music" src="Ascend.mp3" preload="auto"></audio>
-
-    <!-- Button to toggle music -->
-    <button id="toggle-music">
-        <img id="music-icon" src="images/play-icon.png" alt="Play/Pause Icon">
-    </button>
-
-    <!-- Background Video -->
-    <video autoplay muted loop id="background-video">
-        <source src="videos/Ratania.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-
-  <div class="container">
-    <!-- Character Image Section -->
-    <div class="character-display" id="character-display">
+<body>
+    <div class="character-display">
         <img id="character-image" src="images/characters/aoi.png" alt="Character Image">
     </div>
+    <h2 id="character-name">Aoi</h2>
+    <p id="character-description">Aoi is the first character in the world of Ratania.</p>
 
-    <!-- Character Name Section -->
-    <h2 id="character-name">Aoi</h2> <!-- This is now separate -->
-
-    <!-- Character Description Section -->
-    <p id="character-description">Aoi is the first character in the world of Ratania.</p> <!-- This is also separate -->
-</div>
-
-    <!-- Character Selector Section -->
     <div class="character-selector">
-        <div class="character-capsule" id="capsule-aoi" data-character="aoi">
+        <div class="character-capsule" data-character="aoi">
             <img class="capsule-image" src="images/capsules/aoi-custom.png" alt="Aoi Capsule">
         </div>
-        <div class="character-capsule" id="capsule-ax" data-character="ax">
+        <div class="character-capsule" data-character="ax">
             <img class="capsule-image" src="images/capsules/ax-custom.png" alt="Ax Capsule">
-        </div>
-        <div class="character-capsule" id="capsule-ri" data-character="ri">
-            <img class="capsule-image" src="images/capsules/ri-custom.png" alt="Ri Capsule">
-        </div>
-        <div class="character-capsule" id="capsule-ace" data-character="ace">
-            <img class="capsule-image" src="images/capsules/ace-custom.png" alt="Ace Capsule">
-        </div>
-        <div class="character-capsule" id="capsule-akai" data-character="akai">
-            <img class="capsule-image" src="images/capsules/akai-custom.png" alt="Akai Capsule">
-        </div>
-        <div class="character-capsule" id="capsule-eir" data-character="eir">
-            <img class="capsule-image" src="images/capsules/eir-custom.png" alt="Eir Capsule">
-        </div>
-        <div class="character-capsule" id="capsule-kimi" data-character="kimi">
-            <img class="capsule-image" src="images/capsules/kimi-custom.png" alt="Kimi Capsule">
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        const characterInfo = {
+            aoi: {
+                name: "Aoi",
+                imagePath: "images/characters/aoi.png",
+                description: "Aoi is the first character in the world of Ratania."
+            },
+            ax: {
+                name: "Ax",
+                imagePath: "images/characters/ax.png",
+                description: "Ax is known for his strength."
+            }
+        };
+
+        const characterSelector = document.querySelector(".character-selector");
+        const characterImage = document.querySelector("#character-image");
+        const characterName = document.querySelector("#character-name");
+        const characterDescription = document.querySelector("#character-description");
+
+        characterSelector.addEventListener("click", (event) => {
+            const target = event.target.closest(".character-capsule");
+            if (target) {
+                const characterData = target.dataset.character;
+                const character = characterInfo[characterData];
+
+                if (character) {
+                    characterImage.src = character.imagePath;
+                    characterName.textContent = character.name;
+                    characterDescription.textContent = character.description;
+
+                    const capsules = document.querySelectorAll(".character-capsule");
+                    capsules.forEach(capsule => capsule.classList.remove("active"));
+                    target.classList.add("active");
+                }
+            }
+        });
+    </script>
 </body>
 </html>
