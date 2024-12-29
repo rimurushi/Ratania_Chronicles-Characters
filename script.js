@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
     };
 
-    // Initial character display
+    // Initial character display with cache buster
     updateCharacter("Aoi", "images/characters/aoi.png", "Aoi is the first character in the world of Ratania...");
 
     // Initial delay before content fades in
