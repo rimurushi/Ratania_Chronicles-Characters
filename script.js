@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Start fade-in
         characterImage.style.opacity = '1';
-    }, 1000); // Match this to the new CSS duration
+    }, 500); // Delay to allow for fade-out
 };
 
     // Initial character display

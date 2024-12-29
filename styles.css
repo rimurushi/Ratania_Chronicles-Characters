@@ -37,17 +37,18 @@ body {
     align-items: center;
     height: 100%;
     margin-left: -50px;
+    overflow: hidden; /* Prevents clipping */
 }
 
     .character-display img {
         width: 400px; /* Adjust as needed */
         height: auto;
-        opacity: 0;
-        transition: opacity 0.5s ease-in-out;
+        opacity: 0; /* Start with hidden image */
+        transition: opacity 0.5s ease-in-out; /* Fade transition */
     }
 
         .character-display img.show {
-            opacity: 1;
+            opacity: 1; /* Show image */
         }
 
 .description-background {
