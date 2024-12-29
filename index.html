@@ -5,25 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Character Showcase</title>
     <style>
-        body { font-family: Arial, sans-serif; }
-        .character-display img { width: 200px; height: auto; }
+        body { font-family: Arial, sans-serif; margin: 0; }
+        .character-display img {
+            width: 200px; 
+            height: auto; 
+            opacity: 0; 
+            transition: opacity 0.5s ease-in-out; 
+        }
+        .character-display img.show {
+            opacity: 1; 
+        }
         .character-capsule { cursor: pointer; margin: 10px; }
         .active { transform: scale(1.2); }
+        .container { text-align: center; }
     </style>
 </head>
 <body>
-    <div class="character-display">
-        <img id="character-image" src="images/characters/aoi.png" alt="Character Image">
-    </div>
-    <h2 id="character-name">Aoi</h2>
-    <p id="character-description">Aoi is the first character in the world of Ratania.</p>
-
-    <div class="character-selector">
-        <div class="character-capsule" data-character="aoi">
-            <img class="capsule-image" src="images/capsules/aoi-custom.png" alt="Aoi Capsule">
+    <div class="container">
+        <div class="character-display">
+            <img id="character-image" src="images/characters/aoi.png" alt="Character Image" class="show">
         </div>
-        <div class="character-capsule" data-character="ax">
-            <img class="capsule-image" src="images/capsules/ax-custom.png" alt="Ax Capsule">
+        <h2 id="character-name">Aoi</h2>
+        <p id="character-description">Aoi is the first character in the world of Ratania.</p>
+
+        <div class="character-selector">
+            <div class="character-capsule" data-character="aoi">
+                <img class="capsule-image" src="images/capsules/aoi-custom.png" alt="Aoi Capsule">
+            </div>
+            <div class="character-capsule" data-character="ax">
+                <img class="capsule-image" src="images/capsules/ax-custom.png" alt="Ax Capsule">
+            </div>
         </div>
     </div>
 
@@ -46,6 +57,17 @@
         const characterName = document.querySelector("#character-name");
         const characterDescription = document.querySelector("#character-description");
 
+        const updateCharacter = (name, imagePath, description) => {
+            characterImage.classList.remove("show"); // Fade out
+
+            setTimeout(() => {
+                characterImage.src = imagePath;
+                characterName.textContent = name;  
+                characterDescription.textContent = description;
+                characterImage.classList.add("show"); // Fade in
+            }, 500); // Match this delay with the CSS transition
+        };
+
         characterSelector.addEventListener("click", (event) => {
             const target = event.target.closest(".character-capsule");
             if (target) {
@@ -53,9 +75,7 @@
                 const character = characterInfo[characterData];
 
                 if (character) {
-                    characterImage.src = character.imagePath;
-                    characterName.textContent = character.name;
-                    characterDescription.textContent = character.description;
+                    updateCharacter(character.name, character.imagePath, character.description);
 
                     const capsules = document.querySelectorAll(".character-capsule");
                     capsules.forEach(capsule => capsule.classList.remove("active"));
