@@ -4,9 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const characterName = document.querySelector("#character-name");
     const characterDescription = document.querySelector("#character-description");
 
-    const audio = new Audio("Ascend.mp3");
-    audio.loop = true;
-
     const characterInfo = {
         aoi: {
             name: "Aoi",
@@ -47,7 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Function to update character info with fade-in effect
     const updateCharacter = (name, imagePath, description) => {
-        // Fade out the current character display
         characterImage.classList.remove("show");
         characterName.classList.remove("show");
         characterDescription.classList.remove("show");
@@ -67,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     // Initial character display
-    updateCharacter("Aoi", "images/characters/aoi.png", "Aoi is the first character in the world of Ratania. A brave warrior, Aoi's journey begins with...");
+    updateCharacter("Aoi", "images/characters/aoi.png", "Aoi is the first character in the world of Ratania...");
 
     // Initial delay before content fades in
     setTimeout(() => {
@@ -75,22 +71,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 3000); // 3-second delay
 
     // Event listener for character selector
-characterSelector.addEventListener("click", (event) => {
-    const target = event.target.closest(".character-capsule");
-    if (target) {
-        // Remove 'active' class from all capsules
-        const capsules = document.querySelectorAll(".character-capsule");
-        capsules.forEach(capsule => capsule.classList.remove("active"));
+    characterSelector.addEventListener("click", (event) => {
+        const target = event.target.closest(".character-capsule");
+        if (target) {
+            // Remove 'active' class from all capsules
+            const capsules = document.querySelectorAll(".character-capsule");
+            capsules.forEach(capsule => capsule.classList.remove("active"));
+            // Add 'active' class to the selected capsule
+            target.classList.add("active");
 
-        // Add 'active' class to the selected capsule
-        target.classList.add("active");
-
-        const characterData = target.dataset.character;
-        if (characterInfo[characterData]) {
-            const { name, imagePath, description } = characterInfo[characterData];
-            updateCharacter(name, imagePath, description);
-        } else {
-            console.warn("Character data not found:", characterData);
+            const characterData = target.dataset.character;
+            if (characterInfo[characterData]) {
+                const { name, imagePath, description } = characterInfo[characterData];
+                updateCharacter(name, imagePath, description);
+            } else {
+                console.warn("Character data not found:", characterData);
+            }
         }
-    }
+    });
 });

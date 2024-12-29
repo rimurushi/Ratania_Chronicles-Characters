@@ -106,7 +106,7 @@ body:not(.loading) .character-description {
     margin-bottom: 20px; /* Space below this section if needed */
 }
 
-/* Selector Section on the Right */
+/* Ensure character selector is visible */
 .character-selector {
     position: absolute;
     right: 10px;
@@ -117,6 +117,24 @@ body:not(.loading) .character-description {
     flex-direction: column;
     gap: 10px;
     justify-content: center;
+}
+
+/* Ensure the loading class works correctly */
+body.loading .character-info,
+body.loading .container,
+body.loading .character-selector,
+body.loading .character-description {
+    opacity: 0;
+    pointer-events: none; /* Prevent interaction during loading */
+}
+
+body:not(.loading) .character-info,
+body:not(.loading) .container,
+body:not(.loading) .character-selector,
+body:not(.loading) .character-description {
+    opacity: 1;
+    pointer-events: all; /* Enable interaction after loading */
+    transition: opacity 1s ease-in-out;
 }
 
 /* Character capsule styles */
