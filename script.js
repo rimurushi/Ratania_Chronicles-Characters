@@ -73,14 +73,21 @@ const updateCharacter = (name, imagePath, description) => {
 };
 
     // Initial delay before content fades in
-    setTimeout(() => {
-        document.body.classList.remove("loading"); // Remove loading class to fade in content
-    }, 3000); // 3-second delay
+ setTimeout(() => {
+    console.log("Loading complete, content visible"); // Log when loading is complete
+    document.body.classList.remove("loading");
+}, 3000); // 3-second delay
 
-    // Event listener for character selector
-    characterSelector.addEventListener("click", (event) => {
+  // Event listener for character selector
+characterSelector.addEventListener("click", (event) => {
     const target = event.target.closest(".character-capsule");
+    console.log("Clicked target:", target); // Log the clicked target
     if (target) {
+        // Your existing logic...
+    } else {
+        console.log("No character capsule clicked."); // Log if no capsule was clicked
+    }
+});
         // Remove 'active' class from all capsules
         const capsules = document.querySelectorAll(".character-capsule");
         capsules.forEach(capsule => capsule.classList.remove("active"));
