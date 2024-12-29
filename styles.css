@@ -56,14 +56,14 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     padding: 20px;
-    border-radius: 0px; /* Retain rounded corners if desired */
     width: 850px; /* Fixed width */
     height: 120px; /* Fixed height - adjust as needed */
     color: white;
     text-align: center;
-    margin-top: -180px;
+    margin-top: -220px;
     margin-left: 20px;
     position: relative;
+    border-radius: 0px; /* Retain rounded corners if desired */
     border: none; /* Ensure no borders */
 }
 
