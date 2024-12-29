@@ -44,70 +44,50 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     // Function to preload images
-    const preloadImages = (imagePaths) => {
-        imagePaths.forEach((path) => {
+    const preloadImages = () => {
+        Object.values(characterInfo).forEach(character => {
             const img = new Image();
-            img.src = path; // Preload the image
+            img.src = character.imagePath; // Preload each character image
         });
     };
 
     // Preload character images
-    preloadImages(Object.values(characterInfo).map(character => character.imagePath));
+    preloadImages();
 
     // Function to update character info with fade-in effect
     const updateCharacter = (name, imagePath, description) => {
-        const cacheBuster = `?t=${new Date().getTime()}`; // Unique timestamp for cache busting
+        characterImage.classList.remove("show"); // Start fade-out
 
-        // Start fade-out
-        characterImage.style.opacity = '0'; // Start fading out
-
-        // Create a temporary image to preload
-        const tempImage = new Image();
-        tempImage.src = imagePath + cacheBuster; // Start loading the new image with cache buster
-
-        // Wait for the image to load before updating
-        tempImage.onload = () => {
-            setTimeout(() => {
-                // Update the character information
-                characterImage.src = imagePath + cacheBuster; // Change the image source with cache buster
-                characterName.textContent = name;  
-                characterDescription.textContent = description;
-
-                // Start fade-in
-                characterImage.style.opacity = '1'; // Fade in the new image
-            }, 500); // Match this duration with your CSS fade-out duration
-        };
-
-        // Optional: Handle image loading errors
-        tempImage.onerror = () => {
-            console.error("Failed to load image:", imagePath);
-        };
+        setTimeout(() => {
+            characterImage.src = imagePath; // Update image source
+            characterName.textContent = name; // Update name
+            characterDescription.textContent = description; // Update description
+            characterImage.classList.add("show"); // Fade in
+        }, 500); // Delay to match fade-out duration
     };
 
-    // Initial character display with cache buster
-    updateCharacter("Aoi", "images/characters/aoi.png", "Aoi is the first character in the world of Ratania...");
+    // Initial character display
+    updateCharacter("Aoi", "images/characters/aoi.png", "Aoi is the first character in the world of Ratania. A brave warrior, Aoi's journey begins with...");
 
-    // Initial delay before content fades in
+    // Show the content after 3 seconds
     setTimeout(() => {
-        document.body.classList.remove("loading");
-    }, 3000); // 3-second delay
+        document.querySelector(".container").style.opacity = 1; // Fade in content
+    }, 3000);
 
     // Event listener for character selector
     characterSelector.addEventListener("click", (event) => {
         const target = event.target.closest(".character-capsule");
         if (target) {
             const characterData = target.dataset.character;
-            if (characterInfo[characterData]) {
-                const { name, imagePath, description } = characterInfo[characterData];
-                updateCharacter(name, imagePath, description);
-            } else {
-                console.warn("Character data not found:", characterData);
-            }
+            const character = characterInfo[characterData];
 
-            // Optional: Highlight the active capsule
-            const capsules = document.querySelectorAll(".character-capsule");
-            capsules.forEach(capsule => capsule.classList.remove("active"));
-            target.classList.add("active");
+            if (character) {
+                updateCharacter(character.name, character.imagePath, character.description); // Update character
+
+                const capsules = document.querySelectorAll(".character-capsule");
+                capsules.forEach(capsule => capsule.classList.remove("active"));
+                target.classList.add("active"); // Highlight active capsule
+            }
         }
     });
 });

@@ -51,43 +51,43 @@
             width: 570px;
             height: auto;
             opacity: 0;
-            transition: opacity 0.5s ease-in-out
-         }
+            transition: opacity 0.5s ease-in-out;
+        }
 
         .character-display img.show {
             opacity: 1;
         }
 
-       .description-background {
-            background-image: url('images/descriptionbg.png'); /* Ensure this path is correct */
-            background-size: cover; 
-            background-position: center; 
-            width: 450px; 
-            height: 120px; 
-            color: #2b2810; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: center; 
-            position: relative; 
-            top: -250px; /* Move it up */
-            box-shadow: none; /* Remove shadow */
-            padding-left: 20px; /* Add padding to the left */
+        .description-background {
+            background-image: url('images/descriptionbg.png');
+            background-size: cover;
+            background-position: center;
+            width: 450px;
+            height: 120px;
+            color: #2b2810;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            top: -250px;
+            box-shadow: none;
+            padding-left: 20px;
         }
 
         .character-name {
             margin: 0;
-            font-size: 45px; /* Adjust font size as needed */
-            letter-spacing: 2px; /* Adjust letter spacing */
+            font-size: 45px;
+            letter-spacing: 2px;
         }
 
-       .character-description {
-          padding: 0 10px; /* Optional padding */
-          font-size: 18px; /* Adjust font size as needed */
-          text-align: center; /* Center the text */
-          letter-spacing: 1.5px; /* Adjust letter spacing */
-          line-height: 1.5; /* Adjust line height for better readability */
-          font-weight: bold; /* Make the text bold */
+        .character-description {
+            padding: 0 10px;
+            font-size: 18px;
+            text-align: center;
+            letter-spacing: 1.5px;
+            line-height: 1.5;
+            font-weight: bold;
         }
 
         .character-selector {
@@ -131,9 +131,9 @@
             <h2 id="character-name" class="character-name">Aoi</h2>
             <p id="character-description" class="character-description">Aoi is the first character in the world of Ratania.</p>
         </div>
-     <div class="character-display" style="position: relative; left: -50px;">
-    <img id="character-image" src="images/characters/aoi.png" alt="Character Image" class="show">
-</div>
+        <div class="character-display" style="position: relative; left: -50px;">
+            <img id="character-image" src="images/characters/aoi.png" alt="Character Image" class="show">
+        </div>
         <div class="character-selector">
             <div class="character-capsule" data-character="aoi">
                 <img class="capsule-image" src="images/capsules/aoi-custom.png" alt="Aoi Capsule">
@@ -160,80 +160,95 @@
     </div>
 
     <script>
-        const characterInfo = {
-            aoi: {
-                name: "Aoi",
-                imagePath: "images/characters/aoi.png",
-                description: "Aoi is the first character in the world of Ratania."
-            },
-            ax: {
-                name: "Ax",
-                imagePath: "images/characters/ax.png",
-                description: "Ax is known for his strength."
-            },
-            ri: {
-                name: "Ri",
-                imagePath: "images/characters/ri.png",
-                description: "Ri is a clever strategist."
-            },
-            ace: {
-                name: "Ace",
-                imagePath: "images/characters/ace.png",
-                description: "Ace is a skilled marksman."
-            },
-            akai: {
-                name: "Akai",
-                imagePath: "images/characters/akai.png",
-                description: "Akai is a fierce protector."
-            },
-            eir: {
-                name: "Eir",
-                imagePath: "images/characters/eir.png",
-                description: "Eir is a healer with a gentle heart."
-            },
-            kimi: {
-                name: "Kimi",
-                imagePath: "images/characters/kimi.png",
-                description: "Kimi is a master of stealth."
-            }
-        };
+        document.addEventListener("DOMContentLoaded", () => {
+            const characterSelector = document.querySelector(".character-selector");
+            const characterImage = document.querySelector("#character-image");
+            const characterName = document.querySelector("#character-name");
+            const characterDescription = document.querySelector("#character-description");
 
-        const characterSelector = document.querySelector(".character-selector");
-        const characterImage = document.querySelector("#character-image");
-        const characterName = document.querySelector("#character-name");
-        const characterDescription = document.querySelector("#character-description");
-        const container = document.querySelector(".container");
-
-        // Show the content after 3 seconds
-        setTimeout(() => {
-            container.style.opacity = 1; // Fade in content
-        }, 3000);
-
-        const updateCharacter = (name, imagePath, description) => {
-            characterImage.classList.remove("show");
-
-            setTimeout(() => {
-                characterImage.src = imagePath;
-                characterName.textContent = name;
-                characterDescription.textContent = description;
-                characterImage.classList.add("show");
-            }, 500);
-        };
-
-        characterSelector.addEventListener("click", (event) => {
-            const target = event.target.closest(".character-capsule");
-            if (target) {
-                const characterData = target.dataset.character;
-                const character = characterInfo[characterData];
-
-                if (character) {
-                    updateCharacter(character.name, character.imagePath, character.description);
-
-                    const capsules = document.querySelectorAll(".character-capsule");
-                    capsules.forEach(capsule => capsule.classList.remove("active"));
-                    target.classList.add("active");
+            // Character information
+            const characterInfo = {
+                aoi: {
+                    name: "Aoi",
+                    imagePath: "images/characters/aoi.png",
+                    description: "Aoi is the first character in the world of Ratania."
+                },
+                ax: {
+                    name: "Ax",
+                    imagePath: "images/characters/ax.png",
+                    description: "Ax is known for his strength."
+                },
+                ri: {
+                    name: "Ri",
+                    imagePath: "images/characters/ri.png",
+                    description: "Ri is a clever strategist."
+                },
+                ace: {
+                    name: "Ace",
+                    imagePath: "images/characters/ace.png",
+                    description: "Ace is a skilled marksman."
+                },
+                akai: {
+                    name: "Akai",
+                    imagePath: "images/characters/akai.png",
+                    description: "Akai is a fierce protector."
+                },
+                eir: {
+                    name: "Eir",
+                    imagePath: "images/characters/eir.png",
+                    description: "Eir is a healer with a gentle heart."
+                },
+                kimi: {
+                    name: "Kimi",
+                    imagePath: "images/characters/kimi.png",
+                    description: "Kimi is a master of stealth."
                 }
-            }
+            };
+
+            const preloadImages = () => {
+                Object.values(characterInfo).forEach(character => {
+                    const img = new Image();
+                    img.src = character.imagePath; // Preload each character image
+                });
+            };
+
+            // Preload character images
+            preloadImages();
+
+            const updateCharacter = (name, imagePath, description) => {
+                characterImage.classList.remove("show");
+
+                setTimeout(() => {
+                    characterImage.src = imagePath; // Update image source
+                    characterName.textContent = name; // Update name
+                    characterDescription.textContent = description; // Update description
+                    characterImage.classList.add("show"); // Fade in
+                }, 500); // Delay to match fade-out
+            };
+
+            // Initial character display
+            updateCharacter("Aoi", "images/characters/aoi.png", "Aoi is the first character in the world of Ratania.");
+
+            // Show the content after 3 seconds
+            setTimeout(() => {
+                document.querySelector(".container").style.opacity = 1; // Fade in content
+            }, 3000);
+
+            characterSelector.addEventListener("click", (event) => {
+                const target = event.target.closest(".character-capsule");
+                if (target) {
+                    const characterData = target.dataset.character;
+                    const character = characterInfo[characterData];
+
+                    if (character) {
+                        updateCharacter(character.name, character.imagePath, character.description);
+
+                        const capsules = document.querySelectorAll(".character-capsule");
+                        capsules.forEach(capsule => capsule.classList.remove("active"));
+                        target.classList.add("active");
+                    }
+                }
+            });
         });
     </script>
 </body>
