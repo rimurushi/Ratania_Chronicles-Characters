@@ -56,19 +56,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Function to update character info with fade-in effect
     const updateCharacter = (name, imagePath, description) => {
+        const cacheBuster = `?t=${new Date().getTime()}`; // Unique timestamp for cache busting
+
         // Start fade-out
         characterImage.style.opacity = '0'; // Start fading out
 
-        // Wait for fade-out to finish before updating the image and text
-        setTimeout(() => {
-            // Update the character information
-            characterImage.src = imagePath; // Change the image source
-            characterName.textContent = name;  
-            characterDescription.textContent = description;
+        // Create a temporary image to preload
+        const tempImage = new Image();
+        tempImage.src = imagePath + cacheBuster; // Start loading the new image with cache buster
 
-            // Start fade-in
-            characterImage.style.opacity = '1'; // Fade in the new image
-        }, 500); // Match this duration with your CSS fade-out duration
+        // Wait for the image to load before updating
+        tempImage.onload = () => {
+            setTimeout(() => {
+                // Update the character information
+                characterImage.src = imagePath + cacheBuster; // Change the image source with cache buster
+                characterName.textContent = name;  
+                characterDescription.textContent = description;
+
+                // Start fade-in
+                characterImage.style.opacity = '1'; // Fade in the new image
+            }, 500); // Match this duration with your CSS fade-out duration
+        };
+
+        // Optional: Handle image loading errors
+        tempImage.onerror = () => {
+            console.error("Failed to load image:", imagePath);
+        };
     };
 
     // Initial character display
