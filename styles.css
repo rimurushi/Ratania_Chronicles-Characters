@@ -54,20 +54,18 @@ body:not(.loading) .character-description {
 }
 
 .character-display {
-    position: relative;
-    z-index: 2; /* Higher than .container */
+    flex: 2;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%; /* Ensure it takes the full height */
 }
 
-    /* Fade transition effect for character image */
     .character-display img {
-        width: 570px;
+        width: 400px; /* Increase width for a larger display */
         height: auto;
-        object-fit: contain;
-        opacity: 1; /* Initially hidden */
-        transition: none; /* Match this duration with JS */
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
     }
 
         .character-display img.show {
