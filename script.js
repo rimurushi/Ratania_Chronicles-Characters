@@ -69,22 +69,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 3000); // 3-second delay
 
     // Event listener for character selector
-    characterSelector.addEventListener("click", (event) => {
-        const target = event.target.closest(".character-capsule");
-        if (target) {
-            // Remove 'active' class from all capsules
-            const capsules = document.querySelectorAll(".character-capsule");
-            capsules.forEach(capsule => capsule.classList.remove("active"));
-            // Add 'active' class to the selected capsule
-            target.classList.add("active");
+    ccharacterSelector.addEventListener("click", (event) => {
+    const target = event.target.closest(".character-capsule");
+    if (target) {
+        console.log("Capsule clicked:", target); // Debug log
+        const capsules = document.querySelectorAll(".character-capsule");
+        capsules.forEach(capsule => capsule.classList.remove("active"));
+        target.classList.add("active");
 
-            const characterData = target.dataset.character;
-            if (characterInfo[characterData]) {
-                const { name, imagePath, description } = characterInfo[characterData];
-                updateCharacter(name, imagePath, description); // Update character display
-            } else {
-                console.warn("Character data not found:", characterData);
-            }
+        const characterData = target.dataset.character;
+        if (characterInfo[characterData]) {
+            const { name, imagePath, description } = characterInfo[characterData];
+            updateCharacter(name, imagePath, description);
+        } else {
+            console.warn("Character data not found:", characterData);
         }
-    });
+    }
 });
