@@ -45,19 +45,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Function to update character info with fade-in effect
     const updateCharacter = (name, imagePath, description) => {
-        characterImage.classList.remove("show");
-        characterName.classList.remove("show");
-        characterDescription.classList.remove("show");
+        // Start fade-out
+        characterImage.style.opacity = '0';
 
+        // Wait for fade-out to finish before updating the image and text
         setTimeout(() => {
-            characterImage.src = imagePath;
+            characterImage.src = imagePath; // Update image source
             characterName.textContent = name;  // Update character name
-            characterDescription.textContent = description;
+            characterDescription.textContent = description; // Update description
 
-            characterImage.classList.add("show");
-            characterName.classList.add("show");
-            characterDescription.classList.add("show");
-        }, 500); // Delay to match the fade-out duration
+            // Start fade-in
+            characterImage.style.opacity = '1';
+        }, 500); // Match the delay to the CSS transition duration
     };
 
     // Initial character display
