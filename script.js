@@ -70,29 +70,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Event listener for character selector
     characterSelector.addEventListener("click", (event) => {
-    console.log("Event triggered:", event); // Log the event
-    const target = event.target.closest(".character-capsule");
-    if (target) {
-        console.log("Capsule clicked:", target);
-        const characterData = target.dataset.character;
-        console.log("Character data found:", characterData);
-        if (characterInfo[characterData]) {
-            const { name, imagePath, description } = characterInfo[characterData];
-            updateCharacter(name, imagePath, description);
-        } else {
-            console.warn("Character data not found:", characterData);
-        }
-    } else {
-        console.log("Clicked outside a capsule.");
-    }
-});
         const target = event.target.closest(".character-capsule");
         if (target) {
-            console.log("Capsule clicked:", target); // Debug log
-            const capsules = document.querySelectorAll(".character-capsule");
-            capsules.forEach(capsule => capsule.classList.remove("active"));
-            target.classList.add("active");
-
             const characterData = target.dataset.character;
             if (characterInfo[characterData]) {
                 const { name, imagePath, description } = characterInfo[characterData];
@@ -100,6 +79,11 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
                 console.warn("Character data not found:", characterData);
             }
+
+            // Optional: Highlight the active capsule
+            const capsules = document.querySelectorAll(".character-capsule");
+            capsules.forEach(capsule => capsule.classList.remove("active"));
+            target.classList.add("active");
         }
     });
 });
