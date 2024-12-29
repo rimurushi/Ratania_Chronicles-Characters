@@ -59,10 +59,11 @@ body:not(.loading) .character-description {
     justify-content: center;
     align-items: center;
     height: 100%; /* Ensure it takes the full height */
+    margin-left: -50px; /* Adjust this value to move left */
 }
 
     .character-display img {
-        width: 400px; /* Increase width for a larger display */
+        width: 570px; /* Increase width for a larger display */
         height: auto;
         opacity: 0;
         transition: opacity 0.5s ease-in-out;
