@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'Cravelo'; /* Name of the custom font */
-    src: url('../fonts/Cravelo.otf') format('opentype'); /* Path to your .otf font file */
+    font-family: 'Cravelo';
+    src: url('Cravelo.otf') format('opentype');
 }
 
 body {
