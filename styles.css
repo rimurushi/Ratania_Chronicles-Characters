@@ -1,10 +1,10 @@
 @font-face {
-    font-family: 'Cravelo';
-    src: url('Cravelo.otf') format('opentype');
+    font-family: 'Librein';
+    src: url('Librein.otf') format('opentype');
 }
 
 body {
-    font-family: 'Cravelo', sans-serif;
+    font-family: 'Librein', sans-serif;
     margin: 0;
     overflow: hidden;
     position: relative;
