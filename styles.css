@@ -66,8 +66,8 @@ body:not(.loading) .character-description {
         width: 570px;
         height: auto;
         object-fit: contain;
-        opacity: 0; /* Initially hidden */
-        transition: opacity 0.5s ease-in-out; /* Match this duration with JS */
+        opacity: 1; /* Initially hidden */
+        transition: none; /* Match this duration with JS */
     }
 
         .character-display img.show {
