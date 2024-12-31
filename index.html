@@ -45,7 +45,7 @@
             justify-content: center;
             align-items: center;
             height: 100%;
-            margin-left: -5%;
+            margin-left: -50px;
         }
 
         .character-display img {
@@ -56,7 +56,6 @@
         }
 
         .character-display img.show {
-            width 50%;
             opacity: 1;
         }
 
@@ -64,17 +63,17 @@
             background-image: url('images/descriptionbg.png');
             background-size: cover;
             background-position: center;
-            width: 2812%;
-            height: 120%;
+            width: 450px;
+            height: 120px;
             color: #2b2810;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             position: relative;
-            top: -25%;
+            top: -250px;
             box-shadow: none;
-            padding-left: 2%;
+            padding-left: 20px;
         }
 
         .character-name {
@@ -84,8 +83,8 @@
         }
 
         .character-description {
-            padding: 0 2%;
-            font-size: 1vw;;
+            padding: 0 10px;
+            font-size: 18px;
             text-align: center;
             letter-spacing: 1.5px;
             line-height: 1.5;
@@ -94,18 +93,18 @@
 
         .character-selector {
             position: absolute;
-            right: 5%;
+            right: 20px;
             top: 50%;
             transform: translateY(-50%);
             display: flex;
             flex-direction: column;
-            gap: 10%;
+            gap: 10px;
         }
 
         .character-capsule {
             cursor: pointer;
-            width: 75%;
-            height: 50%;
+            width: 150px;
+            height: 70px;
             overflow: hidden;
             transition: transform 0.3s ease;
         }
@@ -116,17 +115,17 @@
 
         .capsule-image {
             width: 100%;
-            height: auto;
+            height: 100%;
             object-fit: cover;
         }
 
         .music-control {
             position: absolute;
-            top: 2%;
-            right: 2%;
+            top: 20px;
+            right: 20px;
             display: flex;
             align-items: center;
-            gap: 2%;
+            gap: 10px;
         }
 
         .music-control button {
@@ -136,12 +135,12 @@
         }
 
         .music-control img {
-            width: 5vw; /* Adjust the size of the icon */
-            height: 5vw; /* Adjust the size of the icon */
+            width: 24px; /* Adjust the size of the icon */
+            height: 24px; /* Adjust the size of the icon */
         }
 
         .volume-control {
-            width: 20%;
+            width: 100px;
         }
     </style>
 </head>
@@ -155,9 +154,9 @@
     <div class="container">
         <div class="description-background">
             <h2 id="character-name" class="character-name">Aoi</h2>
-            <p id="character-description" class="character-description">Lord Knight of Ratania, Shield of Order, The Gambler of Fate.</p>
+            <p id="character-description" class="character-description">Aoi is the first character in the world of Ratania.</p>
         </div>
-        <div class="character-display" style="position: relative; left: -5%;">
+        <div class="character-display" style="position: relative; left: -50px;">
             <img id="character-image" src="images/characters/aoi.png" alt="Character Image" class="show">
         </div>
         <div class="character-selector">
@@ -239,12 +238,12 @@
                 eir: {
                     name: "Eir",
                     imagePath: "images/characters/eir.png",
-                    description: "Eternal Watcher, Asleep beneath the prophecy's dawn"
+                    description: "Eternal Watcher, Asleep beneath the prophecy's Dawn ."
                 },
                 kimi: {
                     name: "Kimi",
                     imagePath: "images/characters/kimi.png",
-                    description: "Cardinal of Ratania, Renowned Duelist, The Charmer of Hearts"
+                    description: "Kimi is a master of stealth."
                 }
             };
 
