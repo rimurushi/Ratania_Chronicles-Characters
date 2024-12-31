@@ -45,17 +45,18 @@
             justify-content: center;
             align-items: center;
             height: 100%;
-            margin-left: -5%; /* Adjusted to percentage */
+            margin-left: -5%;
         }
 
         .character-display img {
-            width: 50%; /* Changed to 50% for responsiveness */
+            width: 570px;
             height: auto;
             opacity: 0;
             transition: opacity 0.5s ease-in-out;
         }
 
         .character-display img.show {
+            width 50%;
             opacity: 1;
         }
 
@@ -63,28 +64,28 @@
             background-image: url('images/descriptionbg.png');
             background-size: cover;
             background-position: center;
-            width: 20%; /* Changed to percentage */
-            height: 20%; /* Changed to percentage */
+            width: 2812%;
+            height: 120%;
             color: #2b2810;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             position: relative;
-            top: -25%; /* Adjusted to percentage */
+            top: -25%;
             box-shadow: none;
-            padding-left: 2%; /* Adjusted to percentage */
+            padding-left: 2%;
         }
 
         .character-name {
             margin: 0;
-            font-size: 5vw; /* Responsive font size */
+            font-size: 45px;
             letter-spacing: 2px;
         }
 
         .character-description {
             padding: 0 2%;
-            font-size: .1vw; /* Responsive font size */
+            font-size: 1vw;;
             text-align: center;
             letter-spacing: 1.5px;
             line-height: 1.5;
@@ -93,18 +94,18 @@
 
         .character-selector {
             position: absolute;
-            right: 5%; /* Adjusted to percentage */
+            right: 5%;
             top: 50%;
             transform: translateY(-50%);
             display: flex;
             flex-direction: column;
-            gap: 10%; /* Adjusted to percentage */
+            gap: 10%;
         }
 
         .character-capsule {
             cursor: pointer;
-            width: 20%; /* Changed to percentage */
-            height: auto; /* Changed to auto for responsiveness */
+            width: 150%;
+            height: 100%;
             overflow: hidden;
             transition: transform 0.3s ease;
         }
@@ -115,17 +116,17 @@
 
         .capsule-image {
             width: 100%;
-            height: auto; /* Changed to auto for responsiveness */
+            height: auto;
             object-fit: cover;
         }
 
         .music-control {
             position: absolute;
-            top: 2%; /* Adjusted to percentage */
-            right: 2%; /* Adjusted to percentage */
+            top: 2%;
+            right: 2%;
             display: flex;
             align-items: center;
-            gap: 2%; /* Adjusted to percentage */
+            gap: 2%;
         }
 
         .music-control button {
@@ -135,12 +136,12 @@
         }
 
         .music-control img {
-            width: 5vw; /* Responsive size */
-            height: 5vw; /* Responsive size */
+            width: 5vw; /* Adjust the size of the icon */
+            height: 5vw; /* Adjust the size of the icon */
         }
 
         .volume-control {
-            width: 20%; /* Changed to percentage */
+            width: 20%;
         }
     </style>
 </head>
@@ -154,7 +155,7 @@
     <div class="container">
         <div class="description-background">
             <h2 id="character-name" class="character-name">Aoi</h2>
-            <p id="character-description" class="character-description">Aoi is the first character in the world of Ratania.</p>
+            <p id="character-description" class="character-description">Lord Knight of Ratania, Shield of Order, The Gambler of Fate.</p>
         </div>
         <div class="character-display" style="position: relative; left: -5%;">
             <img id="character-image" src="images/characters/aoi.png" alt="Character Image" class="show">
@@ -218,7 +219,7 @@
                 ax: {
                     name: "Ax",
                     imagePath: "images/characters/ax.png",
-                    description: "Archmage of Enchantments and Keeper of Archives, a vigilant keeper of Ratania's hidden truths."
+                    description: " Archmage of Enchantments and Keeper of Archives, a vigilant keeper of Ratania's hidden truths.."
                 },
                 ri: {
                     name: "Ri",
@@ -228,22 +229,22 @@
                 ace: {
                     name: "Ace",
                     imagePath: "images/characters/ace.png",
-                    description: "Architect of Battle, The Enlightened One, The one who witnessed."
+                    description: "Architect of Battle, The Enlightened One, The one who witnessed.."
                 },
                 akai: {
                     name: "Akai",
                     imagePath: "images/characters/akai.png",
-                    description: "Exiled Ancient Demon Prince, Seeker of Ichihara's Light."
+                    description: "Exiled Ancient Demon Prince , Seeker of Ichihara's Light"
                 },
                 eir: {
                     name: "Eir",
                     imagePath: "images/characters/eir.png",
-                    description: "Eternal Watcher, Asleep beneath the prophecy's dawn."
+                    description: "Eternal Watcher, Asleep beneath the prophecy's dawn"
                 },
                 kimi: {
                     name: "Kimi",
                     imagePath: "images/characters/kimi.png",
-                    description: "Cardinal of Ratania, Renowned Duelist, The Charmer of Hearts."
+                    description: "Cardinal of Ratania, Renowned Duelist, The Charmer of Hearts"
                 }
             };
 
